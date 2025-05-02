@@ -10,3 +10,14 @@ const toggleBacktotop = () => {
 
 window.addEventListener("scroll", toggleBacktotop);
 
+/** =====================================
+    Animation depending on AOS pkg
+  ======================================= */
+  window.addEventListener("load", () =>
+    AOS.init({
+        duration: 600,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+    })
+);
