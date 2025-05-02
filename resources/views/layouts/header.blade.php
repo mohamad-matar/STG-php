@@ -42,8 +42,8 @@
                                 @lang('stg.contact')
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">@lang('login')</a></li>
-                                <li><a class="dropdown-item" href="#">@lang('signup')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('login') }}">@lang('login')</a></li>
+                                <li><a class="dropdown-item" href="{{ route('register') }}">@lang('signup')</a></li>
                                 {{-- <li>
                                     <hr class="dropdown-divider">
                                 </li>

@@ -321,3 +321,132 @@ p {
 .active {
 	display: block;
 }
+
+
+/* ********* tourist page ************/
+/* ===================================== */
+/* ************** cover-area *********** */
+/* ===================================== */
+#cover-area {
+	height: 110vh;
+	min-height: 400px;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: -98px;
+	background-image:linear-gradient(rgba(162, 213, 159, 0), 80%, rgba(3, 152, 73, 0.815)), url('/assets/images/cover/cover.jpg');
+}
+
+#cover-area>* {
+	z-index: 9;
+	align-items: center;
+}
+
+/* ===================================== */
+/* ******* statistic *********** */
+/* ===================================== */
+
+.single-counter {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: center;
+	padding: 35px 10px;
+}
+
+.single-counter .counter {
+	font-size: 1.5em;
+}
+
+.single-counter .icon {
+	font-size: 3em;
+	color: var(--color-basic-5);
+}
+
+/* ===================================== */
+/* ************** swipper *********** */
+/* ===================================== */
+[class^="btn-swipper"] {
+	font-size: 2em;
+	position: absolute;
+	z-index: 9;
+	color: var(--color-basic-5);
+	top: 35%;
+}
+
+.swipper-container {
+	position: relative;
+	padding: 0 1.5em;
+}
+
+.btn-swipper-next {
+	right: 0;
+}
+
+.btn-swipper-prev {
+	left: 0;
+}
+
+
+/* ===================================== */
+/* ************** popular-area *********** */
+/* ===================================== */
+.summary  {
+	color:var(--color-grey-4) !important
+}
+.summary:hover{
+	color: var(--color-grey-7) !important
+}
+.popular-img {
+	position: relative;
+	bottom: 15px;
+	overflow: hidden;
+}
+
+.popular-content {
+	position: relative;
+	top: 15px;
+	font-weight: 500;
+	font-size: 16px;
+	box-shadow: 1px 2px 5px var(--color-grey-1);
+}
+
+.popular-img {
+	position: relative;
+	bottom: 15px;
+	overflow: hidden;
+}
+
+.popular-img img {
+	height: 310px;
+}
+
+@media(max-width:767px) {
+
+	.popular-content,
+	.popular-img {
+		position: static;
+	}
+
+	.popular-content {
+		border: solid 1px var(--color-grey-1);
+		box-shadow: none;
+	}
+}
+
+#popluars-area [class^="btn-swipper"] {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 100%;
+	background-color: var(--color-basic-4);
+	color: var(--color-grey-0);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
