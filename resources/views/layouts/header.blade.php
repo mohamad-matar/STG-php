@@ -51,7 +51,7 @@
                             </ul>
                         </li>                      
                     </ul>
-                    <form action="#">
+                    <form action="/language">
                         <select name="lang" class="form-select d-inline" onchange="submit()">
                             <option value="ar" @selected(app()->isLocale('ar'))>Arabic</option>
                             <option value="en" @selected(app()->isLocale('en'))>English</option>

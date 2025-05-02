@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tourists\HomeController;
 
@@ -23,3 +24,4 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/', [HomeController::class,  'index'])->name('home.index');
+Route::get('/language', [LangController::class,  'lang']);
