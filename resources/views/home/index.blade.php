@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', __('stg.home'))
 @section('content')
-    @include('welcome.cover')
-    @include('welcome.statistic')
-    @include('welcome.popular')
+    @include('home.home-parts.cover')
+    @include('home.home-parts.statistic')
+    @include('home.home-parts.popular')
 @endsection
