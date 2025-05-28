@@ -29,9 +29,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
         $userType = Auth::user()->type;
         if ($userType == 'admin')
-            $url  = 'admin-dashboard';
+            $url  = 'dashboard-admin';
         elseif ($userType == 'provider')
-            $url = 'provider-dashboard';
+            $url = 'dashboard-provider';
         elseif ($userType == 'tourist')
             $url = 'welcome';
 

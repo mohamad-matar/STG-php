@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         $userType = Auth::user()->type;
         if ($userType == 'provider')
-            $url = 'provider-dashboard';
+            $url = 'dashboard-provider';
         elseif ($userType == 'tourist')
             $url = 'welcome';
 
