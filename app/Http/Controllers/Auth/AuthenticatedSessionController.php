@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
-        $request->session()->regenerate();
+        $request->session()->regenerate();        
 
         $userType = Auth::user()->type;
         if ($userType == 'admin' || $userType == 'provider')
