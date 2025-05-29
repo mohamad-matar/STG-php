@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('provider_photos', function (Blueprint $table) {
+        Schema::create('provider_shows', function (Blueprint $table) {
             $table->id();
-            $table->string('note_ar', 50)->index();
-            $table->string('note_en', 50)->index();
-
+            $table->string('name_ar', 50)->index();
+            $table->string('name_en', 50)->index();
+            $table->string('description_ar', 400);
+            $table->string('description_en' , 400);
+           
             $table->foreignId('provider_id')->constrained();
             $table->foreignId('image_id')->nullable()->constrained();
+            $table->foreignId('place_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provider_photos');
+        Schema::dropIfExists('provider_shows');
     }
 };

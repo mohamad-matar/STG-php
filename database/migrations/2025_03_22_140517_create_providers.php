@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar', 50)->index();
-            $table->string('name_en', 50)->index();
-            $table->string('description_ar', 400);
-            $table->string('description_en' , 400);
-            $table->string('license_number', 50);
-            $table->boolean('verfication_status');
+            $table->string('name_ar', 100)->index()->nullable();
+            $table->string('name_en', 100)->index()->nullable();;
+            $table->string('description_ar', 400)->nullable();;
+            $table->string('description_en' , 400)->nullable();;
+            $table->string('license_number', 50)->nullable();;
+            $table->boolean('verfication_status')->default(false);
             $table->foreignId('user_id')->unique()->constrained();
             $table->foreignId('image_id')->nullable()->constrained();
             $table->timestamps();
