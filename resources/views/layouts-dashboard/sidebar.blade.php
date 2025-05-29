@@ -11,7 +11,7 @@
 
             @if (Route::has('categories.index'))
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'settings')) active @endif">
-                    <a class="sidebar-link" href="{{ route('dashboard-provider') }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}">
                         <i class="align-middle" data-feather="sliders"></i>
                         <span class="align-middle">Settings</span>
                     </a>
