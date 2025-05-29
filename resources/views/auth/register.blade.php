@@ -1,52 +1,58 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+@include('layouts-dashboard.head')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+<body dir="@lang('stg.dir')">
+    <main>
+        <div class="form-container d-flex justify-content-center align-items-center">
+
+            <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 p-3">
+                <h2 class="text-center login-title my-3 bg-success-subtle  w-75 mx-auto py-3 ">
+                    @lang('stg.register-title')
+                </h2>
+                <div class="m-sm-1">
+                    <div class="text-center">
+                        <img class="mx-auto" src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                            width="150">
+                    </div>
+                    @session('error')
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endsession
+
+                    <form method="POST" action="{{ route('register') }}" class="fs-4">
+                        @csrf
+                        <div class="fs-2">
+                            <x-radio   :items="['tourist' => __('stg.tourist'), 'provider' => __('stg.provider')]" name="type" dbValue="tourist" />
+                        </div>
+                        
+                        <x-input type="email" name="email" :label="__('stg.email')" required autofocus
+                            autocomplete="username" />
+
+                        <x-input type="password" name="password" :label="__('stg.password')" required
+                            autocomplete="current-password" />
+                        
+                        <x-input type="password" name="password_confirmation" :label="__('stg.password-confirmation')" required
+                            autocomplete="current-password" />
+
+
+                            <div class="text-center">
+                                <button class="btn btn-success"> @lang('stg.register-btn') </button>
+                                <a class="btn btn-outline-success" href="{{ route('home.index') }}">@lang('stg.back')</a>
+                            </div>
+                        
+                </form>
+                <div class="text-center">
+                    <a href="{{ route('login') }}" class="fs-3 m-2 text-secondary d-inline-block ">@lang('stg.have-account')</a>
+                </div>
+
+            </div>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+    </main>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+</body>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

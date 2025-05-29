@@ -5,6 +5,23 @@ return [
     'dir' => 'rtl',
     'align' => 'right',
 
+    /**login - sign up */
+    'login-title' => 'تسجيل دخول إلى الدليل السياحي السوري',
+    'register-title' => 'إنشاء حساب لدى الدليل السياحي السوري  ',
+    'tourist' => 'سائح',
+    'provider' => 'مزود خدمة',
+    'email' => 'البريد  الالكتروني',
+    'password' => 'كلمة المرور',
+    'password-confirmation' => 'تأكيد كلمة المرور',
+    'remember' => 'تذكرني',
+    'login-btn' => 'تسجيل دخول',
+    'register-btn' => 'إنشاء حساب',
+    'back' => 'عودة',
+    'have-account' => 'لديك حساب',
+    'create-account' => 'إنشاء حساب جديد',
+
+    'dashboard' => 'لوحة التحكم',
+
     /** intefaces */
     'readmore' => 'قراءة المزيد',
     'back' => 'عودة',

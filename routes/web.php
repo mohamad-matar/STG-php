@@ -15,3 +15,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class,  'index'])->name('home.index');
 Route::get('/language', [LangController::class,  'lang']);
+
+Route::get('/dashboard', function () {
+    return view('layouts-dashboard.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');

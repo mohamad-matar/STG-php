@@ -1,5 +1,5 @@
 <script src="{{ asset('assets/font-awesome/all.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap5.3.3/bootrap5.3.3.js') }} "></script>
+<script src="{{ asset('assets/bootstrap/bootrap5.3.3.js') }} "></script>
 <script src="{{ asset('assets/aos/aos.js') }} "></script>
 <!--====== Animated number ======-->
 <script src="{{ asset('assets/animatNumbers/jquery3.7.1.js') }} "></script>

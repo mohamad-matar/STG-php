@@ -1,10 +1,27 @@
 <?php
 return [
     /** General */
-    'stg' => 'SYRIAN Tour Guide',
+    'stg' => 'Syrian Tour Guide',
 
     'dir' => 'ltr',
     'align' => 'left',
+
+    /**login - sign up */
+    'login-title' => 'Login to Syrian Tour Guide',
+    'register-title' => 'Create new Account at Syrian Tour Guide',
+    'tourist' => 'Tourist',
+    'provider' => 'Provider',
+    'email' => 'Email',
+    'password' => 'Password',
+    'password-confirmation' => 'password confirmation',
+    'remember' => 'Remember me',
+    'login-btn' => 'Login',
+    'register-btn' => 'Register',
+    'back' => 'Back',
+    'have-account' => 'Have account',
+    'create-account' => 'Create new account',
+
+    'dashboard' => 'dashboard',
 
     /** intefaces */
     'readmore' => 'read more',
