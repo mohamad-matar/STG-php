@@ -46,9 +46,9 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         $userType = Auth::user()->type;
         if ($userType == 'provider')
-            $route = 'dashboard-provider';
+            $route = 'dashboard';
         elseif ($userType == 'tourist')
-            $route = 'welcome';
+            $route = 'home.index';
 
         return redirect(route($route, absolute: false));
     }
