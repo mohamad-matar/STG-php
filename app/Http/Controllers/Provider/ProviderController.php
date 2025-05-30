@@ -35,7 +35,7 @@ class ProviderController extends Controller
         $currProvider = User::find(Auth::user()->id)->provider;
 
         if ($request->hasFile('image_id')) {
-            $oldImage = Image::find($currProvider->image_id);            
+            $oldImage =  Image::find($currProvider->image_id);            
             $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));             
         }
         $currProvider->update($validated);
