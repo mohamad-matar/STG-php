@@ -37,6 +37,7 @@
 
         </table>
     @endif
+    {{ $services->links('pagination::bootstrap-5') }}
 @endsection
 <script>
     
