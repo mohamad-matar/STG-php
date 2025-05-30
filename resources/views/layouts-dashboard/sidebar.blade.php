@@ -6,17 +6,17 @@
 
         <ul class="sidebar-nav">
             <li class="sidebar-header">
-                Pages
+                {{ auth()->user()->email }}
             </li>
 
-            @if (Route::has('categories.index'))
-                <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'settings')) active @endif">
-                    <a class="sidebar-link" href="{{ route('dashboard') }}">
+            
+                <li class="sidebar-item @if (Route::currentRouteName() == 'provider.edit')) active @endif">
+                    <a class="sidebar-link" href="{{ route('provider.edit') }}">
                         <i class="align-middle" data-feather="sliders"></i>
                         <span class="align-middle">Settings</span>
                     </a>
                 </li>
-            @endif
+            
 
           
         </ul>
