@@ -10,6 +10,9 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
     require $maintenance;
 }
 
+if (file_exists($helper = __DIR__ . '/../app/Helpers.php'))
+    require $helper;
+
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 

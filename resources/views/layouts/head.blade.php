@@ -11,8 +11,7 @@
 
 
     <!--======  Bootstrap ======-->
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap5.3.3/bootstrap5.3.3.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/bootstrap5.3.3.css') }}">
     <!--====== font awesome Icons ======-->
     <link rel="stylesheet" href="{{ asset('assets/font-awesome/all.min.css') }}">
 
@@ -24,8 +23,8 @@
 
     <style>
         :root {
-            --align: @lang('helal.align');
-            --sign: @lang('helal.sign');                        
+            --align: @lang('stg.align');
+            --sign: @lang('stg.sign');                        
         }
          
     </style>

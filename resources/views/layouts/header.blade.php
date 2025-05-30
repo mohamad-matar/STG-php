@@ -16,40 +16,55 @@
                             <a class="nav-link active" aria-current="page" href="#">@lang('stg.home')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.restaurant' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.restaurant', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.hotel' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.hotel', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.tour' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.tour', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.monument' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.monument', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.religious' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.religious', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.cultural' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.cultural', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.natural' , 2)</a>
+                            <a class="nav-link" href="#">@choice('stg.natural', 2)</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                @lang('stg.contact')
+                                @auth
+                                    {{ auth()->user()->email }}
+                                @else
+                                    @lang('stg.contact')
+                                @endauth
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('login') }}">@lang('login')</a></li>
-                                <li><a class="dropdown-item" href="{{ route('register') }}">@lang('signup')</a></li>
-                                {{-- <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+                                @auth
+                                    <li><a class="dropdown-item" href="{{ route('dashboard') }}">@lang('dashboard')</a></li>
+
+                                    <li>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();this.closest('form').submit();">
+                                                <i class="align-middle me-1" data-feather="log-out"></i>{{ __('Log Out') }}
+                                            </a>
+                                        </form>
+                                    </li>
+                                @else
+                                    <li><a class="dropdown-item" href="{{ route('login') }}">@lang('login')</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('register') }}">@lang('signup')</a></li>
+                                @endauth
+
                             </ul>
-                        </li>                      
+                        </li>
                     </ul>
                     <form action="/language">
                         <select name="lang" class="form-select d-inline" onchange="submit()">
@@ -61,7 +76,7 @@
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn text-white" type="submit"><i class="fas fa-search icon-search"></i></button>
                     </form>
-                    
+
                 </div>
             </div>
         </nav>
