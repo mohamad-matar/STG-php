@@ -15227,3 +15227,7 @@ span.flatpickr-weekday {
 }
 
 /*# sourceMappingURL=app.css.map*/
+
+.direction-rtl {
+    direction: rtl !important;
+}
