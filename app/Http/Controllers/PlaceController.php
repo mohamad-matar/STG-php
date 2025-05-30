@@ -27,8 +27,7 @@ class PlaceController extends Controller
         $places = $place->paginate(7);
         $placeCount = $place->count();
 
-        // return $books;
-        $state = $search ? "[$search]" : ($provice_id ? Province::find($provice_id)->name : 'All');
+        $state = $search ? "[$search]" : ($provice_id ? Province::find($provice_id)->name : 'كافة ');
         return view('dashboard.places.index', compact('places', 'state', 'placeCount'));
     }
 
@@ -46,23 +45,37 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name_ar' => 'required:max:50',
-            'name_en' => 'required:max:50',
-            'province_id' => 'exists:provinces,id',
-            'image_id' => 'nullable|array',
-            'image_id.*' => 'image|max:2000',
-        ]);
-        
-        $place = Place::create($validated);
+        // return $request;
 
-        if ($request->hasFile('image_id')) {
-            foreach ($request->file('image_id') as $img) {
+        $validated = $request->validate([
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
+            'description_ar' => 'required|max:400',
+            'description_en' => 'required|max:400',
+            'province_id' => 'exists:provinces,id',
+            'image_id' => 'nullable|image|max:2000',
+            'image_shows.name_ar.*' => 'max:50',
+            'image_shows.name_en.*' => 'max:50',
+            'image_shows.image_id.*' => 'image|max:2000',
+        ]);
+
+        if ($img = $request->hasFile('image_id'))
+            $validated['image_id'] = saveImg("places", $request->file('image_id'));
+
+        $place = Place::create($validated);
+        // return $validated['image_shows']['image_id'][0]? "file" : "not";
+
+        if (isset($validated['image_shows'])) {
+            $place_shows = $validated['image_shows'];
+            foreach ($place_shows['name_ar'] as $k =>  $nameAr) {
                 $place->placeShows()->create([
-                     'image_id' => saveImg("places", $img)                                     
+                    'name_ar' => $place_shows['name_ar'][$k],
+                    'name_en' => $place_shows['name_en'][$k],
+                    'image_id' => saveImg("places-show", $place_shows['image_id'][$k])
                 ]);
             }
         }
+
         return to_route('admin.places.index')->with('success', 'place update successfully');
     }
 
@@ -71,7 +84,7 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        //
+        return  $place->placeShows;
     }
 
     /**
@@ -80,7 +93,7 @@ class PlaceController extends Controller
     public function edit(Place $place)
     {
         $provinces = Province::all();
-        return view('dashboard.places.edit', compact('place','provinces'));
+        return view('dashboard.places.edit', compact('place', 'provinces'));
     }
 
     /**
@@ -95,7 +108,7 @@ class PlaceController extends Controller
             'image_id' => 'nullable|array',
             'image_id.*' => 'image|max:2000',
         ]);
-        
+
         if ($request->hasFile('image_id')) {
             foreach ($request->file('image_id') as $img) {
                 $place->placeShows()->create([
@@ -113,9 +126,9 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        $placeShows = $place->placeShows; 
+        $placeShows = $place->placeShows;
         if ($placeShows) {
-            foreach ($placeShows as $placeShow){
+            foreach ($placeShows as $placeShow) {
                 $oldImage = $placeShow->image;
                 Storage::disk('public')->delete($oldImage->name);
                 $oldImage->delete();
