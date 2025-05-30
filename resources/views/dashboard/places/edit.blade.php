@@ -25,6 +25,6 @@
         
 
         <button class="btn btn-secondary">تعديل المكان</button>
-        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">back</a>
+        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
     </form>
 @endsection

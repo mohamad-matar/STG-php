@@ -48,7 +48,7 @@
             </div>
         </div>       
         <button class="btn btn-secondary"> إضافة مكان</button>
-        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">back</a>
+        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
     </form>
 @endsection
 

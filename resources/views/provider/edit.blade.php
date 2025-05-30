@@ -17,7 +17,7 @@
         </div>
         <div class="text-center my-2">
             <button class="btn btn-secondary">Save Settings</button>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary">back</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary">رجوع</a>
         </div>
 
     </form>

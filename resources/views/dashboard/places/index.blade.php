@@ -18,7 +18,7 @@
                 <th> الاسم بالانكليزي</th>
                 <th> المحافظة</th>
                 <th> الصور </th>
-                <th> actions</th>
+                <th> الوظائف</th>
             </tr>
 
             @foreach ($places as $place)

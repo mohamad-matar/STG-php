@@ -10,12 +10,19 @@
             </li>
 
             @if (auth()->user()->type == 'admin')
+                <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'services')) active @endif">
+                    <a class="sidebar-link" href="{{ route('admin.services.index') }}">
+                        <i class="align-middle" data-feather="activity"></i>
+                        <span class="align-middle">services</span>
+                    </a>
+                </li>
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'places')) active @endif">
                     <a class="sidebar-link" href="{{ route('admin.places.index') }}">
                         <i class="align-middle" data-feather="aperture"></i>
                         <span class="align-middle">places</span>
                     </a>
                 </li>
+
             @elseif (auth()->user()->type == 'provider')
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.edit') ) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.edit') }}">
