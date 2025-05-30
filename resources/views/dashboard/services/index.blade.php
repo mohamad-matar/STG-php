@@ -26,7 +26,7 @@
                         <i data-feather="edit"></i>
                         </a>                    
                         <form action="{{ route('admin.services.destroy', $service) }}" method="post" class="d-inline-block"
-                            onsubmit="return  confirm('Are you sure to delete {{ $service->name }}')">
+                            onsubmit="return  confirm('هل تريد محي سجل الخدمة:  {{ $service->name }}')">
                             @csrf
                             @method('delete')
                             <button class="btn btn-sm btn-outline-danger"><i data-feather="trash"></i></button>
