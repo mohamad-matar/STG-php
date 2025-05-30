@@ -13,6 +13,7 @@ class Provider extends Model
         'description_ar' ,
         'description_en' ,
         'license_number' ,
+        'image_id'
     ];
     
 }
