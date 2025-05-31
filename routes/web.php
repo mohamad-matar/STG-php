@@ -18,4 +18,4 @@ Route::get('/language', [LangController::class,  'lang']);
 
 Route::get('/dashboard', function () {
     return view('layouts-dashboard.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');

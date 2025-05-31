@@ -1,4 +1,4 @@
-@extends('layouts-dashboard.dashboard')
+@extends('layouts-dashboard.master')
 @section('content')
     <div class="d-flex justify-content-between mb-2">
         <h2>{{ $state }} الأمكنة</h2>
@@ -12,20 +12,33 @@
     @else
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
+                <th>الوصف بالعربي</th>
+                <th> الوصف بالانكليزي</th>
                 <th>الاسم بالعربي</th>
                 <th> الاسم بالانكليزي</th>
                 <th> المحافظة</th>
-                <th> actions</th>
+                <th> الصور </th>
+                <th> الوظائف</th>
             </tr>
 
             @foreach ($places as $place)
                 <tr>
                     <td>{{ $place->name_ar }}</td>
                     <td>{{ $place->name_en }}</td>
+                    <td>{{ $place->description_ar }}</td>
+                    <td>{{ $place->description_en }}</td>                    
                     <td>{{ $place->province->name }}</td>
-                     
-                    <td class="text-nowrap">                       
-                        <form action=" {{ route('admin.places.destroy', $place) }}" method="post" class="d-inline-block"
+                     <td>
+                        <a href="" onclick="showImages({{ $place->id }})">
+                            <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt=""
+                            width="100" height="100">
+                        </a>
+                    </td>
+                    <td class="text-nowrap">   
+                        <a class="btn btn-sm btn-outline-info" href="{{ route('admin.places.edit', ['place' => $place]) }}">
+                        <i data-feather="edit"></i>
+                        </a>                    
+                        <form action="{{ route('admin.places.destroy', $place) }}" method="post" class="d-inline-block"
                             onsubmit="return  confirm('Are you sure to delete {{ $place->name_ar }}')">
                             @csrf
                             @method('delete')
@@ -39,3 +52,6 @@
     @endif
     {{ $places->links('pagination::bootstrap-5') }}
 @endsection
+<script>
+    
+</script>

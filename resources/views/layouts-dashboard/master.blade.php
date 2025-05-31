@@ -10,7 +10,7 @@
             @include('layouts-dashboard.nav')
 
 
-            <main class="content">
+            <main class="content direction-rtl">
                 <div class="container-fluid p-0">
                     @session('success')
                         <div class="alert alert-success">

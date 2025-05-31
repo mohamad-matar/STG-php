@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services' ,  function(Blueprint $table){
-            $table->id();
-            $table->string('name' , 50)->unique();
-            $table->timestamps();
+        Schema::create('category_place', function (Blueprint $table) {
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('place_id')->constrained();
+            $table->primary(['category_id' , 'place_id']);
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('services');
+        Schema::dropIfExists('category_place');
     }
 };
