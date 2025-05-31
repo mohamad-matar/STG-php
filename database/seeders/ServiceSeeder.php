@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Admin\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,12 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $services = [
+            ['name' => 'مطاعم'],
+            ['name' => 'فنادق'],
+            ['name' => 'منتزهات'],
+            ['name' => 'سباحة'],            
+        ];
+        Service::insert($services);
     }
 }
