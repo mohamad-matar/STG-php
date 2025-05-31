@@ -3,8 +3,6 @@
 @section('content')
     <h2> مكان جديد </h2>
 
-<<<<<<< HEAD
-=======
     {{-- place show template --}}
     <div class="d-none template">
         <x-input name="image_shows[name_ar][]" label="وصف الصورة بالعربي" />
@@ -12,7 +10,6 @@
         <x-input name="image_shows[image_id][]" type="file" label="الصور" />
     </div>
 
->>>>>>> 7b3906d90f6a9d2effb4604130aca8c0ab590da3
     <form action="{{ route('admin.places.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <x-input name="name_ar" label="الاسم بالعربي" />
