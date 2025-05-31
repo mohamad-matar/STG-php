@@ -3,11 +3,11 @@
 @section('content')
     <h2> مكان جديد </h2>
 
-     {{-- place show template --}}
+    {{-- place show template --}}
     <div class="d-none template">
         <x-input name="image_shows[name_ar][]" label="وصف الصورة بالعربي" />
         <x-input name="image_shows[name_en][]" label="وصف الصورة  بالانكليزي" />
-        <x-input name="image_shows[image_id][]" type="file" label="الصور"  />
+        <x-input name="image_shows[image_id][]" type="file" label="الصور" />
     </div>
 
     <form action="{{ route('admin.places.store') }}" method="post" enctype="multipart/form-data">
@@ -17,21 +17,12 @@
         <x-input name="description_ar" label="الوصف بالعربي" />
         <x-input name="description_en" label="الوصف بالانكليزي" />
 
-        <div class="mb-3">
-            <label for="province_id" class="form-label mt-3">المحافظة</label>
+        <x-select name="province_id" label="المحافظة" :options="$provinces" />
+       
+        <x-select-multiple  name="categories[]" element_id="categories" label="التصنيف" :options="$categories" />
 
-            <select name="province_id" id="province_id" class="form-select">
-                <option value="" hidden> -- اختر محافظة</option>
-                @foreach ($provinces as $province)
-                    <option value="{{ $province->id }}" @selected($province->id == old('province_id'))>{{ $province->name_ar }}</option>
-                @endforeach
-            </select>
-            @error('name')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-        
-        <x-input name="image_id" type="file" onchange="showFile(this)" label="الصورة الرئيسية"  />
+
+        <x-input name="image_id" type="file" onchange="showFile(this)" label="الصورة الرئيسية" />
         <div class="text-center my-1">
             <img id="img-review" src="" alt="" width="50%">
         </div>
@@ -44,9 +35,9 @@
             <div class="alert alert-secondary">
                 <x-input name="image_shows[name_ar][]" label="وصف الصورة بالعربي" />
                 <x-input name="image_shows[name_en][]" label="وصف الصورة  بالانكليزي" />
-                <x-input name="image_shows[image_id][]" type="file" label="الصور"  />
+                <x-input name="image_shows[image_id][]" type="file" label="الصور" />
             </div>
-        </div>       
+        </div>
         <button class="btn btn-secondary"> إضافة مكان</button>
         <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
     </form>
@@ -81,3 +72,20 @@
         }
     </script>
 @endpush
+
+@push('css')
+    @include('dashboard.css-components.multi-select')
+@endpush
+
+@push('js')
+    @include('dashboard.js-components.multi-select')
+
+    <script>
+        // Initiating the multi-select    
+        $(document).ready(function() {
+            $("#categories").chosen();
+        })
+    </script>
+
+@endpush
+

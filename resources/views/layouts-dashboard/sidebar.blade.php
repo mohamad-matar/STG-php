@@ -16,6 +16,12 @@
                         <span class="align-middle">services</span>
                     </a>
                 </li>
+                <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'categories')) active @endif">
+                    <a class="sidebar-link" href="{{ route('admin.categories.index') }}">
+                        <i class="align-middle" data-feather="server"></i>
+                        <span class="align-middle">categories</span>
+                    </a>
+                </li>
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'places')) active @endif">
                     <a class="sidebar-link" href="{{ route('admin.places.index') }}">
                         <i class="align-middle" data-feather="aperture"></i>

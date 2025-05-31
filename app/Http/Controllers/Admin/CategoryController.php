@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Service;
+use App\Models\Admin\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ServiceController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
-        return view('dashboard.services.index' , compact('services'));
+        $categories = Category::all();
+        return view('dashboard.categories.index' , compact('categories'));
     }
 
     /**
@@ -21,7 +22,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('dashboard.services.create');        
+        return view('dashboard.categories.create');        
     }
 
     /**
@@ -32,37 +33,37 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:50',
         ]);
-        Service::create($validated);
-        return to_route('admin.services.index')->with('success' , 'تم إضافة الخدمة بنجاح');
+        Category::create($validated);
+        return to_route('admin.categories.index')->with('success' , 'تم إضافة الخدمة بنجاح');
     }
     
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Category $category)
     {
-        return view('dashboard.services.edit' , compact('service')) ;
+        return view('dashboard.categories.edit' , compact('category')) ;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
             'name' => 'required|max:50',
         ]);
-        $service->update($validated);
-        return to_route('admin.services.index')->with('success', 'تم تعديل الخدمة بنجاح');
+        $category->update($validated);
+        return to_route('admin.categories.index')->with('success', 'تم تعديل الخدمة بنجاح');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(Category $category)
     {
-        $service->delete();
+        $category->delete();
         return back()->with('success', 'تم حذف الخدمة بنجاح');
 
     }

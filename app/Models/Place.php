@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,9 @@ class Place extends Model
 
     function province(){
         return $this->belongsTo(Province::class);
+    }
+
+    function categories(){
+        return $this->belongsToMany(Category::class);
     }
 }
