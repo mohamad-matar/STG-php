@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Admin\Models\Service;
+use App\Models\Admin\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,6 @@ class CategorySeeder extends Seeder
             ['name' => 'طبية'],
             ['name' => 'رحلات'],            
         ];
-        Service::insert($categories);
+        Category::insert($categories);
     }
 }
