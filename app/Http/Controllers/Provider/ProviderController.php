@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Storage;
 
 class ProviderController extends Controller
 {
+
+
+    function index(Request $request){
+        $verfication_status = $request->verfication_status;
+
+        $providers = Provider::when($verfication_status , function($q){
+            return $q->where('verfication_status' , 'verfication_status');
+        })->paginate(7);
+        return  $providers;
+    }
+
     function edit()
     {
         $currUser = User::find( Auth::user()->id);
