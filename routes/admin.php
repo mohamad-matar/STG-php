@@ -12,5 +12,6 @@ Route::middleware(['auth', 'user-type:admin'])
         Route::resource('places', PlaceController::class);
         Route::resource('services', ServiceController::class)->except('show');
         Route::resource('categories', CategoryController::class)->except('show');
-        Route::get('providers.index' ,[ProviderController::class , 'index'] )->name('providers.index');
+        Route::get('providers/index' ,[ProviderController::class , 'index'] )->name('providers.index');
+        Route::patch('providers/accept/{provider}', [ProviderController::class, 'accept'])->name('providers.accept');
     });

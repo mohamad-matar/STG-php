@@ -12,9 +12,9 @@
     @else
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
-                <th>الوصف بالعربي</th>
+                <th> الوصف بالعربي</th>
                 <th> الوصف بالانكليزي</th>
-                <th>الاسم بالعربي</th>
+                <th> الاسم بالعربي</th>
                 <th> الاسم بالانكليزي</th>
                 <th> المحافظة</th>
                 <th> الصور </th>

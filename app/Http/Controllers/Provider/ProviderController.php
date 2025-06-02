@@ -10,26 +10,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ProviderController extends Controller
 {
 
-
-    function index(Request $request){
-        $verfication_status = $request->verfication_status;
-
-        $providers = Provider::when($verfication_status , function($q){
-            return $q->where('verfication_status' , 'verfication_status');
-        })->paginate(7);
-        return  $providers;
+    function index(Request $request)
+    {
+        $accepted = $request->accepted;
+        $providers = Provider::with('province', 'place')
+            ->when( isset($accepted) , function ($q) use ($accepted) {
+                return $q->where('accepted', $accepted);
+            })->paginate(7);
+        return  view('dashboard.providers.index', compact('providers'));
     }
 
     function edit()
     {
-        $currUser = User::find( Auth::user()->id);
+        $currUser = User::find(Auth::user()->id);
         if (! $provider = $currUser->provider)
             $provider =  $currUser->provider()->create([]);
 
-        return view('provider.edit' , compact('provider'));
+        return view('dashboard.provider.edit', compact('provider'));
     }
 
     function update(Request $request)
@@ -46,8 +48,8 @@ class ProviderController extends Controller
         $currProvider = User::find(Auth::user()->id)->provider;
 
         if ($request->hasFile('image_id')) {
-            $oldImage =  Image::find($currProvider->image_id);            
-            $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));             
+            $oldImage =  Image::find($currProvider->image_id);
+            $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));
         }
         $currProvider->update($validated);
 
@@ -57,7 +59,13 @@ class ProviderController extends Controller
             Storage::disk('public')->delete($oldImage->name);
             $oldImage->delete();
         }
-        return back()->with('success' , 'Setting update successfully');
-        
+        return back()->with('success', 'Setting update successfully');
+    }
+
+    function accept(Provider $provider)
+    {
+        $provider->accepted = true;
+        $provider->save();
+        return back()->with('success', 'تم قبول مزود الخدمة بنجاح');
     }
 }

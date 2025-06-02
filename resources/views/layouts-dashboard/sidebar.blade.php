@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'providers')) active @endif">
-                    <a class="sidebar-link" href="{{ route('admin.providers.index' , ['verfication_status' => false]) }}">
+                    <a class="sidebar-link" href="{{ route('admin.providers.index' , ['accepted' => 0]) }}">
                         <i class="align-middle" data-feather="alert-circle"></i>
                         <span class="align-middle">Pinned provider</span>
                     </a>

@@ -3,6 +3,8 @@
 namespace App\Models\Provider;
 
 use App\Models\Image;
+use App\Models\Place;
+use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
 
 class Provider extends Model
@@ -17,6 +19,12 @@ class Provider extends Model
         'province_id',
         'place_id',
     ];
+    function place(){
+        return $this->belongsTo(Place::class);
+    }
+    function province(){
+        return $this->belongsTo(Province::class);
+    }
     
 }
  
