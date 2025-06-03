@@ -15,13 +15,13 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'معالم أثرية'],
-            ['name' => 'معالم ثقافية'],
-            ['name' => 'معالم دينية'],
-            ['name' => 'بحر'],
-            ['name' => 'معالم طبيعة'],
-            ['name' => 'طبية'],
-            ['name' => 'رحلات'],            
+            ['id'=> 1 ,'name' => 'معالم دينية'],
+            ['id'=> 2 ,'name' => 'معالم أثرية'],
+            ['id'=> 3 ,'name' => 'معالم ثقافية'],
+            ['id'=> 4 ,'name' => 'بحر'],
+            ['id'=> 5 ,'name' => 'معالم طبيعة'],
+            ['id'=> 6 ,'name' => 'طبية'],
+            ['id'=> 7 ,'name' => 'رحلات'],            
         ];
         Category::insert($categories);
     }

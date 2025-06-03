@@ -28,7 +28,7 @@
                             <a class="nav-link" href="#">@choice('stg.monument', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.religious', 2)</a>
+                            <a class="nav-link" href="{{ route('home.search' , ['placeCategory' => 1 ]) }}">@choice('stg.religious', 2)</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">@choice('stg.cultural', 2)</a>
