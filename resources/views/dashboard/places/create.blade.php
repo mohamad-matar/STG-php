@@ -10,7 +10,17 @@
         <x-input name="image_shows[image_id][]" type="file" label="الصور" />
     </div>
 
-    <form action="{{ route('admin.places.store') }}" method="post" enctype="multipart/form-data">
+    @php
+        if (auth()->user()->type == 'admin') {
+            $userType = 'admin';
+            $returnPage = 'admin.places.index';
+        } else {
+            $userType = 'provider';
+            $returnPage = 'dashboard';
+        }
+
+    @endphp
+    <form action="{{ route("$userType.places.create") }}" method="post" enctype="multipart/form-data">
         @csrf
         <x-input name="name_ar" label="الاسم بالعربي" />
         <x-input name="name_en" label="الاسم بالانكليزي" />
@@ -18,8 +28,8 @@
         <x-input name="description_en" label="الوصف بالانكليزي" />
 
         <x-select name="province_id" label="المحافظة" :options="$provinces" />
-       
-        <x-select-multiple  name="categories[]" element_id="categories" label="التصنيف" :options="$categories" />
+
+        <x-select-multiple name="categories[]" element_id="categories" label="التصنيف" :options="$categories" />
 
 
         <x-input name="image_id" type="file" onchange="showFile(this)" label="الصورة الرئيسية" />
@@ -39,7 +49,7 @@
             </div>
         </div>
         <button class="btn btn-secondary"> إضافة مكان</button>
-        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
+        <a href="{{ route($returnPage) }}" class="btn btn-outline-secondary">رجوع</a>
     </form>
 @endsection
 
@@ -86,6 +96,4 @@
             $("#categories").chosen();
         })
     </script>
-
 @endpush
-

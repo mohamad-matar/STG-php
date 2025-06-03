@@ -47,7 +47,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 @auth
-                                    <li><a class="dropdown-item" href="{{ route('dashboard') }}">@lang('dashboard')</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('dashboard') }}">@lang('stg.dashboard')</a></li>
 
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">

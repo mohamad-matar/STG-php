@@ -42,6 +42,12 @@
                         <span class="align-middle">Settings</span>
                     </a>
                 </li>
+                <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'places')) active @endif">
+                    <a class="sidebar-link" href="{{ route('provider.places.create') }}">
+                        <i class="align-middle" data-feather="aperture"></i>
+                        <span class="align-middle">Create Place</span>
+                    </a>
+                </li>
             @endif
 
 

@@ -7,6 +7,7 @@ use App\Models\Place;
 use App\Models\PlaceShow;
 use App\Models\Province;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PlaceController extends Controller
@@ -58,7 +59,7 @@ class PlaceController extends Controller
             'image_id' => 'nullable|image|max:2000',
 
             'categories' => 'nullable|array',
-            'categories.*' => 'required|exists:categories,id',
+            'categories.*' => 'required|exists:categories,id',            
 
             'image_shows.name_ar.*' => 'max:50',
             'image_shows.name_en.*' => 'max:50',
@@ -86,7 +87,12 @@ class PlaceController extends Controller
             }
         }
 
-        return to_route('admin.places.index')->with('success', 'place update successfully');
+        if (Auth::user()->type == 'admin') {
+            $returnPage = 'admin.places.index';
+        } else {
+            $returnPage = 'dashboard';
+        }
+        return to_route($returnPage)->with('success', 'place update successfully');
     }
 
     /**

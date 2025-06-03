@@ -21,7 +21,7 @@ return [
     'have-account' => 'Have account',
     'create-account' => 'Create new account',
 
-    'dashboard' => 'dashboard',
+    'dashboard' => 'Dashboard',
 
     /** intefaces */
     'readmore' => 'read more',
