@@ -12,7 +12,7 @@
         <x-input name="license_number" :dbValue="$provider->license_number" label="رقم الرخصة" />
         <x-input name="image_id" type="file" onchange="showFile(this)" label="ًصورة الغلاف" />
         <div class="text-center my-1">
-            <img id="img-review" src="{{ getImgUrl($provider->image_id) }}" alt=""
+            <img id="img-review"  class="img-review" src="{{ getImgUrl($provider->image_id) }}" alt=""
                 width="50%">
         </div>
         <div class="text-center my-2">

@@ -4,7 +4,7 @@
     'options' =>[],
     'dbValue' => ''
 ])
-<div class="mb-3">
+<div class="mb-3 col-md-6">
     <label for="{{ $name }}" class="form-label">{{ $label }}</label>
     <select name="{{ $name }}" id="{{ $name }}" class="form-select" {{ $attributes }}>
         <option value="" hidden>-- اختر {{ $label }}</option>
