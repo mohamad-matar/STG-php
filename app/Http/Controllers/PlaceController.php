@@ -27,7 +27,7 @@ class PlaceController extends Controller
             ->when($search, function ($q) use ($search) {
                 return $q->where('title',  'like', "%$search%");
             });
-        $places = $place->paginate(7);
+        $places = $place->paginate(4);
         $placeCount = $place->count();
 
         $state = $search ? "[$search]" : ($provice_id ? Province::find($provice_id)->name : 'كافة ');
@@ -39,9 +39,9 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $provinces = Province::select('id' ,'name_ar as name')->get();
+        $provinces = Province::select('id', 'name_ar as name')->get();
         $categories = Category::all();
-        return view('dashboard.places.create', compact('provinces' , 'categories'));
+        return view('dashboard.places.create', compact('provinces', 'categories'));
     }
 
     /**
@@ -59,11 +59,12 @@ class PlaceController extends Controller
             'image_id' => 'nullable|image|max:2000',
 
             'categories' => 'nullable|array',
-            'categories.*' => 'required|exists:categories,id',            
+            'categories.*' => 'required|exists:categories,id',
 
+            'image_shows' => 'nullable|array',
             'image_shows.name_ar.*' => 'max:50',
             'image_shows.name_en.*' => 'max:50',
-            'image_shows.image_id.*' => 'image|max:2000',
+            'image_shows.image_id.*' => 'required|image|max:2000',
         ]);
 
         if ($request->hasFile('image_id'))
@@ -78,12 +79,15 @@ class PlaceController extends Controller
         if (isset($validated['image_shows'])) {
             $place_shows = $validated['image_shows'];
             foreach ($place_shows['name_ar'] as $k =>  $nameAr) {
-                PlaceShow::create([
-                    'name_ar' => $place_shows['name_ar'][$k],
-                    'name_en' => $place_shows['name_en'][$k],
-                    'image_id' => saveImg("places-show", $place_shows['image_id'][$k]),
-                    'place_id' => $place->id
-                ]);
+                if (isset($place_shows['image_id'][$k]) && is_file($place_shows['image_id'][$k])) {
+
+                    PlaceShow::create([
+                        'name_ar' => $place_shows['name_ar'][$k],
+                        'name_en' => $place_shows['name_en'][$k],
+                        'image_id' => saveImg("places-show", $place_shows['image_id'][$k]),
+                        'place_id' => $place->id
+                    ]);
+                }
             }
         }
 
@@ -92,7 +96,7 @@ class PlaceController extends Controller
         } else {
             $returnPage = 'dashboard';
         }
-        return to_route($returnPage)->with('success', 'place update successfully');
+        return to_route($returnPage)->with('success', 'تم إضافة المكان بنجاح');
     }
 
     /**
@@ -108,10 +112,11 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        $provinces = Province::all();
-        $catgories = Category::all();
+        $provinces = Province::select('id', 'name_ar as name')->get();
+        $categories = Category::all();
+        $currCategory = $place->categories->modelKeys();
 
-        return view('dashboard.places.edit', compact('place', 'provinces' , 'catgories'));
+        return view('dashboard.places.edit', compact('place', 'provinces', 'categories', 'currCategory'));
     }
 
     /**
@@ -120,23 +125,33 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         $validated = $request->validate([
-            'name_en' => 'required:max:50',
-            'name_en' => 'required:max:50',
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
+            'description_ar' => 'required|max:400',
+            'description_en' => 'required|max:400',
             'province_id' => 'exists:provinces,id',
-            'image_id' => 'nullable|array',
-            'image_id.*' => 'image|max:2000',
+            'image_id' => 'nullable|image|max:2000',
+
+            'categories' => 'nullable|array',
+            'categories.*' => 'required|exists:categories,id',
         ]);
 
         if ($request->hasFile('image_id')) {
-            foreach ($request->file('image_id') as $img) {
-                $place->placeShows()->create([
-                    'image_id' => saveImg("places", $img)
-                ]);
-            }
+            /** delete old one */
+            $placeImage = $place->image;
+            Storage::disk('public')->delete($placeImage->name);
+            $placeImage->delete();
+
+            $validated['image_id'] = saveImg("places", $request->file('image_id'));
         }
         $place->update($validated);
 
-        return to_route('admin.places.index')->with('success', 'place update successfully');
+        if (Auth::user()->type == 'admin') {
+            $returnPage = 'admin.places.index';
+        } else {
+            $returnPage = 'dashboard';
+        }
+        return to_route($returnPage)->with('success', 'تم تعديل المكان بنجاح');
     }
 
     /**
@@ -144,15 +159,22 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
+        // return $place;
         $placeShows = $place->placeShows;
+        // return $placeShows;
         if ($placeShows) {
             foreach ($placeShows as $placeShow) {
-                $oldImage = $placeShow->image;
-                Storage::disk('public')->delete($oldImage->name);
-                $oldImage->delete();
+                $placeShowImage = $placeShow->image;
+                Storage::disk('public')->delete($placeShowImage->name);
+                $placeShow->delete();
+                $placeShowImage->delete();
             }
         }
+        $placeImage = $place->image;
+        Storage::disk('public')->delete($placeImage->name);
         $place->delete();
-        return back()->with('success', 'place deleted successfully');
+        $placeImage->delete();
+
+        return back()->with('success', 'تم حذف المكان بنجاح');
     }
 }

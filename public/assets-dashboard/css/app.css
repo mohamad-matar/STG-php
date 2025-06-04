@@ -15237,16 +15237,15 @@ span.flatpickr-weekday {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 5px auto;
+    margin: 2px auto;
     border: solid 1px #aaa ;
-    min-height: 170px;
+    min-height: 150px;
     width: 80%;
 }
 
 .gallery-item {
     width: 200px;
     height: 150px;
-    margin: 10px;
     cursor: pointer;
     transition: transform 0.2s;
     object-fit: cover;
@@ -15296,7 +15295,7 @@ span.flatpickr-weekday {
 
 .m-n1{
     position: relative;
-    top: -2em
+    top: -0.5em
 }
 .btn-minus{
     position: absolute;
@@ -15308,4 +15307,7 @@ span.flatpickr-weekday {
 input:focus {
      box-shadow: 0 0 .25em #00cc22 !important;
      
+}
+.w-80 {
+    width: 80%;
 }
