@@ -5,16 +5,16 @@
 
 <body dir="@lang('stg.dir')">
     <main>
-        <div class="form-container d-flex justify-content-center align-items-center">
+        <div class="form-container d-flex justify-content-center align-items-center mt-3">
 
-            <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 p-3">
-                <h2 class="text-center login-title my-3 bg-success-subtle  w-75 mx-auto py-3 ">
+            <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 px-5 py-1 rounded-4">
+                <h3 class="text-center login-title my-3 bg-success-subtle  w-75 mx-auto p-2 rounded-4">
                     @lang('stg.register-title')
-                </h2>
+                </h3>
                 <div class="m-sm-1">
                     <div class="text-center">
-                        <img class="mx-auto" src="{{ asset('assets/images/logo/logo.png') }}" alt=""
-                            width="150">
+                        <img class="mx-auto mt-2" src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                            width="200">
                     </div>
                     @session('error')
                         <div class="alert alert-danger">
@@ -22,15 +22,15 @@
                         </div>
                     @endsession
 
-                    <form method="POST" action="{{ route('register') }}" class="fs-4">
+                    <form method="POST" action="{{ route('register') }}" class="fs-4 row text-center bg-success-subtle mt-3 py-4  rounded-4">
                         @csrf
-                        <div class="fs-2">
+                        <div class="fs-4">
                             <x-radio   :items="['tourist' => __('stg.tourist'), 'provider' => __('stg.provider')]" name="type" dbValue="tourist" />
-                        </div>
-                        
-                        <x-input type="email" name="email" :label="__('stg.email')" required autofocus
+                        </div>                                                
+                        <div class="col-md-12 offset-md-3 mt-3">
+                            <x-input type="email" name="email" :label="__('stg.email')" required autofocus
                             autocomplete="username" />
-
+                        </div>
                         <x-input type="password" name="password" :label="__('stg.password')" required
                             autocomplete="current-password" />
                         
@@ -45,7 +45,7 @@
                         
                 </form>
                 <div class="text-center">
-                    <a href="{{ route('login') }}" class="fs-3 m-2 text-secondary d-inline-block ">@lang('stg.have-account')</a>
+                    <a href="{{ route('login') }}" class="fs-5 m-2 text-secondary d-inline-block ">@lang('stg.have-account')</a>
                 </div>
 
             </div>

@@ -13,8 +13,8 @@
                 </h2>
                 <div class="m-sm-1">
                     <div class="text-center">
-                        <img class="mx-auto" src="{{ asset('assets/images/logo/logo.png') }}" alt=""
-                            width="150">
+                        <img class="mx-auto mt-2"  src="{{ asset('assets/images/logo/logo.png') }}" alt=""
+                            width="200">
                     </div>
                     @session('error')
                         <div class="alert alert-danger">
@@ -22,7 +22,7 @@
                         </div>
                     @endsession
 
-                    <form method="POST" action="{{ route('login') }}" class="fs-4">
+                    <form method="POST" action="{{ route('login') }}" class="mt-4 fs-4 row">
                         @csrf                       
 
                         <x-input type="email" name="email" :label="__('stg.email')" required autofocus
@@ -39,7 +39,7 @@
                         </div>
                     </form>
                     <div class="text-center">
-                        <a href="{{ route('register') }}" class="fs-3 m-2 text-secondary d-inline-block ">@lang('stg.create-account')</a>
+                        <a href="{{ route('register') }}" class="fs-5 m-2 text-secondary d-inline-block ">@lang('stg.create-account')</a>
                     </div>
                 </div>
             </div>

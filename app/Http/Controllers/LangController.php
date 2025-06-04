@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 class LangController extends Controller
 {
     function lang(Request $request){
-        $lang = $request->lang;
+        $lang = $request->lang;                
         app()->setlocale($lang);
         $langCookie = Cookie::make('lang', $lang, 60 * 24 * 365); // 1 year by minute 
         return back()->withCookie($langCookie);
