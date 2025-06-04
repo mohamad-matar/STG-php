@@ -3,14 +3,14 @@
         <nav class="navbar navbar-expand-lg fixed-top py-0 my-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img class="logo my-0" src="{{ asset('assets/images/icon.png') }}" width="75" alt="Logo">
+                    <img class="logo my-0" src="{{ asset('assets/images/logo/logo2.png') }}" width="75" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-caret-down"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">@lang('stg.home')</a>
@@ -67,16 +67,8 @@
                         </li>
                     </ul>
                     <form action="/language">
-                        <select name="lang" class="form-select d-inline" onchange="submit()">
-                            <option value="ar" @selected(app()->isLocale('ar'))>Arabic</option>
-                            <option value="en" @selected(app()->isLocale('en'))>English</option>
-                        </select>
-                    </form>
-                    <form class="d-flex me-4" role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn text-white" type="submit"><i class="fas fa-search icon-search"></i></button>
-                    </form>
-
+                        <button class="btn  btn-outline-success btn-lang m-1" name="lang" value=@if(app()->isLocale('ar')) "en" @else "ar" @endif>@if(app()->isLocale('ar'))English @else Arabic @endif </button>                        
+                    </form>                    
                 </div>
             </div>
         </nav>

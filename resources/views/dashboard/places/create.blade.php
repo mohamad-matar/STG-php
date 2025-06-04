@@ -5,16 +5,12 @@
 
     {{-- place show template --}}
     <div class="d-none  template alert alert-secondary position-relative row">
+        <button type="button" title="حذف الصورة" class="btn-minus btn btn-danger" onclick="removePlaceShow(this)"> - </button>
 
-        <button type="button" title="حذف الصورة" class="btn-minus position-absolute btn btn-danger mb-3" onclick="removePlaceShow(this)"> - </button>
-        <x-input name="image_shows[image_id][]" type="file" label="الصورة" required />
+        <x-image-upload  name="image_shows[image_id][]" label="الصورة" required/>            
+       
         <x-input name="image_shows[name_ar][]" label="وصف الصورة بالعربي" />
-        <x-input name="image_shows[name_en][]" label="وصف الصورة  بالانكليزي" />
-        
-        <div class="text-center mt-1">
-            <img id="img-review" class="img-review" src="" alt="" width="50%">
-        </div>
-
+        <x-input name="image_shows[name_en][]" label="وصف الصورة  بالانكليزي" />        
     </div>
 
     <form action="{{ route('admin.places.store') }}" method="post" enctype="multipart/form-data">
@@ -30,11 +26,7 @@
 
             <x-select-multiple name="categories[]" element_id="categories" label="التصنيف" :options="$categories" />
 
-
-            <x-input name="image_id" type="file" onchange="showFile(this , 'main-img')" label="الصورة الرئيسية" />
-            <div class="text-center mb-2">
-                <img id="img-review" class="img-review main-img" src="" alt="">
-            </div>
+            <x-image-upload  name="image_id" label="الصورة الرئيسية"/>            
 
             <div id="place-shows">
 
@@ -56,47 +48,18 @@
 
 @push('js')
     <script>
-        let placeShowCount = 0;
 
         function addPlaceShow() {
             const newPlace = document.querySelector('.template').cloneNode(true);
-            const n = placeShowCount;
             newPlace.classList.remove('template');
             newPlace.classList.remove('d-none');
-            placeShowCount++;
-            newPlace.querySelector('img').classList.add(`order-${n}`);
-            newPlace.querySelector('[type="file"]').onchange = function() {
-                showFile(this, `order-${n}`)
-            };
             document.getElementById('place-shows').appendChild(newPlace);
         }
 
         function removePlaceShow(placeShow) {
             placeShow.parentNode.remove();
-            placeShowCount--;
         }
-
-        function showFile(input, reviewClass) {
-            console.log(reviewClass)
-            // return ;
-            let file = input.files[0];
-
-            if (file.type && !file.type.startsWith('image/')) {
-                console.log('File is not an image.', file.type, file);
-                return;
-            }
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            /** readAsDataURL associate reader with a file and specify the way of reading
-             * that file to be base64 encoded string - url representing which can be used directly in image element.*/
-
-            reader.addEventListener('load', () => {
-                document.querySelector(`.${reviewClass}`).src = reader.result;
-            });
-            /** When the read operation is finished, the readyState property becomes DONE, * and the `load` event is triggered. 
-             * At that time, the result attribute contains the data.*/
-
-        }
+        
     </script>
 @endpush
 
