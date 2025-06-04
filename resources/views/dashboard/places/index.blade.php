@@ -1,6 +1,6 @@
 @extends('layouts-dashboard.master')
 @section('content')
-    <div class="d-flex justify-content-between mb-2">
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <h2>{{ $state }} الأمكنة</h2>
         <a href="{{ route('admin.places.create') }}" class="btn btn-secondary">إضافة مكان </a>
     </div>
@@ -10,7 +10,7 @@
             <img src="{{ asset('assets/images/no-data.jpg') }}" alt="" class="w-50 rounded rounded-5">
         </div>
     @else
-        <table class="table table-bordered table-striped table-hover">
+        <table class="table table-bordered table-striped table-hover table-condensed">
             <tr class="table-secondary">
                 <th> الوصف بالعربي</th>
                 <th> الوصف بالانكليزي</th>
@@ -28,11 +28,11 @@
                     <td>{{ $place->description_ar }}</td>
                     <td>{{ $place->description_en }}</td>
                     <td>{{ $place->province->name }}</td>
-                    <td>
+                    <td class="text-center">
                         <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt="" width="100"
                             height="100">
                     </td>
-                    <td class="text-nowrap">
+                    <td class="text-nowrap text-center">
                         <a class="btn btn-sm btn-outline-success"
                             href="{{ route('admin.places.show', ['place' => $place]) }}">
                             <i data-feather="eye"></i>
@@ -59,9 +59,9 @@
             @endforeach
 
         </table>
-
-        <div>
-            <h2 class="text-center text-secondary m-0"> Place Show</h2>
+        {{ $places->links('pagination::bootstrap-5') }}
+        <div class="m-n1">
+            <h5 class="text-center text-secondary m-0"> Place Show</h5>
             <div id="album" class="gallery">
             </div>
 
@@ -71,7 +71,6 @@
             </div>
         </div>
     @endif
-    {{ $places->links('pagination::bootstrap-5') }}
 @endsection
 @push('js')
     <script>

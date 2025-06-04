@@ -1,6 +1,6 @@
 @extends('layouts-dashboard.master')
 @section('content')
-    <div class="d-flex justify-content-between mb-2">
+    <div class="d-flex justify-content-between align-items-center mb-2">
         <h2> الخدمات </h2>
         <a href="{{ route('admin.services.create') }}" class="btn btn-secondary">إضافة خدمة </a>
     </div>
