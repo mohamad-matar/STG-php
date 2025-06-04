@@ -27,10 +27,10 @@
                     <td>{{ $place->name_en }}</td>
                     <td>{{ $place->description_ar }}</td>
                     <td>{{ $place->description_en }}</td>
-                    <td>{{ $place->province->name }}</td>
+                    <td>{{ $place->province->name_ar }}</td>
                     <td class="text-center">
                         <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt="" width="100"
-                            height="100">
+                            height="75">
                     </td>
                     <td class="text-nowrap text-center">
                         <a class="btn btn-sm btn-outline-success"
@@ -61,7 +61,7 @@
         </table>
         {{ $places->links('pagination::bootstrap-5') }}
         <div class="m-n1">
-            <h5 class="text-center text-secondary m-0"> Place Show</h5>
+            <h5 class="text-center text-secondary"> Place Show</h5>
             <div id="album" class="gallery">
             </div>
 

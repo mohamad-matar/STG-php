@@ -7,10 +7,10 @@
     <main>
         <div class="form-container d-flex justify-content-center align-items-center mt-3">
 
-            <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 px-5 py-1 rounded-4">
-                <h3 class="text-center login-title my-3 bg-success-subtle  w-75 mx-auto p-2 rounded-4">
+            <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 px-5 py-1">
+                <h2 class="text-center login-title my-3 bg-success-subtle  w-80 mx-auto py-3 px-2 ">
                     @lang('stg.register-title')
-                </h3>
+                </h2>
                 <div class="m-sm-1">
                     <div class="text-center">
                         <img class="mx-auto mt-2" src="{{ asset('assets/images/logo/logo.png') }}" alt=""
@@ -22,7 +22,7 @@
                         </div>
                     @endsession
 
-                    <form method="POST" action="{{ route('register') }}" class="fs-4 row text-center bg-success-subtle mt-3 py-4  rounded-4">
+                    <form method="POST" action="{{ route('register') }}" class="fs-4 row text-center  mt-3 py-4 border border-success">
                         @csrf
                         <div class="fs-4">
                             <x-radio   :items="['tourist' => __('stg.tourist'), 'provider' => __('stg.provider')]" name="type" dbValue="tourist" />

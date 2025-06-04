@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description_en' , 400)->nullable();
 
             $table->foreignId('provider_id')->constrained();
-            $table->foreignId('image_id')->nullable()->constrained();
+            $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;
            
             $table->foreignId('province_id')->constrained();
             $table->foreignId('place_id')->nullable()->constrained();

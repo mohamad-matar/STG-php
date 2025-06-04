@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('accepted')->default(false);
             
             $table->foreignId('user_id')->unique()->constrained();
-            $table->foreignId('image_id')->nullable()->constrained();
+            $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;
             
             $table->foreignId('province_id')->constrained();
             $table->foreignId('place_id')->nullable()->constrained();

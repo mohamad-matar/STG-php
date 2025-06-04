@@ -30,4 +30,9 @@ class Place extends Model
     function categories(){
         return $this->belongsToMany(Category::class);
     }
+
+    function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }
