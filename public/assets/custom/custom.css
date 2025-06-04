@@ -450,3 +450,10 @@ p {
 	align-items: center;
 }
 
+#results {
+	min-height: 70vh;
+}
+.card img{
+	height: 200px;	
+	object-fit: cover;
+}

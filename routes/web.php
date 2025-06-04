@@ -19,3 +19,5 @@ Route::get('/language', [LangController::class,  'lang']);
 Route::get('/dashboard', function () {
     return view('layouts-dashboard.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('home.search', [HomeController::class, 'search'])->name('home.search');
