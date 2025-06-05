@@ -59,15 +59,15 @@
                                         </form>
                                     </li>
                                 @else
-                                    <li><a class="dropdown-item" href="{{ route('login') }}">@lang('login')</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('register') }}">@lang('signup')</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('login') }}">@lang('stg.login')</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('register') }}">@lang('stg.signup')</a></li>
                                 @endauth
 
                             </ul>
                         </li>
                     </ul>
                     <form action="/language">
-                        <button class="btn  btn-outline-success btn-lang m-1" name="lang" value=@if(app()->isLocale('ar')) "en" @else "ar" @endif>@if(app()->isLocale('ar'))English @else Arabic @endif </button>                        
+                        <button class="btn  btn-outline-success btn-lang m-1 py-1" name="lang" value=@if(app()->isLocale('ar')) "en" @else "ar" @endif>@if(app()->isLocale('ar'))English @else Arabic @endif </button>                        
                     </form>                    
                 </div>
             </div>

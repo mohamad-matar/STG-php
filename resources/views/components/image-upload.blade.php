@@ -1,9 +1,10 @@
-@props(['name', 'label' => $name, 'dbValue' => ''])
+@props(['name', 'label' => $name, 'dbValue' => '', 'col' => 6  ])
 <div class="mb-3 row">
     <label for="{{ $name }}" class="form-label">{{ $label }}</label>
-    <div class="col-md-6">
-        <input type="file" onchange="showFile(this)"  name="{{ $name }}" value="{{ old($name, $dbValue) }}" id="{{ $name }}"
-        {{ $attributes->merge(['class' => 'form-control' . ($errors->has($name) ? 'is-invalid' : '')]) }}>
+    <div class="col-md-{{ $col }}">
+        <input type="file" onchange="showFile(this)" name="{{ $name }}" value="{{ old($name, $dbValue) }}"
+            id="{{ $name }}"
+            {{ $attributes->merge(['class' => 'form-control' . ($errors->has($name) ? 'is-invalid' : '')]) }}>
     </div>
     <div class="col-md-6">
         <img id="img-review" class="img-review" src="">

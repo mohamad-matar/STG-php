@@ -12,12 +12,12 @@
     @else
         <table class="table table-bordered table-striped table-hover table-condensed">
             <tr class="table-secondary">
-                <th> الوصف بالعربي</th>
-                <th> الوصف بالانكليزي</th>
                 <th> الاسم بالعربي</th>
                 <th> الاسم بالانكليزي</th>
+                <th> الوصف بالعربي</th>
+                <th> الوصف بالانكليزي</th>
                 <th> المحافظة</th>
-                <th> الصور </th>
+                <th> الصورة الرئيسية </th>
                 <th> الوظائف</th>
             </tr>
 
@@ -30,12 +30,11 @@
                     <td>{{ $place->province->name_ar }}</td>
                     <td class="text-center">
                         <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt="" width="100"
-                            height="75">
+                            height="75" onclick="openLightbox(this)">
                     </td>
                     <td class="text-nowrap text-center">
-                        <a class="btn btn-sm btn-outline-success"
-                            href="{{ route('admin.places.show', ['place' => $place]) }}">
-                            <i data-feather="eye"></i>
+                        <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.places.show', $place) }}">
+                            إدارة الصور
                         </a>
                         <a class="btn btn-sm btn-outline-info"
                             href="{{ route('admin.places.edit', ['place' => $place]) }}">
@@ -61,32 +60,15 @@
         </table>
         {{ $places->links('pagination::bootstrap-5') }}
         <div class="m-n1">
-            <h5 class="text-center text-secondary"> Place Show</h5>
+            <h5 class="text-center text-secondary"> صور المكان </h5>
             <div id="album" class="gallery">
-            </div>
-
-            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-                <span class="close">&times;</span>
-                <img class="lightbox-content" id="lightbox-img">
-            </div>
+            </div>            
         </div>
+        <x-show-image />
     @endif
 @endsection
 @push('js')
     <script>
-        function openLightbox(image) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightbox.style.display = 'flex';
-            lightboxImg.src = image.src;
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.style.display = 'none';
-        }
-
-
         function clearImg() {
             document.getElementById('album').innerHTML = ""
         }

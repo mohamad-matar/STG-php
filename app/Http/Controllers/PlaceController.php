@@ -84,7 +84,7 @@ class PlaceController extends Controller
                     PlaceShow::create([
                         'name_ar' => $place_shows['name_ar'][$k],
                         'name_en' => $place_shows['name_en'][$k],
-                        'image_id' => saveImg("places-show", $place_shows['image_id'][$k]),
+                        'image_id' => saveImg("place-shows", $place_shows['image_id'][$k]),
                         'place_id' => $place->id
                     ]);
                 }
@@ -104,7 +104,7 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        return  $place->placeShows;
+        return  view('dashboard.places.show' , compact('place'));
     }
 
     /**
