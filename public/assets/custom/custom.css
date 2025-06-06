@@ -478,3 +478,9 @@ nav .navlink.show {
 	object-fit: cover;
 }
 
+.main-img-wrapper img {
+	width: 90%;
+	height: 60vh;
+	object-fit: cover;
+	margin: auto;
+}

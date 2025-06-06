@@ -29,3 +29,7 @@ img:hover {
     --grayscale: 0;
     flex: var(--magnifier);
 }
+
+.main-img-wrapper{
+    text-align: center;
+}
