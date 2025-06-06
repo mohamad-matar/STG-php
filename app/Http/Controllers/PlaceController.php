@@ -25,7 +25,10 @@ class PlaceController extends Controller
                 return $q->where('provice_id', $provice_id);
             })
             ->when($search, function ($q) use ($search) {
-                return $q->where('title',  'like', "%$search%");
+                return $q->where('name_ar',  'like', "%$search%")
+                ->orWhere('name_en',  'like', "%$search%")
+                ->orWhere('description_ar',  'like', "%$search%")
+                ->orWhere('description_en',  'like', "%$search%");
             });
         $places = $place->paginate(4);
         $placeCount = $place->count();

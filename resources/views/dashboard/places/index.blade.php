@@ -1,10 +1,14 @@
 @extends('layouts-dashboard.master')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h2>{{ $state }} الأمكنة</h2>
+        <h2> الأماكن{{ $state }} </h2>
         <a href="{{ route('admin.places.create') }}" class="btn btn-secondary">إضافة مكان </a>
     </div>
-
+    <form action="{{ route('admin.places.index') }}" class="d-flex mb-2">
+        <a href="{{ route('admin.places.index') }}" class="btn btn-secondary text-nowrap"> كافة الأماكن </a>
+        <input type="text" class="form-control" name="search">
+        <button class="btn btn-secondary">بحث</button>
+    </form>
     @if ($places->isEmpty())
         <div class="text-center mb-5">
             <img src="{{ asset('assets/images/no-data.jpg') }}" alt="" class="w-50 rounded rounded-5">
