@@ -30,7 +30,7 @@ class HomeController extends Controller
         return view('home.search', compact('places'));
     }
 
-    function showPlace(){
-        
+    function showPlace(Place $place){
+        return view('home.place-details' , compact('place'));
     }
 }

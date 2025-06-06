@@ -21,4 +21,4 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('home.placeSearch', [HomeController::class, 'placeSearch'])->name('home.placeSearch');
-Route::get('home.showPlace', [HomeController::class, 'showPlace'])->name('home.showPlace');
+Route::get('home.showPlace/{place}', [HomeController::class, 'showPlace'])->name('home.showPlace');

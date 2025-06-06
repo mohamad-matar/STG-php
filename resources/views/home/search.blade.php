@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{  $place->name}}</h5>
                     <p class="card-text">{{  $place->description}} </p>
-                    <a href="{{ route('home.showPlace') }}" class="text-success">@lang('stg.more')</a>
+                    <a href="{{ route('home.showPlace' ,$place) }}" class="text-success">@lang('stg.more')</a>
                 </div>
             </div>
         </div>
