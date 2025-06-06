@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse p-0" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">@lang('stg.home')</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}">@lang('stg.home')</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">@choice('stg.restaurant', 2)</a>
@@ -22,20 +22,17 @@
                             <a class="nav-link" href="#">@choice('stg.hotel', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.tour', 2)</a>
+                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 1 ]) }}">@choice('stg.religious', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.monument', 2)</a>
+                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 2 ]) }}">@choice('stg.monument', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.search' , ['placeCategory' => 1 ]) }}">@choice('stg.religious', 2)</a>
+                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 3 ]) }}">@choice('stg.cultural', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.cultural', 2)</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.natural', 2)</a>
-                        </li>
+                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 4 ]) }}">@choice('stg.natural', 2)</a>
+                        </li>                       
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">

@@ -20,4 +20,5 @@ Route::get('/dashboard', function () {
     return view('layouts-dashboard.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('home.search', [HomeController::class, 'search'])->name('home.search');
+Route::get('home.placeSearch', [HomeController::class, 'placeSearch'])->name('home.placeSearch');
+Route::get('home.showPlace', [HomeController::class, 'showPlace'])->name('home.showPlace');

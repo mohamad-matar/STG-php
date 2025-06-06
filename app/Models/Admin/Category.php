@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Place;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,4 +13,9 @@ class Category extends Model
     protected $fillable = [
         'name',        
     ];
+
+    function places(){
+        return $this->belongsToMany(Place::class);
+    }
 }
+    

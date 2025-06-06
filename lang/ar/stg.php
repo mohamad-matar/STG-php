@@ -5,6 +5,8 @@ return [
     'dir' => 'rtl',
     'align' => 'right',
 
+    'more' => 'مزيد',
+
     /**login - sign up */
     'login-title' => 'تسجيل دخول إلى الدليل السياحي السوري',
     'register-title' => 'إنشاء حساب لدى الدليل السياحي السوري  ',

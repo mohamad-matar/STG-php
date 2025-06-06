@@ -17,9 +17,9 @@
             <div class="card">
                 <img src="{{ getImgUrl(  $place->image_id)}}" class="card-img-top" alt="{{ getImgUrl(  $place->image_id)}}">
                 <div class="card-body">
-                    <h5 class="card-title">{{  $place->title}}</h5>
+                    <h5 class="card-title">{{  $place->name}}</h5>
                     <p class="card-text">{{  $place->description}} </p>
-                    <a href="#" class="text-success">vew  More</a>
+                    <a href="{{ route('home.showPlace') }}" class="text-success">@lang('stg.more')</a>
                 </div>
             </div>
         </div>

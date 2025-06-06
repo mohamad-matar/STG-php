@@ -6,6 +6,8 @@ return [
     'dir' => 'ltr',
     'align' => 'left',
 
+    'more' => 'More',
+
     /**login - sign up */
     'login-title' => 'Login to Syrian Tour Guide',
     'register-title' => 'Create new Account at Syrian Tour Guide',
