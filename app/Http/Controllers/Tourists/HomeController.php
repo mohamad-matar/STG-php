@@ -30,7 +30,13 @@ class HomeController extends Controller
         return view('home.search', compact('places'));
     }
 
-    function showPlace(Place $place){
+    function showPlace($place_id){
+        $locale =   app()->getLocale();
+        $place= Place::where('id' , $place_id)->select("id" ,"name_$locale as name", "description_$locale as description" ,"image_id")
+        ->with(['placeShows' => function($q) use($locale){
+        return $q->select("name_$locale as name" , "image_id" ,"place_id");
+        }])->first();
+        
         return view('home.place-details' , compact('place'));
     }
 }

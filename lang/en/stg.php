@@ -7,6 +7,8 @@ return [
     'align' => 'left',
 
     'more' => 'More',
+    'detail-imgs' => 'Detail images',
+
 
     /**login - sign up */
     'login-title' => 'Login to Syrian Tour Guide',

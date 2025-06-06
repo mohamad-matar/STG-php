@@ -6,6 +6,7 @@ return [
     'align' => 'right',
 
     'more' => 'مزيد',
+    'detail-imgs' => 'الصور التفصيلية',
 
     /**login - sign up */
     'login-title' => 'تسجيل دخول إلى الدليل السياحي السوري',

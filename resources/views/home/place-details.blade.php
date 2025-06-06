@@ -2,17 +2,17 @@
 @section('content')
     <div class="my-5">
         <div class="p-2 my-3">
-            <h1 class="text-center text-success">{{ $place->name_ar }}</h1>
-            <p class="text-center fs-3">{{ $place->description_ar }}</p>
+            <h1 class="text-center text-success">{{ $place->name }}</h1>
+            <p class="text-center fs-3">{{ $place->description }}</p>
             <div class="main-img-wrapper">
                 <img src="{{ getImgUrl($place->image_id) }}" alt="">
             </div>
         </div>
         <div>
-            <h3 class="text-center my-3">الصور التفصيلية</h3>
+            <h3 class="text-center my-3">@lang('stg.detail-imgs')</h3>
             <div class="container" id="results">
                 @foreach ($place->placeshows as $placeshow)
-                    <img onmouseover="viewName('{{ $placeshow->name_ar }}')"  src="{{ getImgUrl($placeshow->image_id) }}" alt="">
+                    <img onmouseover="viewName('{{ $placeshow->name }}')"  src="{{ getImgUrl($placeshow->image_id) }}" alt="">
                 @endforeach
             </div>
             <p id="view-name" class="fs-5 text-center py-2"></p>
