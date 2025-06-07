@@ -68,4 +68,8 @@ return [
     'comment' => 'comment|comments',
     'vacancy' => 'vacancy|vacancies',
     'page' => 'page|pages',
+
+    'places' => 'places',
+    'all' => 'All',
+
 ];

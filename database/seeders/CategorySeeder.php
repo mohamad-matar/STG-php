@@ -13,18 +13,18 @@ class CategorySeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {     
         $categories = [
-            ['id'=> 1 ,'name' => 'معالم دينية'],
-            ['id'=> 2 ,'name' => 'معالم أثرية'],
-            ['id'=> 3 ,'name' => 'معالم ثقافية'],
-            ['id'=> 4 ,'name' => 'معالم طبيعة'],
-            ['id'=> 5 ,'name' => 'بحر'],
-            ['id'=> 6 ,'name' => 'طبية'],
-            ['id'=> 7 ,'name' => 'رحلات'],
-            ['id'=> 8 ,'name' => 'اسواق'],
-            ['id'=> 9 ,'name' => 'مطاعم'],
-            ['id'=> 10,'name' => 'حلويات'],
+            ['id'=> 1 ,'name_ar' => 'معالم دينية' , 'name_en' => 'Religious Monuments'],
+            ['id'=> 2 ,'name_ar' => 'معالم أثرية' , 'name_en' => 'Monuments'],
+            ['id'=> 3 ,'name_ar' => 'معالم ثقافية' , 'name_en' => 'Cultural-Landmarks'],
+            ['id'=> 4 ,'name_ar' => 'معالم طبيعة' , 'name_en' => 'Natural-Attractions'],
+            ['id'=> 5 ,'name_ar' => 'بحر' , 'name_en' => 'Sea'],
+            ['id'=> 6 ,'name_ar' => 'طبية' , 'name_en' => 'Medical'],
+            ['id'=> 7 ,'name_ar' => 'رحلات' , 'name_en' => 'tours'],
+            ['id'=> 8 ,'name_ar' => 'اسواق' , 'name_en' => 'Market'],
+            ['id'=> 9 ,'name_ar' => 'مطاعم' , 'name_en' => 'Restaurants'],
+            ['id'=> 10,'name_ar' => 'حلويات' , 'name_en' => 'Desert'],
         ];
         Category::insert($categories);
     }

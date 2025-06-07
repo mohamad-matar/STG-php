@@ -1,12 +1,19 @@
 @extends('layouts.master')
 @section('content')
 <div class="container my-5">
-    <p class="text-center text-success fw-bold fs-3 mt-5">Search for Items</p>
+    <p class="text-center text-success fw-bold fs-3 mt-5">{{ $categoryName }} @lang('stg.places') 
+        @if($search)
+              - [{{ $search }}]  <a href="{{ route('home.placeSearch' , ['category_id' => $category_id ]) }}">@lang('stg.all') {{ $categoryName }}</a>
+        @endif
+    </p>
     <div class="row mb-4">
         <div class="col-md-8 offset-md-2">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search..." id="searchInput">
-                <button class="btn btn-success" onclick="searchItems()">Search</button>
+                <form action="{{ route('home.placeSearch') }}">                    
+                    <input type="text" name="search" class="form-control" placeholder="Search..." id="searchInput">
+                    <input type="hidden" name="category_id" value="{{ $category_id }}">
+                    <button class="btn btn-success" onclick="searchItems()">Search</button>
+                </form>
             </div>
         </div>
     </div>
