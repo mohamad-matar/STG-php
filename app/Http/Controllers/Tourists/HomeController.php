@@ -39,7 +39,7 @@ class HomeController extends Controller
         }
         // return $places;
 
-        return view('home.search', compact('places', 'categoryName' , 'category_id' , 'search'));
+        return view('home.place', compact('places', 'categoryName' , 'category_id' , 'search'));
     }
 
     function showPlace($place_id)
