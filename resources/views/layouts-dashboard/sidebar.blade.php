@@ -4,17 +4,8 @@
             <span class="fs-2 fw-normal">الدليل السياحي السوري</span>
         </a>
 
-        <ul class="sidebar-nav fs-4 text-end">
-            <li class="sidebar-header">
-                <div class="fs-2">
-                    @if (auth()->user()->type == 'admin')
-                    المدير العام للموقع
-                    @elseif (auth()->user()->type == 'provider')
-                    {{ auth()->user()->provider->name_ar }}
-                    @endif
-                </div>
-            </li>
-
+        <ul class="sidebar-nav fs-4 text-end">            
+            
             @if (auth()->user()->type == 'admin')
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'services')) active @endif">
                     <a class="sidebar-link" href="{{ route('admin.services.index') }}">
@@ -49,7 +40,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.show') ) active @endif">
-                    <a class="sidebar-link" href="{{ route('provider.show') }}">
+                    <a class="sidebar-link" href="{{ route('provider.show' , auth()->user()->provider) }}">
                         <span class="align-middle"> إعداد الصور </span>
                         <i class="align-middle" data-feather="image"></i>
                     </a>

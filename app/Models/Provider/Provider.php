@@ -20,6 +20,9 @@ class Provider extends Model
     ];
     function place(){
         return $this->belongsTo(Place::class);
-    }        
+    }    
+    function providerShows(){
+        return $this->hasMany(providerShow::class);
+    }    
 }
  

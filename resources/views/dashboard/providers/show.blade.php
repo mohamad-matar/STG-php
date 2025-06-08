@@ -7,7 +7,7 @@
                 class="btn btn-secondary">
                 إضافة صورة
             </button>
-            <a class="btn btn-secondary" href="{{ route('admin.providers.edit') }}">عودة</a>
+            <a class="btn btn-secondary" href="{{ route('provider.edit') }}">عودة</a>
         </div>
     </div>
     <div class="container">
@@ -41,7 +41,7 @@
                                         class="btn btn-sm btn-outline-info">
                                         <i data-feather="edit"></i>
                                     </button>
-                                    <form action="{{ route('admin.providershows.destroy', $providerShow) }}" method="post"
+                                    <form action="{{ route('provider.provider-shows.destroy', $providerShow) }}" method="post"
                                         class="d-inline-block"
                                         onsubmit="return  confirm('Are you sure to delete {{ $providerShow->name_ar }}')">
                                         @csrf
@@ -73,7 +73,7 @@
             const uploadFileElement = `<x-image-upload name='image_id' label='الصورة الرئيسية' col='12'/>`;
 
             const form = `
-            <form action="/admin/providerShows/${providerShow}" method="post" enctype="multipart/form-data" class="bg-secondary p-3 text-white">
+            <form action="/provider/provider-shows/${providerShow}" method="post" enctype="multipart/form-data" class="bg-secondary p-3 text-white">
                 @csrf
                 ${method}
                 <div class="row">
@@ -84,7 +84,7 @@
                 <x-input name="name_en" label="الاسم بالانكليزي" col="12" dbValue=${name_en} />
                 
 
-                ${type == 'store'? uploadFileElement : ''}
+                // ${type == 'store'? uploadFileElement : ''}
                 <div>
                     <button class="btn btn-dark"> ${typeInAr} الصورة</button>
                     <a href="{{ URL::current() }}" class="btn btn-outline-dark">رجوع</a>
