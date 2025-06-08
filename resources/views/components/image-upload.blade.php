@@ -1,4 +1,4 @@
-@props(['name', 'label' => $name, 'dbValue' => '', 'col' => 6  ])
+@props(['name', 'label' => $name, 'dbValue' => '-1', 'col' => 6  ])
 <div class="mb-3 row">
     <label for="{{ $name }}" class="form-label">{{ $label }}</label>
     <div class="col-md-{{ $col }}">
@@ -7,7 +7,7 @@
             {{ $attributes->merge(['class' => 'form-control' . ($errors->has($name) ? 'is-invalid' : '')]) }}>
     </div>
     <div class="col-md-6">
-        <img id="img-review" class="img-review" src="">
+        <img id="img-review" class="img-review" src="{{getImgUrl( $dbValue )}}" alt="{{getImgUrl( $dbValue )}}">
     </div>
 
     @error($name)

@@ -20,7 +20,7 @@ class PlaceController extends Controller
         $provice_id = $request->provice_id;
         $search = $request->search;
 
-        $place = Place::with('province')
+        $place = Place::with('province' , 'user')
             ->when($provice_id, function ($q) use ($provice_id) {
                 return $q->where('provice_id', $provice_id);
             })
@@ -72,7 +72,7 @@ class PlaceController extends Controller
 
         if ($request->hasFile('image_id'))
             $validated['image_id'] = saveImg("places", $request->file('image_id'));
-
+        $validated['created_by'] = Auth::user()->id;
         $place = Place::create($validated);
 
         if ($request->categories) {

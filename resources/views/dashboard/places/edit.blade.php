@@ -29,14 +29,15 @@
 
             <x-input name="name_ar" label="الاسم بالعربي" :dbValue="$place->name_ar" />
             <x-input name="name_en" label="الاسم بالانكليزي" :dbValue="$place->name_en" />
-            <x-input name="description_ar" label="الوصف بالعربي" :dbValue="$place->description_ar"/>
-            <x-input name="description_en" label="الوصف بالانكليزي" :dbValue="$place->description_en"/>
+            <x-input name="description_ar" label="الوصف بالعربي" :dbValue="$place->description_ar" />
+            <x-input name="description_en" label="الوصف بالانكليزي" :dbValue="$place->description_en" />
 
-            <x-select name="province_id" label="المحافظة" :options="$provinces" :dbValue="$place->province_id"/>           
+            <x-select name="province_id" label="المحافظة" :options="$provinces" :dbValue="$place->province_id" />
 
-            <x-select-multiple name="categories[]" element_id="categories" label="التصنيف" :options="$categories" :dbValue="$currCategory" />
+            <x-select-multiple name="categories[]" element_id="categories" label="التصنيف" :options="$categories"
+                :dbValue="$currCategory" />
 
-            <x-image-upload name="image_id" label="الصورة الرئيسية" />
+            <x-image-upload name="image_id" label="الصورة الرئيسية" :dbValue="$place->image_id" />
 
             <div id="place-shows">
 
@@ -46,10 +47,8 @@
             </div>
         </div>
 
-
-
-            <button class="btn btn-secondary">تعديل المكان</button>
-            <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
+        <button class="btn btn-secondary">تعديل المكان</button>
+        <a href="{{ route('admin.places.index') }}" class="btn btn-outline-secondary">رجوع</a>
     </form>
 @endsection
 

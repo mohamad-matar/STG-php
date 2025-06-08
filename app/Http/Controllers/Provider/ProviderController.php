@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Provider;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
+use App\Models\Place;
 use App\Models\Provider\Provider;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,18 +32,21 @@ class ProviderController extends Controller
         if (! $provider = $currUser->provider)
             $provider =  $currUser->provider()->create([]);
 
-        return view('dashboard.provider.edit', compact('provider'));
+        $places = Place::get(["id" , "name_ar as name"]);
+        // return $places;
+        return view('dashboard.providers.edit', compact('provider', 'places'));
     }
 
     function update(Request $request)
     {
         $validated = $request->validate([
-            'name_ar' => 'max:100',
-            'name_en' =>  'max:100',
-            'description_ar' => 'max:100',
-            'description_en' =>  'max:100',
+            'name_ar' => 'required|max:100',
+            'name_en' =>  'required|max:100',
+            'description_ar' => 'nullable:max:100',
+            'description_en' =>  'nullable|max:100',
             'license_number'  => 'max:50',
             'image_id' => 'nullable|image|max:2000',
+            'place_id' => 'required|exists:places,id'
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;

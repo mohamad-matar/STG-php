@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('provider_shows', function (Blueprint $table) {
+        Schema::create('provider_branch_shows', function (Blueprint $table) {
             $table->id();
             $table->string('name_ar', 50)->index();
             $table->string('name_en', 50)->index();
 
-            $table->foreignId('provider_id')->constrained();
+            $table->foreignId('provider_branch_id')->constrained();
             $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provider_shows');
+        Schema::dropIfExists('provider_branch_shows');
     }
 };

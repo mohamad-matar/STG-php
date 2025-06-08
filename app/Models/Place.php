@@ -35,4 +35,8 @@ class Place extends Model
     {
         return $this->belongsTo(Image::class);
     }
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -32,6 +32,7 @@
                     <td>{{ $place->description_ar }}</td>
                     <td>{{ $place->description_en }}</td>
                     <td>{{ $place->province->name_ar }}</td>
+                    <td>{{ $place->user->email }}</td>
                     <td class="text-center">
                         <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt="" width="100"
                             height="75" onclick="openLightbox(this)">
