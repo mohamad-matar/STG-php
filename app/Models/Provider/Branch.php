@@ -2,10 +2,12 @@
 
 namespace App\Models\Provider;
 
+use App\Models\Contact;
 use App\Models\Image;
 use App\Models\Place;
 use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Branch extends Model
 {                       
@@ -25,6 +27,11 @@ class Branch extends Model
         
     function branchShows(){
         return $this->hasMany(BranchShow::class);
-    }    
+    }
+
+    public function contacts(): MorphMany
+    {
+        return $this->morphMany(Contact::class, 'owner');
+    }
 }
  

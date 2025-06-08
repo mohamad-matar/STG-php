@@ -1,7 +1,7 @@
 @extends('layouts-dashboard.master')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h2> فروع {{ $provider->name_ar }} </h2>
+        <h2> الفروع  </h2>
         <a href="{{ route('provider.branches.create') }}" class="btn btn-secondary">إضافة فرع </a>
     </div>
     @if ($branches->isEmpty())
@@ -52,6 +52,8 @@
             @endforeach
 
         </table>
+        <x-show-image />
+
     @endif
 @endsection
 <script></script>

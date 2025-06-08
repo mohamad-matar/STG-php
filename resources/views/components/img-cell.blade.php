@@ -3,7 +3,7 @@
 ])
 <div>
     <img id="img-review" src="{{ getImgUrl($id) }}" alt="" width="100"
-                            height="75" onclick="openLightbox(this)">
+                            height="75" onclick="openLightbox(this)" style="cursor: pointer">
 </div>
 @push('js')
     <script>

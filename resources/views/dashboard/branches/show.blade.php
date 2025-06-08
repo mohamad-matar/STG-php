@@ -51,8 +51,8 @@
                         @endforeach
 
                     </table>
+                    <x-show-image />
                 @endif
-                <x-show-image />
 
             </div>
             <div class="col-3">

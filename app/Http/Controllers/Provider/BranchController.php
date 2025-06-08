@@ -22,9 +22,9 @@ class BranchController extends Controller
     public function index()
     {
         $provider = User::find(Auth::user()->id)->provider;
-        $branches = $provider->branches()->with('place')->get();
+        $branches = $provider->branches()->with('place.province')->get();
         // return $branches;
-        return  view('dashboard.branches.index', compact('provider' , 'branches'));
+        return  view('dashboard.branches.index', compact( 'branches'));
     }
     /**
      * Display the specified resource.
@@ -36,13 +36,9 @@ class BranchController extends Controller
 
     function create()
     {
-        $currUser = User::find(Auth::user()->id);
-        if (! $provider = $currUser->provider)
-            $provider =  $currUser->provider()->create([]);
-
         $places = Place::get(["id" , "name_ar as name"]);
         
-        return view('dashboard.branches.create', compact('provider', 'places'));
+        return view('dashboard.branches.create', compact( 'places'));
     }
 
     function store(Request $request)
@@ -54,7 +50,12 @@ class BranchController extends Controller
             'description_ar' => 'nullable:max:100',
             'description_en' =>  'nullable|max:100',
             'image_id' => 'nullable|image|max:2000',
-            'place_id' => 'required|exists:places,id'
+            'place_id' => 'required|exists:places,id',
+
+            'contactType' => 'nullable|array',
+            'contactType.*' => "in:landphone,mobile,whatsapp,telegram",
+            'contactValue' => 'nullable|array',
+            'contactValue.*' => 'string:max:100',
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;
@@ -62,20 +63,26 @@ class BranchController extends Controller
         if ($request->hasFile('image_id')) {
             $validated['image_id'] = saveImg("branch-cover", $request->file('image_id'));
         }
-        $currProvider->branches()->create($validated);
+        $branch =  $currProvider->branches()->create($validated);
+        // return $branch; 
+        if ($request->contactType) {            
+            foreach ($validated['contactType'] as $i => $contactType) {
+                $branch->contacts()->create([
+                    'type' => $contactType,
+                    'value' => $validated['contactValue'][$i]
+                ]);
+            }
+        }
         
         return to_route('provider.branches.index')->with('success', 'تم  إضافة الفرع بنجاح');
     }
 
     function edit(Branch $branch)
     {
-        $currUser = User::find(Auth::user()->id);
-        if (! $provider = $currUser->provider)
-            $provider =  $currUser->provider()->create([]);
-
         $places = Place::get(["id" , "name_ar as name"]);
-        
-        return view('dashboard.branches.edit', compact('branch','provider', 'places'));
+        $contacts = $branch->contacts;
+
+        return view('dashboard.branches.edit', compact('branch', 'places' , 'contacts'));
     }
 
     function update(Request $request , Branch $branch)
@@ -86,7 +93,12 @@ class BranchController extends Controller
             'description_ar' => 'nullable:max:100',
             'description_en' =>  'nullable|max:100',
             'image_id' => 'nullable|image|max:2000',
-            'place_id' => 'required|exists:places,id'
+            'place_id' => 'required|exists:places,id',
+
+            'contactType' => 'nullable|array',
+            'contactType.*' => "in:landphone,mobile,whatsapp,telegram",
+            'contactValue' => 'nullable|array',
+            'contactValue.*' => 'string:max:100',
         ]);
 
         if ($request->hasFile('image_id')) {
@@ -96,19 +108,28 @@ class BranchController extends Controller
                 $oldImage->delete();
             }
             $validated['image_id'] = saveImg("branch-cover", $request->file('image_id'));
-        }
-        $branch->update($validated);
+        } 
 
+        $branch->update($validated);
+        if ($request->contactType) {
+            $branch->contacts()->delete();
+            foreach ($validated['contactType'] as $i => $contactType) {
+                $branch->contacts()->create([
+                    'type' => $contactType,
+                    'value' => $validated['contactValue'][$i]
+                ]);
+            }
+        }
 
         return to_route('provider.branches.index')->with('success', 'تم  تعديل الفرع بنجاح');        
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Branch $place)
+    public function destroy(Branch $branch)
     {
-        // return $place;
-        $branchShows = $place->branchShows;
+        // return $branch;
+        $branchShows = $branch->branchShows;
         // return $branchShows;
         if ($branchShows) {
             foreach ($branchShows as $branchShow) {
@@ -120,12 +141,12 @@ class BranchController extends Controller
                 $branchShow->delete();
             }
         }
-        $branchImage = $place->image;
+        $branchImage = $branch->image;
         if ($branchImage) {
             Storage::disk('public')->delete($branchImage->name);
             $branchImage->delete();
         }
-        $place->delete();
+        $branch->delete();
 
         return back()->with('success', 'تم حذف الفرع بنجاح');
     }

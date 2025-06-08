@@ -40,10 +40,11 @@ class ProviderController extends Controller
         $currUser = User::find(Auth::user()->id);
         if (! $provider = $currUser->provider)
             $provider =  $currUser->provider()->create([]);
-
+        $contacts = $provider->contacts;
+        // return $contacts;
         $places = Place::get(["id" , "name_ar as name"]);
         // return $places;
-        return view('dashboard.providers.edit', compact('provider', 'places'));
+        return view('dashboard.providers.edit', compact('provider', 'places' , 'contacts'));
     }
 
     function update(Request $request)
@@ -55,7 +56,12 @@ class ProviderController extends Controller
             'description_en' =>  'nullable|max:100',
             'license_number'  => 'max:50',
             'image_id' => 'nullable|image|max:2000',
-            'place_id' => 'required|exists:places,id'
+            'place_id' => 'required|exists:places,id',
+            
+            'contactType' => 'nullable|array',
+            'contactType.*' => "in:landphone,mobile,whatsapp,telegram",
+            'contactValue' => 'nullable|array',
+            'contactValue.*' => 'string:max:100',
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;
@@ -68,8 +74,19 @@ class ProviderController extends Controller
             }
             $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));
         }
-        $currProvider->update($validated);
 
+        $currProvider->update($validated);
+        
+        if($request->contactType){
+            $currProvider->contacts()->delete();
+                foreach($validated['contactType'] as $i => $contactType){
+                $currProvider->contacts()->create([
+                    'type' => $contactType,
+                    'value' => $validated['contactValue'][$i]
+                ]);
+            }
+        }
+        
         return back()->with('success', 'Setting update successfully');
     }
 
