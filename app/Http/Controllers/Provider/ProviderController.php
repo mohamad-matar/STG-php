@@ -19,20 +19,19 @@ class ProviderController extends Controller
     function index(Request $request)
     {
         $accepted = $request->accepted;
-        $providers = Provider::with('province', 'place')
+        $providers = Provider::with('place.province')
             ->when( isset($accepted) , function ($q) use ($accepted) {
                 return $q->where('accepted', $accepted);
             })->paginate(7);
         return  view('dashboard.providers.index', compact('providers'));
     }
 
-
     /**
      * Display the specified resource.
      */
-    public function show(Provider $provider)
+    public function show()
     {
-        // return $provider;
+        $provider = User::find(Auth::user()->id)->provider;
         return  view('dashboard.providers.show', compact('provider'));
     }
 
@@ -60,19 +59,17 @@ class ProviderController extends Controller
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;
-
+        $oldImage = null;
         if ($request->hasFile('image_id')) {
             $oldImage =  Image::find($currProvider->image_id);
+            if ($oldImage) {
+                Storage::disk('public')->delete($oldImage->name);
+                $oldImage->delete();
+            }
             $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));
         }
         $currProvider->update($validated);
 
-
-        /** delete image record from images table with related file */
-        if ($oldImage) {
-            Storage::disk('public')->delete($oldImage->name);
-            $oldImage->delete();
-        }
         return back()->with('success', 'Setting update successfully');
     }
 

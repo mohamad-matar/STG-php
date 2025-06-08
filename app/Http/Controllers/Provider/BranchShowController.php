@@ -7,7 +7,7 @@ use App\Models\Provider\ProviderShow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ProviderShowController extends Controller
+class BranchShowController extends Controller
 {      
     /**
      * Store a newly created resource in storage.

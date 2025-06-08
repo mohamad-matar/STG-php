@@ -7,25 +7,24 @@ use App\Models\Place;
 use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
 
-class Provider extends Model
-{
+class Branch extends Model
+{                       
     protected $fillable = [
         'name_ar' ,
         'name_en' ,
         'description_ar' ,
         'description_en' ,
-        'license_number' ,
+
+        'provider_id',
         'image_id',
         'place_id',
     ];
     function place(){
         return $this->belongsTo(Place::class);
     }    
-    function providerShows(){
-        return $this->hasMany(providerShow::class);
-    }    
-    function branches(){
-        return $this->hasMany(Branch::class);
+        
+    function branchShows(){
+        return $this->hasMany(BranchShow::class);
     }    
 }
  

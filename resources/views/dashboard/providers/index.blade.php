@@ -12,8 +12,8 @@
                 <th> اسم المزود بالانكليزي</th>
                 <th> وصف المزود بالعربي</th>
                 <th> وصف المزود بالانكليزي</th>
-                <th> المحافظة</th>
                 <th> المكان</th>                
+                <th> المحافظة</th>
                 <th>  الوظائف</th>
             </tr>
 
@@ -23,8 +23,8 @@
                     <td>{{ $provider->name_en }}</td>                     
                     <td>{{ $provider->description_ar }}</td>                     
                     <td>{{ $provider->description_en }}</td>  
-                    <td>{{ $provider->province->name_ar }}</td>                   
                     <td>{{ $provider->place->name_ar }}</td>                   
+                    <td>{{ $provider->place->province->name_ar }}</td>                   
                     <td class="text-nowrap">                        
                         <form action="{{ route('admin.providers.accept', $provider) }}" method="post" class="d-inline-block">
                             @csrf

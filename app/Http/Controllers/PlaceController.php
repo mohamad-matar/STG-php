@@ -43,7 +43,8 @@ class PlaceController extends Controller
     public function create()
     {
         $provinces = Province::select('id', 'name_ar as name')->get();
-        $categories = Category::all();
+        $categories = Category::get(['id' , 'name_ar as name']);
+        // return $categories;
         return view('dashboard.places.create', compact('provinces', 'categories'));
     }
 
@@ -58,7 +59,7 @@ class PlaceController extends Controller
             'name_en' => 'required|max:50',
             'description_ar' => 'required|max:400',
             'description_en' => 'required|max:400',
-            'province_id' => 'exists:provinces,id',
+            'province_id' => 'exists:provinces,id',            
             'image_id' => 'nullable|image|max:2000',
 
             'categories' => 'nullable|array',
@@ -116,7 +117,8 @@ class PlaceController extends Controller
     public function edit(Place $place)
     {
         $provinces = Province::select('id', 'name_ar as name')->get();
-        $categories = Category::all();
+        $categories = Category::get(['id', 'name_ar as name']);
+
         $currCategory = $place->categories->modelKeys();
 
         return view('dashboard.places.edit', compact('place', 'provinces', 'categories', 'currCategory'));
