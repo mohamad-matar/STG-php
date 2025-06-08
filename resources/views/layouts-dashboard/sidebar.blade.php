@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.show') ) active @endif">
-                    <a class="sidebar-link" href="{{ route('provider.show') }}">
+                    <a class="sidebar-link" href="{{ route('provider.show' , auth()->user()->provider) }}">
                         <span class="align-middle"> إعداد الصور </span>
                         <i class="align-middle" data-feather="image"></i>
                     </a>

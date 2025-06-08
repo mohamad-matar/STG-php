@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'user-type:admin'])
     ->prefix('admin/')->name('admin.')->group(function () {
         Route::resource('places', PlaceController::class);
-        Route::resource('placeshows', PlaceShowController::class);
+        Route::resource('placeshows', PlaceShowController::class)->only('store' , 'update' , 'destroy');
         Route::resource('services', ServiceController::class)->except('show');
         Route::resource('categories', CategoryController::class)->except('show');
         Route::get('providers/index' ,[ProviderController::class , 'index'] )->name('providers.index');

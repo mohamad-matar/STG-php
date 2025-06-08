@@ -26,6 +26,16 @@ class ProviderController extends Controller
         return  view('dashboard.providers.index', compact('providers'));
     }
 
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Provider $provider)
+    {
+        // return $provider;
+        return  view('dashboard.providers.show', compact('provider'));
+    }
+
     function edit()
     {
         $currUser = User::find(Auth::user()->id);
