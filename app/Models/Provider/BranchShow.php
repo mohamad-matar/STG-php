@@ -10,7 +10,7 @@ class BranchShow extends Model
         'name_ar',
         'name_en',
         
-        'provider_branch_id',
+        'branch_id',
         'image_id',        
     ];
 }

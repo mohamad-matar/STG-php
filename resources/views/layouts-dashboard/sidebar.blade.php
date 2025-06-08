@@ -41,13 +41,13 @@
                 </li>
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.show') ) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.show') }}">
-                        <span class="align-middle"> إعداد الصور </span>
+                        <span class="align-middle"> إدارة الصور </span>
                         <i class="align-middle" data-feather="image"></i>
                     </a>
                 </li>
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.branches.index') ) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.branches.index' ) }}">
-                        <span class="align-middle"> إعداد الفروع </span>
+                        <span class="align-middle"> إدارة الفروع </span>
                         <i class="align-middle" data-feather="image"></i>
                     </a>
                 </li>

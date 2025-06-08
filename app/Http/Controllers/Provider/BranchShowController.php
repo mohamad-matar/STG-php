@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Provider;
 
 use App\Http\Controllers\Controller;
-use App\Models\Provider\ProviderShow;
+use App\Models\Provider\BranchShow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,17 +15,17 @@ class BranchShowController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name_ar' => 'required|max:50',
-            'name_en' => 'required|max:50',
-            'image_id' => 'nullable|image|max:2000',
-            'provider_id' => 'required|exists:places,id',
+            'name_ar' => 'nullable|max:50',
+            'name_en' => 'nullable|max:50',
+            'image_id' => 'image|max:2000',
+            'branch_id' => 'required|exists:branches,id',
         ]);
 
         // return $validated;
         if ($request->hasFile('image_id'))
-            $validated['image_id'] = saveImg("provider-shows", $request->file('image_id'));
+            $validated['image_id'] = saveImg("branch-shows", $request->file('image_id'));
 
-        ProviderShow::create($validated);
+        BranchShow::create($validated);
 
         return back()->with('success', 'تم إضافة الصورة بنجاح');
     }    
@@ -33,25 +33,25 @@ class BranchShowController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProviderShow $providerShow)
+    public function update(Request $request, BranchShow $branchShow)
     {
         $validated = $request->validate([
-            'name_ar' => 'required|max:50',
-            'name_en' => 'required|max:50',
+            'name_ar' => 'nullable|max:50',
+            'name_en' => 'nullable|max:50',
 
-            'image_id' => 'nullable|image|max:2000',
+            'image_id' => 'image|max:2000',
         ]);
 
         if ($request->hasFile('image_id')) {
             /** delete old one */
-            $placeShowImage = $providerShow->image;
-            if ($placeShowImage) {
-                Storage::disk('public')->delete($placeShowImage->name);
-                $placeShowImage->delete();
+            $branchShowImage = $branchShow->image;
+            if ($branchShowImage) {
+                Storage::disk('public')->delete($branchShowImage->name);
+                $branchShowImage->delete();
             }
             $validated['image_id'] = saveImg("provider-shows", $request->file('image_id'));
         }
-        $providerShow->update($validated);
+        $branchShow->update($validated);
 
         return back()->with('success', 'تم تعديل الصورة بنجاح');
     }
@@ -59,14 +59,14 @@ class BranchShowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProviderShow $providerShow)
+    public function destroy(BranchShow $branchShow)
     {
-        $placeImage = $providerShow->image;
-        if ($providerShow->image) {
-            Storage::disk('public')->delete($placeImage->name);
-            $placeImage->delete();
+        $branchShowImage = $branchShow->image;
+        if ($branchShowImage) {
+            Storage::disk('public')->delete($branchShowImage->name);
+            $branchShowImage->delete();
         }
-        $providerShow->delete();
+        $branchShow->delete();
 
         return back()->with('success', 'تم حذف الصورة بنجاح');
     }

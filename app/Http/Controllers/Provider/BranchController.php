@@ -121,7 +121,7 @@ class BranchController extends Controller
             }
         }
         $branchImage = $place->image;
-        if ($place->image) {
+        if ($branchImage) {
             Storage::disk('public')->delete($branchImage->name);
             $branchImage->delete();
         }

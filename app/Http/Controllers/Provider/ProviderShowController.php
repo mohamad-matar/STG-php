@@ -15,9 +15,9 @@ class ProviderShowController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name_ar' => 'required|max:50',
-            'name_en' => 'required|max:50',
-            'image_id' => 'nullable|image|max:2000',
+            'name_ar' => 'nullable|max:50',
+            'name_en' => 'nullable|max:50',
+            'image_id' => 'image|max:2000',
             'provider_id' => 'required|exists:places,id',
         ]);
 
@@ -36,18 +36,18 @@ class ProviderShowController extends Controller
     public function update(Request $request, ProviderShow $providerShow)
     {
         $validated = $request->validate([
-            'name_ar' => 'required|max:50',
-            'name_en' => 'required|max:50',
+            'name_ar' => 'nullable|max:50',
+            'name_en' => 'nullable|max:50',
 
-            'image_id' => 'nullable|image|max:2000',
+            'image_id' => 'image|max:2000',
         ]);
 
         if ($request->hasFile('image_id')) {
             /** delete old one */
-            $placeShowImage = $providerShow->image;
-            if ($placeShowImage) {
-                Storage::disk('public')->delete($placeShowImage->name);
-                $placeShowImage->delete();
+            $providerShowImage = $providerShow->image;
+            if ($providerShowImage) {
+                Storage::disk('public')->delete($providerShowImage->name);
+                $providerShowImage->delete();
             }
             $validated['image_id'] = saveImg("provider-shows", $request->file('image_id'));
         }
@@ -61,10 +61,10 @@ class ProviderShowController extends Controller
      */
     public function destroy(ProviderShow $providerShow)
     {
-        $placeImage = $providerShow->image;
-        if ($providerShow->image) {
-            Storage::disk('public')->delete($placeImage->name);
-            $placeImage->delete();
+        $provideShowImage = $providerShow->image;
+        if ($provideShowImage) {
+            Storage::disk('public')->delete($provideShowImage->name);
+            $provideShowImage->delete();
         }
         $providerShow->delete();
 

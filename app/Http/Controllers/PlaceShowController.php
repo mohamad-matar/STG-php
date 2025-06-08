@@ -16,9 +16,9 @@ class PlaceShowController extends Controller
     {
         // return $request;
         $validated = $request->validate([
-            'name_ar' => 'max:50',
-            'name_en' => 'max:50',
-            'image_id' => 'nullable|image|max:2000',
+            'name_ar' => 'nullable|max:50',
+            'name_en' => 'nullable|max:50',
+            'image_id' => 'image|max:2000',
             'place_id' => 'required|exists:places,id',
         ]);
 
@@ -40,7 +40,7 @@ class PlaceShowController extends Controller
             'name_ar' => 'max:50',
             'name_en' => 'max:50',
      
-            'image_id' => 'nullable|image|max:2000',  
+            'image_id' => 'image|max:2000',  
         ]);
 
         if ($request->hasFile('image_id')) {
@@ -62,10 +62,10 @@ class PlaceShowController extends Controller
      */
     public function destroy(PlaceShow $placeshow)
     {        
-        $placeImage = $placeshow->image;
-        if($placeshow->image){
-            Storage::disk('public')->delete($placeImage->name);
-            $placeImage->delete();
+        $placeShowImage = $placeshow->image;
+        if($placeShowImage){
+            Storage::disk('public')->delete($placeShowImage->name);
+            $placeShowImage->delete();
         }
         $placeshow->delete();
 
