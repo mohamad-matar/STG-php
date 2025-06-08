@@ -2,6 +2,7 @@
 
 namespace App\Models\Provider;
 
+use App\Models\Admin\Service;
 use App\Models\Contact;
 use App\Models\Image;
 use App\Models\Place;
@@ -25,6 +26,9 @@ class Provider extends Model
         return $this->hasMany(Branch::class);
     }
 
+    function services(){
+        return $this->belongsToMany(Service::class);
+    }
     /**
      * Get all of the provider's contacts.
      */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Provider;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Service;
 use App\Models\Image;
 use App\Models\Place;
 use App\Models\Provider\Provider;
@@ -40,11 +41,11 @@ class ProviderController extends Controller
         $currUser = User::find(Auth::user()->id);
         if (! $provider = $currUser->provider)
             $provider =  $currUser->provider()->create([]);
-        $contacts = $provider->contacts;
-        // return $contacts;
+        $contacts = $provider->contacts;        
         $places = Place::get(["id" , "name_ar as name"]);
-        // return $places;
-        return view('dashboard.providers.edit', compact('provider', 'places' , 'contacts'));
+        $services = Service::all();
+        $currServices = $provider->services? $provider->services->modelKeys() : [];
+        return view('dashboard.providers.edit', compact('provider', 'places' , 'contacts' , 'services' , 'currServices'));
     }
 
     function update(Request $request)
@@ -62,6 +63,9 @@ class ProviderController extends Controller
             'contactType.*' => "in:landphone,mobile,whatsapp,telegram",
             'contactValue' => 'nullable|array',
             'contactValue.*' => 'string:max:100',
+
+            'services' => 'nullable|array',
+            'services.*' => 'required|exists:services,id',
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;
@@ -87,6 +91,9 @@ class ProviderController extends Controller
             }
         }
         
+        if($request->services){
+            $currProvider->services()->sync($validated['services']);
+        }
         return back()->with('success', 'Setting update successfully');
     }
 
