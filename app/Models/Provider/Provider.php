@@ -29,6 +29,12 @@ class Provider extends Model
     function services(){
         return $this->belongsToMany(Service::class);
     }
+
+    function trips()
+    {
+        return $this->hasMany(Trip::class);
+    }
+    
     /**
      * Get all of the provider's contacts.
      */

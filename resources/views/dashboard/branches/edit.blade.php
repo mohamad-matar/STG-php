@@ -1,6 +1,6 @@
 @extends('layouts-dashboard.master')
 @section('content')
-    <h2> الفروع </h2>
+    <h2> تعديل الفرع </h2>
     <x-contacts-template />
 
     <form action="{{ route('provider.branches.update', $branch) }}" method="post" enctype="multipart/form-data" class="row">

@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 200);
-            $table->string('note', 1000);
-            $table->date('start_date');
+            $table->string('title', 100);
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('note', 1000)->nullable();
             $table->foreignId('provider_id')->constrained();
 
             $table->timestamps();

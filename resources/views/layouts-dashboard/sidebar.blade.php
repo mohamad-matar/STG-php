@@ -51,6 +51,12 @@
                         <i class="align-middle" data-feather="image"></i>
                     </a>
                 </li>
+                <li class="sidebar-item @if (Route::currentRouteName() == 'provider.trips.index') ) active @endif">
+                    <a class="sidebar-link" href="{{ route('provider.trips.index' ) }}">
+                        <span class="align-middle"> إدارة الرحلات </span>
+                        <i class="align-middle" data-feather="briefcase"></i>
+                    </a>
+                </li>
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'places')) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.places.create') }}">
                         <span class="align-middle"> إنشاء مكان</span>

@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('trip_details', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50);
-            $table->string('note', 1000);
-            $table->date('date');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('note', 1000)->nullable();
             $table->foreignId('trip_id')->constrained()->onDelete('cascade');
             $table->foreignId('place_id')->nullable()->constrained()->onDelete('set null');
 
