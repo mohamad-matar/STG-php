@@ -16,7 +16,8 @@ class Place extends Model
         'description_ar',
         'description_en',
         'image_id',
-        'province_id'
+        'province_id',
+        'created_by',
     ];
 
     function placeShows(){
@@ -37,6 +38,6 @@ class Place extends Model
     }
     function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'created_by');
     }
 }

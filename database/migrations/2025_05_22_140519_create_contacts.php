@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('provider_contacts', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['landphone' , 'mobile' , 'whatsapp' , 'telegram']);
             $table->string('value', 100);
-            $table->foreignId('provider_id')->constrained();
+            $table->foreignId('owner_id');
+            $table->string('owner_type' );
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provider_contacts');
+        Schema::dropIfExists('contacts');
     }
 };

@@ -34,8 +34,7 @@
                     <td>{{ $place->province->name_ar }}</td>
                     <td>{{ $place->user->email }}</td>
                     <td class="text-center">
-                        <img id="img-review" src="{{ getImgUrl($place->image_id) }}" alt="" width="100"
-                            height="75" onclick="openLightbox(this)">
+                        <x-img-cell :id="$place->image_id" />
                     </td>
                     <td class="text-nowrap text-center">
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.places.show', $place) }}">
@@ -67,28 +66,8 @@
         <div class="m-n1">
             <h5 class="text-center text-secondary"> صور المكان </h5>
             <div id="album" class="gallery">
-            </div>            
+            </div>
         </div>
         <x-show-image />
     @endif
 @endsection
-@push('js')
-    <script>
-        function clearImg() {
-            document.getElementById('album').innerHTML = ""
-        }
-
-        function showImages(id) {
-            const currentImages = Array.from(document.getElementById(`place-${ id }`).children);
-            console.log(currentImages)
-            const album = document.getElementById('album')
-            album.innerHTML = ""
-            currentImages.forEach(element => {
-                let img = document.createElement('img');
-                img.src = element.innerHTML;
-                img.classList.add('gallery-item')
-                album.appendChild(img)
-            });
-        }
-    </script>
-@endpush

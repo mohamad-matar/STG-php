@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\LangController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tourists\HomeController;
-
 use Illuminate\Support\Facades\Route;
 
 

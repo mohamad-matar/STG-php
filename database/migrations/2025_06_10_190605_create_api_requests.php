@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trips', function (Blueprint $table) {
+        Schema::create('api_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->string('note', 1000)->nullable();
-            $table->foreignId('provider_id')->constrained();
-
+            $table->string('title' , 50);
+            $table->enum('method', ['get' ,'post' ,'put', 'delete']);
+            $table->string('path');
+            $table->string('params',2000)->nullable();
+            $table->foreignId('api_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trips');
+        Schema::dropIfExists('api_requests');
     }
 };
