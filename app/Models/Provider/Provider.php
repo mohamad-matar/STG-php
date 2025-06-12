@@ -4,9 +4,7 @@ namespace App\Models\Provider;
 
 use App\Models\Admin\Service;
 use App\Models\Contact;
-use App\Models\Image;
 use App\Models\Place;
-use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -16,6 +14,10 @@ class Provider extends Model
         'type' ,
         'value' ,
     ];
+
+    function api(){
+        return $this->hasOne(Api::class);
+    }
     function place(){
         return $this->belongsTo(Place::class);
     }    

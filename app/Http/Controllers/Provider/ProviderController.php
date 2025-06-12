@@ -12,8 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-use function PHPUnit\Framework\isEmpty;
-
 class ProviderController extends Controller
 {
 
@@ -94,7 +92,7 @@ class ProviderController extends Controller
         if($request->services){
             $currProvider->services()->sync($validated['services']);
         }
-        return back()->with('success', 'Setting update successfully');
+        return back()->with('success', 'تم حفظ الإعدادات بنجاح');
     }
 
     function accept(Provider $provider)

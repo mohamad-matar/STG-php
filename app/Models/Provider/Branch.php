@@ -3,9 +3,7 @@
 namespace App\Models\Provider;
 
 use App\Models\Contact;
-use App\Models\Image;
 use App\Models\Place;
-use App\Models\Province;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 

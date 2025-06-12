@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\Provider\ApiController;
+use App\Http\Controllers\Provider\ApiRequestController;
 use App\Http\Controllers\Provider\ProviderController;
 use App\Http\Controllers\Provider\BranchController;
 use App\Http\Controllers\Provider\ProviderShowController;
@@ -24,4 +26,10 @@ Route::middleware(['auth', 'user-type:provider'])->prefix('provider/')->name('pr
 
     Route::get('places', [PlaceController::class , 'create'])->name('places.create');
     Route::post('places', [PlaceController::class, 'store'])->name('places.store');;
+
+
+    Route::get('api-edit', [ApiController::class, 'edit'])->name('api.edit');
+    Route::put('api-update', [ApiController::class, 'update'])->name('api.update');
+
+    Route::resource('api-request', ApiRequestController::class);
 });
