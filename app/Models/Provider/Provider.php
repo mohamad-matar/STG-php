@@ -24,8 +24,6 @@ class Provider extends Model
     function providerShows(){
         return $this->hasMany(providerShow::class);
     }    
-<<<<<<< HEAD
-=======
     function branches(){
         return $this->hasMany(Branch::class);
     }
@@ -46,6 +44,5 @@ class Provider extends Model
     {
         return $this->morphMany(Contact::class, 'owner');
     }
->>>>>>> ba61e373a6f28c91ffad29a7e3edcd5f493b2a8e
 }
  

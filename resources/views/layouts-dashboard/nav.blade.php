@@ -12,34 +12,20 @@
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <span class="text-dark fs-2">
-<<<<<<< HEAD
-                            @if (auth()->user()->type == 'admin')
-                            المدير العام للموقع
-                            @elseif (auth()->user()->type == 'provider')
-                            {{ auth()->user()->provider->name_ar }}
-                            @endif
-                    </span>
-=======
                         @if (auth()->user()->type == 'admin')
                         المدير العام للموقع
                         @elseif (auth()->user()->type == 'provider')
                         {{ auth()->user()->provider->name_ar }}
                         @endif
                 </span>
->>>>>>> ba61e373a6f28c91ffad29a7e3edcd5f493b2a8e
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">                   
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a class="dropdown-item fs-4" href="{{ route('logout') }}"
                             onclick="event.preventDefault();this.closest('form').submit();">
-<<<<<<< HEAD
-                            <i class="align-middle" data-feather="log-out"></i>
-                            <span class="ms-auto">خروج</span>
-=======
                             <i class="align-middle me-1" data-feather="log-out"></i>
                             <span>خروج</span>                            
->>>>>>> ba61e373a6f28c91ffad29a7e3edcd5f493b2a8e
                         </a>
                     </form>
                 </div>

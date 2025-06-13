@@ -22,7 +22,7 @@ class TripDetailsDetail extends Controller
        
         TripDetail::create($validated);        
         
-        return to_route('provider.trips.index')->with('success', 'تم  إضافة الرحلة بنجاح');
+        return to_route('provider.trips.show')->with('success', 'تم  إضافة الرحلة بنجاح');
     }
 
    
