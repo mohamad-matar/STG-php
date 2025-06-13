@@ -21,7 +21,8 @@ class PlaceSeeder extends Seeder
                 'name_en' => 'Arnos',
                 'description_ar' => 'أسواق - مطاعم - حلويات',
                 'description_en' => 'market - restuarant - desert',
-                'province_id' => 1, 
+                'province_id' => 1,
+                'image_id' => 1,
                 'created_by' => 1,
             ],
             [
@@ -31,6 +32,7 @@ class PlaceSeeder extends Seeder
                 'description_ar' => 'قلعة أئرية بنيت زمان الرومان',
                 'description_en' => 'Old Castel ',
                 'province_id' => 2,
+                'image_id' => 1,
                 'created_by' => 1,
             ],
             [
@@ -40,11 +42,12 @@ class PlaceSeeder extends Seeder
                 'description_ar' => 'قريبة من العاصمة مطلة على نهر ',
                 'description_en' => 'Near to Damas ..',
                 'province_id' => 1,
+                'image_id' => 1,
                 'created_by' => 1,
             ],
         ];
         Place::insert($places);
-        Place::find(1)->categories()->attach([8,9,10]);
+        Place::find(1)->categories()->attach([1]);
         Place::find(2)->categories()->attach(2);
         Place::find(3)->categories()->attach(5);
     }
