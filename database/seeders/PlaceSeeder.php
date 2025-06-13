@@ -25,11 +25,22 @@ class PlaceSeeder extends Seeder
                 'image_id' => 1,
                 'created_by' => 1,
             ],
+            [
+                'id' => 11,
+                'name_ar' => 'أماكن طبيعية ',
+                'name_en' => 'natural places',
+                'description_ar' => 'مغارة ',
+                'description_en' => 'mosa',
+                'province_id' => 1,
+                'image_id' => 11,
+                'created_by' => 1,
+            ],
         ];
         Place::insert($places);
 
 
         Place::find(1)->categories()->attach([1]);
+        Place::find(11)->categories()->attach([4]);
         
     }
 }

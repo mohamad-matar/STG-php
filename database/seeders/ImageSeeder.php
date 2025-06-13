@@ -15,6 +15,7 @@ class ImageSeeder extends Seeder
     {
         $images = [
             ['id' => 1 ,'name' => 'images/places/1.jpg', 'type' => 'places',],
+            ['id' => 11 ,'name' => 'images/places/11.jpg', 'type' => 'places',],
             
 
             ['id' => 2 ,'name' => 'images/place-shows/2.jpg', 'type' => 'places-shows',],
@@ -26,6 +27,13 @@ class ImageSeeder extends Seeder
             ['id' => 8 ,'name' => 'images/place-shows/8.jpg', 'type' => 'places-shows',],
             ['id' => 9 ,'name' => 'images/place-shows/9.jpg', 'type' => 'places-shows',],
             ['id' => 10 ,'name' => 'images/place-shows/10.jpg', 'type' => 'places-shows',],
+            
+            ['id' => 12 ,'name' => 'images/place-shows/12.jpg', 'type' => 'places-shows',],
+            ['id' => 13 ,'name' => 'images/place-shows/13.jpg', 'type' => 'places-shows',],
+            ['id' => 14 ,'name' => 'images/place-shows/14.jpg', 'type' => 'places-shows',],
+            ['id' => 15 ,'name' => 'images/place-shows/15.jpg', 'type' => 'places-shows',],
+            ['id' => 16 ,'name' => 'images/place-shows/16.jpg', 'type' => 'places-shows',],
+            ['id' => 17 ,'name' => 'images/place-shows/17.jpg', 'type' => 'places-shows',],
 
             
             // ['id' => 3 ,'name' => 'images/provider-cover/1.jpg', 'type' => 'provider-cover',],
