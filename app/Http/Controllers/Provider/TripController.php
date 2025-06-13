@@ -26,7 +26,8 @@ class TripController extends Controller
     public function show(Trip $trip)
     {
         $places = Place::get(["id", "name_ar as name"]);
-        return  view('dashboard.trips.show', compact('trip' , 'places'));
+        $tripDetails =  $trip->tripDetails()->orderby('start_date')->get();
+        return  view('dashboard.trips.show', compact('trip' , 'places' , 'tripDetails'));
     }
 
     function create()

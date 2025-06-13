@@ -8,6 +8,7 @@ use App\Http\Controllers\Provider\BranchController;
 use App\Http\Controllers\Provider\ProviderShowController;
 use App\Http\Controllers\Provider\BranchShowController;
 use App\Http\Controllers\Provider\TripController;
+use App\Http\Controllers\Provider\TripDetailsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,7 +22,7 @@ Route::middleware(['auth', 'user-type:provider'])->prefix('provider/')->name('pr
     Route::resource('branch-shows', BranchShowController::class)->only('store', 'update', 'destroy');
 
     Route::resource('trips', TripController::class);
-    Route::resource('trip-details', TripController::class);
+    Route::resource('trip-details', TripDetailsController::class)->only('store', 'update', 'destroy');
 
 
     Route::get('places', [PlaceController::class , 'create'])->name('places.create');

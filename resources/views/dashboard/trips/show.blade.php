@@ -6,74 +6,80 @@
     </div>
 
     <div class="container">
-        <form action="" id="change-form">
-            <table id="trip-rows" class="table table-bordered table-striped table-hover table-condensed">
-                <tr class="table-secondary">
-                    <th> العنوان </th>
-                    <th> تاريخ البدء</th>
-                    <th> تاريخ الانتهاء </th>
-                    <th> المكان </th>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p> {{ $error }} </p>
+            @endforeach
+        @endif
+        <table id="trip-rows" class="table table-condensed ">
+            <tr class="table-secondary">
+                <th> العنوان </th>
+                <th> تاريخ البدء</th>
+                <th> تاريخ الانتهاء </th>
+                <th> المكان </th>
 
-                    <th> ملاحظة </th>
-                    <th> الوظائف</th>
-                </tr>
+                <th> ملاحظة </th>
+                <th> الوظائف</th>
+            </tr>
 
-                @foreach ($trip->tripDetails as $tripDetail)
-                    <tr>
-                        <td>{{ $tripDetail->title }}</td>
-                        <td>{{ $tripDetail->start_date }}</td>
-                        <td>{{ $tripDetail->end_date }}</td>
-                        <td>{{ $tripDetail->place->name_ar }}</td>
-                        <td>{{ $tripDetail->note }}</td>
+            @foreach ($tripDetails as $tripDetail)
+                <tr class="">
+                    <form action="{{ route('provider.trip-details.update', $tripDetail) }}" method="post">
+                        @csrf
+                        @method('put')
+                        <input type="hidden" name="trip_id" value={{ $trip->id }}>
+                        <td> <x-input-sm name="title" :dbValue="$tripDetail->title" /> </td>
+                        <td><x-input-sm name="start_date" :dbValue="$tripDetail->start_date" class="datetimepicker"/></td>
+                        <td><x-input-sm name="end_date" :dbValue="$tripDetail->end_date" class="datetimepicker" /></td>
+                        <td><x-select-sm name="place_id" label="مكان" :dbValue="$tripDetail->place_id" :options="$places" /></td>
+                        <td><x-input-sm name="note" :dbValue="$tripDetail->note" /></td>
+
                         <td class="text-nowrap text-center">
-                            <button class="btn btn-outline-info" onclick="">
-                                <i data-feather="edit"></i>
-                            </button>
-                            <form action="{{ route('provider.trip-details.destroy', $tripDetail) }}" method="post"
-                                class="d-inline-block"
-                                onsubmit="return  confirm('Are you sure to delete {{ $tripDetail->title }}')">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-sm btn-outline-danger"><i data-feather="trash"></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-        </form>
-    </div>
+                            <button class="btn btn-primary me-1">حفظ </button>
+                    </form>
+                    <form action="{{ route('provider.trip-details.destroy', $tripDetail) }}" method="post" autocomplete="off"
+                        class="d-inline-block"
+                        onsubmit="return  confirm('Are you sure to delete {{ $tripDetail->title }}')">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger">حذف</button>
+                    </form>
+                    </td>
+                </tr>
+            @endforeach
+            <tr class="">
+                <form action="{{ route('provider.trip-details.store') }}" method="post" autocomplete="off">
+                    @csrf
+                    <input type="hidden" name="trip_id" value={{ $trip->id }}>
 
-    <div>
-        <table id="trip-rows">
-            {{-- <tbody id="trip-rows"> --}}
-            <tr class="template d-none">
-                <td><x-input label="" name="title" col="12" /> </td>
-                <td><x-input label="" name="start_date" col="12" /> </td>
-                <td><x-input label="" name="end_date" col="12" /> </td>
-                <td><x-select label="" name="place" :options="$places" col="12" /> </td>
-                <td><x-input label="" name="note" col="12" /> </td>
-                <td class="text-nowrap text-center">
-                    <button class="btn btn-outline-secondary" type="button" onclick="killMe(this)">-</button>
-                    <button class="btn btn-secondary">إضافة </button>
-                </td>
+                    <td><x-input-sm name="title" /> </td>
+                    <td><x-input-sm name="start_date" class="datetimepicker" /></td>
+                    <td><x-input-sm name="end_date" class="datetimepicker" /></td>
+                    <td><x-select-sm name="place_id" label="مكان" :options="$places" /></td>
+                    <td><x-input-sm name="note" /></td>
+                    <td class="text-nowrap text-center">
+                        <button class="btn btn-success">إضافة </button>
+                    </td>
 
+                </form>
             </tr>
         </table>
     </div>
 @endsection
+
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets-dashboard/datetime-picker/datetime-picker.css') }}">
+@endpush
+
+
 @push('js')
-    <script>
-        function killMe(btn) {
-            btn.parentNode.parentNode.remove()
-        }
 
-        function addRow() {
-            const row = document.querySelector('.template').cloneNode(true)
-            row.classList.remove('template')
-            row.classList.remove('d-none')
-            const tbl = document.getElementById('trip-rows').appendChild(row)
+<script src="{{ asset('assets/animatNumbers/jquery3.7.1.js') }}"></script>
+<script src="{{ asset('assets-dashboard/datetime-picker/datetime-picker.js') }}"></script>
 
-            document.getElementById("change-form").action = "{{ route('provider.trip-details.store') }}"
-        }
-    </script>
+<script>
+    $(".datetimepicker").each(function () {
+        $(this).datetimepicker();
+    });
+</script>
 @endpush

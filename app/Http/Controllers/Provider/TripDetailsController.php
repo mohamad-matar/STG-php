@@ -6,51 +6,49 @@ use App\Http\Controllers\Controller;
 use App\Models\Provider\TripDetail;
 use Illuminate\Http\Request;
 
-class TripDetailsDetail extends Controller
+class TripDetailsController extends Controller
 {     
 
     function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|max:100',
-            'start_date' =>  'required|datetime',
-            'end_date' => 'nullable:datetime',
+            'start_date' =>  'required|date_format:Y-m-d H:i:s',
+            'end_date' => 'nullable:date_format:Y-m-d H:i:s',
             'note' =>  'nullable|max:1000',
-            'trip_id' => 'required|exist:trips,id',
-            'place_id' => 'required|exist:places,id' 
+            'trip_id' => 'required|exists:trips,id',
+            'place_id' => 'required|exists:places,id' 
         ]);
        
         TripDetail::create($validated);        
         
-        return to_route('provider.trips.show')->with('success', 'تم  إضافة الرحلة بنجاح');
+        return to_route('provider.trips.show', $validated['trip_id'])->with('success', 'تم  إضافة الرحلة بنجاح');
     }
 
    
-    function update(Request $request , TripDetail $trip)
+    function update(Request $request , TripDetail $tripDetail)
     {
         $validated = $request->validate([
             'title' => 'required|max:100',
-            'start_date' =>  'required|datetime',
-            'end_date' => 'nullable:datetime',
+            'start_date' =>  'required|date',
+            'end_date' => 'nullable:date',
             'note' =>  'nullable|max:1000',
-            'trip_id' => 'required|exist:trips,id',
-            'place_id' => 'required|exist:places,id'
+            'trip_id' => 'required|exists:trips,id',
+            'place_id' => 'required|exists:places,id'
         ]);
-        
-        $trip->update($validated);
 
-        return to_route('provider.trips.index')->with('success', 'تم  تعديل الرحلة بنجاح');        
+        $tripDetail->update($validated);
+
+        return to_route('provider.trips.show' , $validated['trip_id'] )->with('success', 'تم  تعديل  جزء الرحلة بنجاح');        
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TripDetail $trip)
+    public function destroy(TripDetail $tripDetail)
     {
-        if ($trip->tripDetails)
-            return back()->with('error', 'لا يمكن محي الرحلة قبل محي تفاصيلها');
 
-        $trip->delete();
+        $tripDetail->delete();
 
-        return back()->with('success', 'تم حذف الرحلة بنجاح');
+        return back()->with('success', 'تم حذف جزء الرحلة بنجاح');
     }
 }
