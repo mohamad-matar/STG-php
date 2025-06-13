@@ -17,6 +17,7 @@ return [
     'password' => 'كلمة المرور',
     'password-confirmation' => 'تأكيد كلمة المرور',
     'remember' => 'تذكرني',
+    'log-out' => 'خروج',
     'login-btn' => 'تسجيل دخول',
     'register-btn' => 'إنشاء حساب',
     'back' => 'عودة',
@@ -56,11 +57,9 @@ return [
     'about-ste' => 'حول الدليل',
     'follow' => 'تابعونا',
 
-
     'guide-news' => 'أخبار الدليل',
 
     'choose-type' => 'اختر تصنيف',
-
 
     'news' =>  'أخبار|خبر',
     'comment' =>  'تعليقات|تعليق',

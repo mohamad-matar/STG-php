@@ -15,6 +15,7 @@ class ImageSeeder extends Seeder
     {
         $images = [
             ['id' => 1 ,'name' => 'images/places/1.jpg', 'type' => 'places',],
+            
             ['id' => 2 ,'name' => 'images/places-shows/1.jpg', 'type' => 'places-shows',],
             
             ['id' => 3 ,'name' => 'images/provider-cover/1.jpg', 'type' => 'provider-cover',],

@@ -36,9 +36,8 @@ class ProviderController extends Controller
 
     function edit()
     {
-        $currUser = User::find(Auth::user()->id);
-        if (! $provider = $currUser->provider)
-            $provider =  $currUser->provider()->create([]);
+        $provider = Auth::user()->provider; 
+        // return $provider;      
         $contacts = $provider->contacts;        
         $places = Place::get(["id" , "name_ar as name"]);
         $services = Service::all();
@@ -65,11 +64,11 @@ class ProviderController extends Controller
             'services' => 'nullable|array',
             'services.*' => 'required|exists:services,id',
         ]);
+        $provider = Auth::user()->provider;
 
-        $currProvider = User::find(Auth::user()->id)->provider;
         $oldImage = null;
         if ($request->hasFile('image_id')) {
-            $oldImage =  Image::find($currProvider->image_id);
+            $oldImage =  Image::find($provider->image_id);
             if ($oldImage) {
                 Storage::disk('public')->delete($oldImage->name);
                 $oldImage->delete();
@@ -77,12 +76,12 @@ class ProviderController extends Controller
             $validated['image_id'] = saveImg("provider-cover", $request->file('image_id'));
         }
 
-        $currProvider->update($validated);
+        $provider->update($validated);
         
         if($request->contactType){
-            $currProvider->contacts()->delete();
+            $provider->contacts()->delete();
                 foreach($validated['contactType'] as $i => $contactType){
-                $currProvider->contacts()->create([
+                $provider->contacts()->create([
                     'type' => $contactType,
                     'value' => $validated['contactValue'][$i]
                 ]);
@@ -90,7 +89,7 @@ class ProviderController extends Controller
         }
         
         if($request->services){
-            $currProvider->services()->sync($validated['services']);
+            $provider->services()->sync($validated['services']);
         }
         return back()->with('success', 'تم حفظ الإعدادات بنجاح');
     }

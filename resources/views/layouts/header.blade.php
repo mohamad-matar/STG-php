@@ -51,7 +51,7 @@
                                             @csrf
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();this.closest('form').submit();">
-                                                <i class="align-middle me-1" data-feather="log-out"></i>{{ __('Log Out') }}
+                                                <i class="align-middle me-1" data-feather="log-out"></i>{{ __('stg.log-out') }}
                                             </a>
                                         </form>
                                     </li>

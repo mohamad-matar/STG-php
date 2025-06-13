@@ -27,26 +27,27 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    // public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        $validated = $request->validate([
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'type' => 'required|in:tourist,provider'
         ]);
+        $validated['password'] = Hash::make($request->password);
+        // return $request->all();
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = User::create($validated);
 
         event(new Registered($user));
-
+        $userType = $user->type;
         Auth::login($user);
-        $userType = Auth::user()->type;
-        if ($userType == 'provider')
+        
+        if ($userType == 'provider'){
+            $user->provider()->create([]);
             $route = 'dashboard';
+        }
         elseif ($userType == 'tourist')
             $route = 'home.index';
 

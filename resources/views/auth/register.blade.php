@@ -5,6 +5,9 @@
 
 <body dir="@lang('stg.dir')">
     <main>
+        @foreach ($errors->all() as $error )
+            {{ $error }}
+        @endforeach
         <div class="form-container d-flex justify-content-center align-items-center mt-3">
 
             <div class="bg-white col-sm-10 col-md-8 col-lg-6 mx-auto border border-1 border-success m-2 px-5 py-1">

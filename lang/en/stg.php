@@ -19,6 +19,7 @@ return [
     'password' => 'Password',
     'password-confirmation' => 'password confirmation',
     'remember' => 'Remember me',
+    'log-out' => 'Log Out',
     'login-btn' => 'Login',
     'register-btn' => 'Register',
     'back' => 'Back',
