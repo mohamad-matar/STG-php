@@ -11,14 +11,21 @@
                 </a>
 
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                    <span class="text-dark">{{ auth()->user()->email }}</span>
+                    <span class="text-dark fs-2">
+                        @if (auth()->user()->type == 'admin')
+                        المدير العام للموقع
+                        @elseif (auth()->user()->type == 'provider')
+                        {{ auth()->user()->provider->name_ar }}
+                        @endif
+                </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">                   
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item fs-4" href="{{ route('logout') }}"
                             onclick="event.preventDefault();this.closest('form').submit();">
-                            <i class="align-middle me-1" data-feather="log-out"></i>{{ __('Log Out') }}
+                            <i class="align-middle me-1" data-feather="log-out"></i>
+                            <span>خروج</span>                            
                         </a>
                     </form>
                 </div>

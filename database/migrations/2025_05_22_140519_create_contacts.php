@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cards', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->string('description', 500);
-            $table->string('image',100);
-            $table->foreignId('provider_id')->constrained();
-            $table->foreignId('image_id')->nullable()->constrained();
+            $table->enum('type', ['landphone' , 'mobile' , 'whatsapp' , 'telegram']);
+            $table->string('value', 100);
+            $table->foreignId('owner_id');
+            $table->string('owner_type' );
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('contacts');
     }
 };

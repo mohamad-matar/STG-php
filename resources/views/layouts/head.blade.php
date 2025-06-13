@@ -31,6 +31,8 @@
     <!--====== aos custom ======-->
     <link rel="stylesheet" href="{{ asset('assets/custom/custom.css') }}">
    
+    @stack('css')
+
     <title>  @lang("stg." . config('app.name', 'stg')) | @yield('title')  </title>
 
 </head>

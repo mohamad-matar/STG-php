@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Category;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,8 +12,12 @@ class Place extends Model
     use HasFactory;
     protected $fillable = [
         'name_ar',
-        'name_en',        
-        'province_id'
+        'name_en',
+        'description_ar',
+        'description_en',
+        'image_id',
+        'province_id',
+        'created_by',
     ];
 
     function placeShows(){
@@ -21,5 +26,18 @@ class Place extends Model
 
     function province(){
         return $this->belongsTo(Province::class);
+    }
+
+    function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+    function user()
+    {
+        return $this->belongsTo(User::class , 'created_by');
     }
 }

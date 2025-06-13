@@ -6,6 +6,10 @@ return [
     'dir' => 'ltr',
     'align' => 'left',
 
+    'more' => 'More',
+    'detail-imgs' => 'Detail images',
+
+
     /**login - sign up */
     'login-title' => 'Login to Syrian Tour Guide',
     'register-title' => 'Create new Account at Syrian Tour Guide',
@@ -21,7 +25,7 @@ return [
     'have-account' => 'Have account',
     'create-account' => 'Create new account',
 
-    'dashboard' => 'dashboard',
+    'dashboard' => 'Dashboard',
 
     /** intefaces */
     'readmore' => 'read more',
@@ -64,4 +68,8 @@ return [
     'comment' => 'comment|comments',
     'vacancy' => 'vacancy|vacancies',
     'page' => 'page|pages',
+
+    'places' => 'places',
+    'all' => 'All',
+
 ];

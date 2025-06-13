@@ -18,9 +18,13 @@ return new class extends Migration
             $table->string('description_ar', 400)->nullable();;
             $table->string('description_en' , 400)->nullable();;
             $table->string('license_number', 50)->nullable();;
-            $table->boolean('verfication_status')->default(false);
+            
+            $table->boolean('accepted')->default(false);
+            
             $table->foreignId('user_id')->unique()->constrained();
-            $table->foreignId('image_id')->nullable()->constrained();
+            $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;
+            
+            $table->foreignId('place_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-    Schema::create('places', function (Blueprint $table) {          
+        Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->string('name_ar', 50)->index();
             $table->string('name_en', 50)->index();
+            $table->string('description_ar', 400)->nullable()->index();
+            $table->string('description_en', 400)->nullable()->index();            
+
             $table->foreignId('province_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('created_by')->nullable()->constrained('users' , 'id')->onDelete('set null');
             $table->timestamps();
         });
     }

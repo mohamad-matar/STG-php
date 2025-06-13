@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name_ar', 50)->index();
             $table->string('name_en', 50)->index();
-            $table->string('description_ar', 400);
-            $table->string('description_en' , 400);
-           
+
             $table->foreignId('provider_id')->constrained();
-            $table->foreignId('image_id')->nullable()->constrained();
-            $table->foreignId('place_id')->nullable()->constrained();
+            $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;
             $table->timestamps();
         });
     }
