@@ -41,11 +41,15 @@ class ProviderController extends Controller
     function show(Provider $provider)
     {
         $locale =   app()->getLocale();
-        $place = Provider::where('id', $provider->id)->select("id", "name_$locale as name", "description_$locale as description", "image_id")
-            ->with(['placeShows' => function ($q) use ($locale) {
+        $provider = Provider::where('id', $provider->id)->select("id", "name_$locale as name", "description_$locale as description", "image_id", "place_id")
+            ->with(['providerShows' => function ($q) use ($locale) {
                 return $q->select("name_$locale as name", "image_id", "provider_id");
-            }])->first();
+            }])
+            ->with(['branches' => function ($q) use ($locale) {
+                return $q->select("name_$locale as name", "image_id", "provider_id");
+            }])
+            ->first();        
 
-        return view('home.providers.show', compact('place'));
+        return view('home-provider.show', compact('provider'));
     }
 }
