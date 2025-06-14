@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tourists;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Service;
+use App\Models\Provider\Provider;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -35,5 +36,16 @@ class ProviderController extends Controller
         // return $providers;
 
         return view('home-provider.index', compact('providers', 'serviceName', 'service_id', 'search'));
+    }
+    
+    function show(Provider $provider)
+    {
+        $locale =   app()->getLocale();
+        $place = Provider::where('id', $provider->id)->select("id", "name_$locale as name", "description_$locale as description", "image_id")
+            ->with(['placeShows' => function ($q) use ($locale) {
+                return $q->select("name_$locale as name", "image_id", "provider_id");
+            }])->first();
+
+        return view('home.providers.show', compact('place'));
     }
 }

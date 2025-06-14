@@ -16,22 +16,22 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}">@lang('stg.home')</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.restaurant', 2)</a>
+                            <a class="nav-link" href="{{ route('home.providers.index' , ['service_id' => 1 ]) }}">@choice('stg.restaurant', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@choice('stg.hotel', 2)</a>
+                            <a class="nav-link" href="{{ route('home.providers.index' , ['service_id' => 2 ]) }}">@choice('stg.hotel', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 1 ]) }}">@choice('stg.religious', 2)</a>
+                            <a class="nav-link" href="{{ route('home.places.index' , ['category_id' => 1 ]) }}">@choice('stg.religious', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 2 ]) }}">@choice('stg.monument', 2)</a>
+                            <a class="nav-link" href="{{ route('home.places.index' , ['category_id' => 2 ]) }}">@choice('stg.monument', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 3 ]) }}">@choice('stg.cultural', 2)</a>
+                            <a class="nav-link" href="{{ route('home.places.index' , ['category_id' => 3 ]) }}">@choice('stg.cultural', 2)</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home.placeSearch' , ['category_id' => 4 ]) }}">@choice('stg.natural', 2)</a>
+                            <a class="nav-link" href="{{ route('home.places.index' , ['category_id' => 4 ]) }}">@choice('stg.natural', 2)</a>
                         </li>                       
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
