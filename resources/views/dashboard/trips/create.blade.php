@@ -12,7 +12,7 @@
         
         <div class="text-center my-2">
             <button class="btn btn-secondary">إضافة رحلة </button>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary">رجوع</a>
+            <a href="{{ route('provider.trips.index') }}" class="btn btn-outline-secondary">رجوع</a>
         </div>
 
     </form>

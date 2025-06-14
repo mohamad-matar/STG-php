@@ -15,14 +15,15 @@
 
         <x-image-upload name="image_id" label="ًصورة الغلاف" :dbValue="$branch->image_id" />
 
-        <h4 class="text-success fs-3">معلومات التواصل
-            <button type="button" class="btn btn-success" onclick="addContact()">+</button>
-        </h4>
+        <h4 class="text-success fs-3">معلومات التواصل</h4>
         
         <div id="contacts-wrapper">
             <x-contacts-edit :contacts="$contacts" />
         </div>
-
+        <div>
+            <button type="button" class="btn btn-success" onclick="addContact()">إضافة جهة اتصال</button>
+        </div>
+        
         <div class="text-center my-2">
             <button class="btn btn-secondary">حفظ الفرع </button>
             <a href="{{ route('provider.branches.index') }}" class="btn btn-outline-secondary">رجوع</a>
