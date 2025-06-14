@@ -16,7 +16,7 @@
                     <form action="{{ route('home.placeSearch') }}" class="d-flex w-100">
                         <input type="text" name="search" class="w-100" placeholder="Search..." id="searchInput">
                         <input type="hidden" name="category_id" value="{{ $category_id }}">
-                        <button class="btn btn-success" onclick="searchItems()">Search</button>
+                        <button class="btn btn-success">Search</button>
                     </form>
                 </div>
             </div>
