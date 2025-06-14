@@ -19,15 +19,16 @@ class HomeController extends Controller
     {
         $locale =   app()->getLocale();
 
+        $search = $request->search;
+
         $category_id = $request->category_id;
         if ($category_id) {
             $category = Category::find($category_id);
             $name = "name_$locale";
             $categoryName = $category->$name;
 
-            $search = $request->search;
             $places = $category->places()
-                ->select("id", "name_$locale as name", "description_$locale as description", "province_id" ,"image_id")
+                ->select("id", "name_$locale as name", "description_$locale as description", "province_id", "image_id")
                 ->when($search, function ($q) use ($search) {
                     return $q->where('name_ar',  'like', "%$search%")
                         ->orWhere('name_en',  'like', "%$search%")
@@ -36,10 +37,12 @@ class HomeController extends Controller
                 })
                 ->with('province')
                 ->get();
-        }
+        } else
+            return redirect()->route('home.index')->with('error', '');
+
         // return $places;
 
-        return view('home.place', compact('places', 'categoryName' , 'category_id' , 'search'));
+        return view('home.place', compact('places', 'categoryName', 'category_id', 'search'));
     }
 
     function showPlace($place_id)

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Provider\Provider;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,6 +24,7 @@ class ProviderSeeder extends Seeder
         ];
          
         User::create($providerUser)->provider()->create([
+            'id' => 1,
             'name_ar' => 'مطعم دمشق',
             'name_en' => 'Damas restuarant',
             'description_ar' => ' مطعم مميز باكلاته الشرقية وأسعاره المناسبة',
@@ -31,6 +33,7 @@ class ProviderSeeder extends Seeder
             'image_id' =>  1,
             'place_id' => 1,
         ]);
+        Provider::find(1)->services()->attach([1]);
             
         $tourist = [
             'email' => 't@t.com',

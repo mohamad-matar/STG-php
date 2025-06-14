@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(ImageSeeder::class);
-        $this->call(SettingSeeder::class);
+        $this->call(ServiceSeeder::class);
         $this->call(ProvinceSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(UserSeeder::class);
         $this->call(PlaceSeeder::class);
         $this->call(PlaceShowSeeder::class);
         $this->call(ProviderSeeder::class);
-        $this->call(ServiceSeeder::class);
+        $this->call(SettingSeeder::class);
     }
 }

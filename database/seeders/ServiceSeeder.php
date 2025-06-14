@@ -14,10 +14,10 @@ class ServiceSeeder extends Seeder
     public function run(): void
     {
         $services = [
-            ['name' => 'مطاعم'],
-            ['name' => 'فنادق'],
-            ['name' => 'منتزهات'],
-            ['name' => 'سباحة'],            
+            ['id' => 1,'name_ar' => 'مطاعم', 'name_en' => 'Restaurants'],
+            ['id' => 2,'name_ar' => 'فنادق', 'name_en' => 'Hotels'],
+            ['id' => 3,'name_ar' => 'منتزهات', 'name_en' => 'Parks'],
+            ['id' => 4,'name_ar' => 'سباحة', 'name_en' => 'Swim'],
         ];
         Service::insert($services);
     }
