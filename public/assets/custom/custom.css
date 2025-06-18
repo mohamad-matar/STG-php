@@ -510,3 +510,35 @@ nav .navlink.show {
 	height: 50vh;
 	object-fit: cover;
 }
+#trips {
+	min-height: 60vh;
+}
+.trip-item> * {
+	color: #105021;
+	text-align: center;
+}
+
+.trip-item a {
+	color: #fff;
+}
+
+.trip-item {
+	text-align: center;
+	background: #fff;
+	padding: 50px 20px;
+	border: 1px solid var(--color-grey-2);
+	box-shadow: 0px 3px 35px rgba(218, 222, 228, 0.3);
+	border-radius: 20px;
+}
+
+.trip-item:hover {
+	background: #8bc59b;
+}
+
+.trip-item:hover > * {
+	color : #fff
+}
+.trip-item:hover a {
+	font-weight: 600;
+	box-shadow: 2px 2px 5px grey;
+}

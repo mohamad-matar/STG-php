@@ -34,7 +34,7 @@ Route::prefix('home/')->name('home.')->group(
         Route::get('branches/{branch}', [ProviderController::class, 'branchShow'])->name('branches.show');
 
 
-        Route::get('trips/', [TripController::class, 'index'])->name('trips.index');
+        Route::get('trips', [TripController::class, 'index'])->name('trips.index');
+        Route::get('trips/{trip}', [TripController::class, 'show'])->name('trips.show');
     }
-
 );

@@ -49,6 +49,12 @@ return [
     /** most popular */
     'popular' => 'most popular attractions',
 
+    'trip-details' => 'Trip details',
+    'start' => 'Start date',
+    'end' => 'End date',    
+    'cost' => 'Cost',
+    'remain' => 'Remain count',
+
 
     /** footer */
     'interact' => 'Interact',

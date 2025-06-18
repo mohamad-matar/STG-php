@@ -15,6 +15,7 @@ class TripController extends Controller
         ->with('provider')
         ->where('start_date', '>', today())
         ->get();
-        return $trips;
+        // return $trips;
+        return view('trips.index', compact('trips'));
     }
 }
