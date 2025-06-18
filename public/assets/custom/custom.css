@@ -9,8 +9,8 @@
 	--color-basic-5: #0a902e;
 	--color-white: #fff;
 	--color-grey-0: #f8f8f8;
-	--color-grey-1: #ebebeb;
-	--color-grey-2: #d7d7d7;
+	--color-grey-1: #dde9e0;
+	--color-grey-2: #c7dece;
 	--color-grey-3: #7C869A;
 	--color-grey-4: #494e59;
 	--color-grey-6: #323232;
@@ -339,7 +339,11 @@ nav .navlink.show {
 	display: block;
 }
 
-
+.x{
+	display: fixed;
+	top: 300px;
+	left: 100px;
+}
 /* ********* tourist page ************/
 /* ===================================== */
 /* ************** cover-area *********** */
@@ -422,16 +426,22 @@ nav .navlink.show {
 
 .popular-img {
 	position: relative;
-	bottom: 15px;
+	bottom: 30px;
+	right: 15px;
 	overflow: hidden;
+	min-height: 300px;
+	z-index: 2;
 }
 
 .popular-content {
+	text-align: center;
 	position: relative;
-	top: 15px;
+	top: 30px;
+	left: 15px;
 	font-weight: 500;
 	font-size: 16px;
 	box-shadow: 1px 2px 5px var(--color-grey-1);
+	min-height: 300px;
 }
 
 .popular-img {
@@ -444,6 +454,10 @@ nav .navlink.show {
 	height: 310px;
 }
 
+
+.shadow-success {
+	box-shadow: 1px 1px 5px #014613;
+}
 @media(max-width:767px) {
 
 	.popular-content,
@@ -478,6 +492,10 @@ nav .navlink.show {
 	object-fit: cover;
 }
 
+.card-text {
+	text-align: center;
+}
+
 .main-img-wrapper img {
 	width: 90%;
 	height: 60vh;
@@ -485,62 +503,10 @@ nav .navlink.show {
 	margin: auto;
 }
 
-/* *************** provider **************** */
+
+/*** gallery *****/
 .cover {
 	width: 60%;
 	height: 50vh;
 	object-fit: cover;
-}
-
-/* provider show album */
-.gallery {
-	--s: 320px;
-	/* control the size */
-	--g: 8px;
-	/* control the gap */
-
-	display: grid;
-	grid: auto-flow var(--s)/repeat(2, var(--s));
-	gap: var(--g);
-}
-
-.gallery>img {
-	width: 100%;
-	aspect-ratio: 1;
-	cursor: pointer;
-	filter: grayscale();
-	z-index: 0;
-	transition: .25s, z-index 0s .25s;
-}
-
-.gallery>img:hover {
-	width: calc(200% + var(--g));
-	filter: grayscale(0);
-	z-index: 1;
-	--_c: 50%;
-	transition: .4s, z-index 0s;
-}
-
-.gallery>img:nth-child(1) {
-	clip-path: circle(var(--_c, 55% at 70% 70%));
-	place-self: start;
-}
-
-.gallery>img:nth-child(2) {
-	clip-path: circle(var(--_c, 55% at 30% 70%));
-	place-self: start end;
-}
-
-.gallery>img:nth-child(3) {
-	clip-path: circle(var(--_c, 55% at 70% 30%));
-	place-self: end start;
-}
-
-.gallery>img:nth-child(4) {
-	clip-path: circle(var(--_c, 55% at 30% 30%));
-	place-self: end;
-}
-
-.direction-left {
-	direction: ltr !important;
 }
