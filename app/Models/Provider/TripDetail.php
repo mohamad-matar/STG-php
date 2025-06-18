@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class TripDetail extends Model
 {       
     protected $fillable = [
-        'title',
+        'title_ar',
+        'title_en',
         'start_date',
         'end_date',
         'note',

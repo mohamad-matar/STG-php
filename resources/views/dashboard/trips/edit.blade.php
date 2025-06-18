@@ -11,6 +11,8 @@
         <x-input name="start_date" label="تاريخ البدء" :dbValue="$trip->start_date" class="datetimepicker" />
         <x-input name="end_date" label="تاريخ الانتهاء" :dbValue="$trip->end_date"  class="datetimepicker"/>
         
+        <x-input  type="number" name="count" :dbValue="$trip->count" label="العدد"  />
+
         <x-textarea  name="note" label="ملاحظات" :dbValue="$trip->note"/>
 
         <div class="text-center my-2">

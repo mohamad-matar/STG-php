@@ -4,6 +4,7 @@ use App\Http\Controllers\LangController;
 use App\Http\Controllers\Tourists\PlaceController;
 use App\Http\Controllers\Tourists\HomeController;
 use App\Http\Controllers\Tourists\ProviderController;
+use App\Http\Controllers\Tourists\TripController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,5 +32,9 @@ Route::prefix('home/')->name('home.')->group(
         Route::get('providers/{provider}', [ProviderController::class, 'show'])->name('providers.show');
 
         Route::get('branches/{branch}', [ProviderController::class, 'branchShow'])->name('branches.show');
+
+
+        Route::get('trips/', [TripController::class, 'index'])->name('trips.index');
     }
+
 );

@@ -32,7 +32,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home.places.index' , ['category_id' => 4 ]) }}">@choice('stg.natural', 2)</a>
-                        </li>                       
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home.trips.index') }}">@choice('stg.trip', 2)</a>
+                        </li>                                              
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">

@@ -31,6 +31,7 @@ class ProviderController extends Controller
                         ->orWhere('description_en',  'like', "%$search%");
                 })
                 ->with('place.province')
+                ->where('accepted' , '1')
                 ->get();
         } else
             return redirect()->route('home.index')->with('error' , '');

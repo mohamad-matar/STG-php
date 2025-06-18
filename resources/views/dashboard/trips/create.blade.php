@@ -4,10 +4,13 @@
 
     <form action="{{ route('provider.trips.store') }}" method="post" class="row" autocomplete="off">
         @csrf      
-        <x-input name="title" label="عنوان الرحلة" />
+        <x-input name="title_ar" label="عنوان الرحلة بالعربي" />
+        <x-input name="title_en" label="عنوان الرحلة بالانكليزي" />
         <div></div>
         <x-input name="start_date" label="تاريخ البدء" class="datetimepicker"  />
         <x-input name="end_date" label="تاريخ الانتهاء" class="datetimepicker" />
+
+        <x-input  type="number" name="count" label="العدد "  />
         <x-textarea  name="note" label="ملاحظات" />
         
         <div class="text-center my-2">

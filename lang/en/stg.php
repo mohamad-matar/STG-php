@@ -38,7 +38,7 @@ return [
     'home' => 'Home',
     'hotel' => 'Hotel|Hotels',
     'restaurant' => 'Restaurant|Restaurants',
-    'tour' => 'Tour|Tours',
+    'trip' => 'Trip|Trips',
     'monument' => 'Monument|Monuments',
     'religious' => 'Religious Monument|Religious Monuments',
     'cultural' => 'Cultural-Landmark|Cultural-Landmarks',
