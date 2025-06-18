@@ -16,27 +16,29 @@
         </div>
         <div class="gallery mx-auto direction-left">
             @endif
-            <img src="{{ getImgUrl($providerShow->image_id) }}"  alt="{{ getImgUrl($providerShow->image_id) }}">
+            <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
             @endforeach
         </div>
     </div>
     <div id="provider-branch" class="container text-center mt-5">
-        <h4>الفروع</h4>
+        <h2 class="text-success my-5">الفروع</h2>
+
     </div>
 
-    <div class="row" id="results">
-        @foreach ($provider->branches as $branch)
-            <div class="col-md-3 p-1">
-                <div class="card">
-                    <img src="{{ getImgUrl($branch->image_id) }}" class="card-img-top"
-                        alt="{{ getImgUrl($branch->image_id) }}">
-                    <div class="card-body">
+    <div class="container">
+        <div class="row" id="results">
+            @foreach ($provider->branches as $branch)
+                <div class="col-md-3 p-1">
+                    <div class="card">
+                        <img src="{{ getImgUrl($branch->image_id) }}" class="card-img-top"
+                            alt="{{ getImgUrl($branch->image_id) }}">
+                        <div class="card-body">
 
-                        <a href="{{ route('home.branchs.show', $branch) }}" class="text-success">@lang('stg.more')</a>
+                            <a href="{{ route('home.branches.show', $branch) }}" class="text-success">@lang('stg.more')</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
     </div>
 @endsection

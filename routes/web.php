@@ -30,5 +30,6 @@ Route::prefix('home/')->name('home.')->group(
         Route::get('providers', [ProviderController::class,  'index'])->name('providers.index');
         Route::get('providers/{provider}', [ProviderController::class, 'show'])->name('providers.show');
 
+        Route::get('branches/{branch}', [ProviderController::class, 'branchShow'])->name('branches.show');
     }
 );
