@@ -28,8 +28,8 @@
                     <div class="card">
                         <img src="{{ getImgUrl($provider->image_id) }}" class="card-img-top"
                             alt="{{ getImgUrl($provider->image_id) }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $provider->name }}</h5>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-center">{{ $provider->name }}</h5>
                             <p class="card-text">{{ $provider->description }} </p>
                             <a href="{{ route('home.providers.show', $provider) }}" class="text-success">@lang('stg.more')</a>
                         </div>

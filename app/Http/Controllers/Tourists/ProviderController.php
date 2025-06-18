@@ -7,6 +7,7 @@ use App\Models\Admin\Service;
 use App\Models\Provider\Branch;
 use App\Models\Provider\Provider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class ProviderController extends Controller
 {
@@ -47,21 +48,22 @@ class ProviderController extends Controller
                 return $q->select("name_$locale as name", "image_id", "provider_id");
             }])
             ->with(['branches' => function ($q) use ($locale) {
-                return $q->select("id" , "name_$locale as name", "image_id", "provider_id");
+                return $q->select("id" , "name_$locale as name", "description_$locale as description", "image_id", "provider_id");
             }])
             ->first();        
 
         return view('home-provider.show', compact('provider'));
     }
     
-    function branchShow(Branch $branch)
+    function branchShow(Branch $branch , Request $request)
     {
         $locale =   app()->getLocale();
+        $providerName = $request->providerName;
         $branch = Branch::where('id', $branch->id)->select("id", "name_$locale as name", "description_$locale as description", "provider_id", "image_id", "place_id")
             ->with(['branchShows' => function ($q) use ($locale) {
                 return $q->select("name_$locale as name", "image_id", "branch_id");
             }])->first();        
 
-        return view('home-provider.show', compact('branch'));
+        return view('home-provider.branch-show', compact('branch' , 'providerName'));
     }
 }
