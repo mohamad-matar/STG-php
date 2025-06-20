@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +20,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $locale = app()->getLocale();
+        $countries = Country::select('id', "name_$locale as name")->get();
+        return view('auth.register', compact('countries'));
     }
 
     /**
@@ -33,7 +36,9 @@ class RegisteredUserController extends Controller
         $validated = $request->validate([
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'type' => 'required|in:tourist,provider'
+            'type' => 'required|in:tourist,provider',
+            'name' => 'sometimes|unique:tourists|max:50',
+            'country_id' => 'sometimes|exists:countries,id'
         ]);
         $validated['password'] = Hash::make($request->password);
         // return $request->all();
@@ -43,13 +48,14 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         $userType = $user->type;
         Auth::login($user);
-        
-        if ($userType == 'provider'){
+
+        if ($userType == 'provider') {
             $user->provider()->create([]);
             $route = 'dashboard';
+        } elseif ($userType == 'tourist') {
+            $route = 'home.index';;
+            $user->tourist()->create(['name' => $validated['name'],  'country_id' => $validated['country_id']]);
         }
-        elseif ($userType == 'tourist')
-            $route = 'home.index';
 
         return redirect()->intended(route($route, absolute: false));
     }

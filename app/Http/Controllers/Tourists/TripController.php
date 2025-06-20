@@ -5,22 +5,36 @@ namespace App\Http\Controllers\Tourists;
 use App\Http\Controllers\Controller;
 use App\Models\Provider\Trip;
 use App\Models\User;
-use Illuminate\Http\Client\Request;
-use Illuminate\Http\Request as HttpRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TripController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
         $locale =   app()->getLocale();
-
+        $myTrip = $request->myTrip;
+        $new = $request->new;
         $trips = Trip::select("id", "title_$locale as title", "start_date", "end_date", "note", "provider_id")
             ->with('provider')
-            ->where('start_date', '>', today())
-            ->get();
+            ->when($myTrip, function ($q) {
+                return $q->wherehas('tourists', function ($q) {
+                    $tourist_id = Auth::user()->tourist->id;
+                    return $q->where('tourist_id', $tourist_id);
+                });
+            })
+            ->when(
+                $new,
+                function ($q) {
+                    return $q->where('start_date', '>=', today());
+                },
+                function ($q) {
+                    return $q->where('start_date', '<', today());
+                }
+            )->get();
         // return $trips;
-        return view('trips.index', compact('trips'));
+        $title = $myTrip ? __('stg.my-trip') : ($new ? __('stg.new-trips') : __('stg.previous-trips'));
+        return view('trips.index', compact('trips', 'title'));
     }
 
     function show(Trip $trip)
@@ -36,7 +50,7 @@ class TripController extends Controller
             ->with('name', "name_$locale");
     }
 
-    function join(Trip $trip,  HttpRequest $request)
+    function join(Trip $trip,  Request $request)
     {
         $validated = $request->validate([
             'seat_count' => 'integer'
@@ -44,6 +58,6 @@ class TripController extends Controller
         $tourist = User::find(Auth::user()->id)->tourist;
         return $tourist;
         $trip->tourists()->attach(Auth::user()->tourist, ['seat_count' => $validated['seat_count']]);
-        return back()->with('success' , __('success'));
+        return back()->with('success', __('success'));
     }
 }

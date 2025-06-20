@@ -41,4 +41,5 @@ Route::prefix('home/')->name('home.')->group(
 
 Route::prefix('tourist/')->name('tourist.')->middleware(['auth'])->group(function () {
     Route::post('trips/join/{trip}', [TripController::class, 'join'])->name('trips.join');
+    Route::get('trips', [TripController::class, 'index'])->name('trips.index');
 });

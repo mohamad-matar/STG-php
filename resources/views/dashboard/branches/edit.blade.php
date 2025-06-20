@@ -11,7 +11,7 @@
         <x-input name="name_en" :dbValue="$branch->name_en" label="الاسم بالانكليزي" />
         <x-input name="description_ar" :dbValue="$branch->description_ar" label="الوصف بالعربي" />
         <x-input name="description_en" :dbValue="$branch->description_en" label="الوصف بالانكليزي" />
-        <x-select name="place_id" label="المكان" :options="$places" :dbValue="$branch->place_id" />
+        <x-select-search name="place_id"  label="المكان" :options="$places" :dbValue="$branch->place_id" />
 
         <x-image-upload name="image_id" label="ًصورة الغلاف" :dbValue="$branch->image_id" />
 

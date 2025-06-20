@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div id="trips" class="container my-5 pt-4">
-        <h1 class="text-center text-success fw-bold fs-2 py-4 "> @choice('stg.trip', 2) </h1>
+        <h1 class="text-center text-success fw-bold fs-2 py-4 "> {{ $title }} </h1>
         <div class="row">
             @foreach ($trips as $trip)
                 <div class="trip-wrapper col-4 p-2" data-aos="fade-up">

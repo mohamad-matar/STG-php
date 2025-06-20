@@ -10,7 +10,8 @@
         <x-input name="name_en" label="الاسم بالانكليزي" />
         <x-input name="description_ar" label="الوصف بالعربي" />
         <x-input name="description_en" label="الوصف بالانكليزي" />
-        <x-select name="place_id" label="المكان" :options="$places" />
+        <x-select-search name="place_id"  label="المكان" :options="$places"  />
+
         <p class="text-success">يمكن إضافة مكان من القائمة الرئيسية</p>           
 
         <x-image-upload name="image_id" label="ًصورة الغلاف" />

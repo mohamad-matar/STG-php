@@ -33,7 +33,7 @@
         <div class="container">
             <form action="{{ route('tourist.trips.join' ,  $trip->id)}}" method="post">
                 @csrf
-                <x-input name="seat_count" :label="__('stg.seat-count')" col="1" />
+                <x-input type="number" name="seat_count" :label="__('stg.seat-count')" col="1" />
                 <button class="btn btn-success">@lang('stg.join')</button>
             </form>
         </div>

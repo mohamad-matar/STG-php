@@ -45,6 +45,10 @@ return [
     'natural' => 'Natural-Attraction|Natural-Attractions',
     'login' => 'Login',
     'signup' => 'Sign Up',
+    'my-trip' => 'My trip',
+    'new-trips' => 'New trips',
+    'previous-trips' => '؛revious trips',
+
 
     /** most popular */
     'popular' => 'most popular attractions',
@@ -61,6 +65,9 @@ return [
     'seat-count' => 'seat count',
     'success' => 'Operation done successfuly',
     'error' => 'Error happens, please try later',
+    'country' => 'Country',
+    'name' => 'Name',
+
 
     /** footer */
     'interact' => 'Interact',
@@ -75,7 +82,7 @@ return [
 
     'guide-news' => 'Guide News',
 
-    'choose-type' => 'Choose Category',    
+    'choose' => 'Choose',    
 
     'news' => 'news|news',
     'comment' => 'comment|comments',

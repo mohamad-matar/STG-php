@@ -2,6 +2,7 @@
 <div class="mb-3 text-right col-md-6">
     <label for="{{ $name }}" class="form-label">{{ $label }}</label>
     <select name="{{ $name }}" id="{{ $name }}" class="form-select w-100" {{ $attributes }} >
+        <option value=""> --  @lang('stg.choose')  {{ $label }} </option>
         @foreach ($options as $option)
             <option value="{{ $option->id }}" @selected($option->id ==  old($name, $dbValue))>{{ $option->name }}</option>
         @endforeach
