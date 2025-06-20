@@ -24,7 +24,7 @@
                     <td>{{ $provider->description_ar }}</td>                     
                     <td>{{ $provider->description_en }}</td>  
                     <td>{{ $provider->place ? $provider->place->name_ar : '' }}</td>                   
-                    <td>{{ $provider->place->province->name_ar }}</td>                   
+                    <td>{{ $provider->place ? ( $provider->place->province?$provider->place->province->name_ar : '' ): '' }}</td>                   
                     <td class="text-nowrap">                        
                         <form action="{{ route('admin.providers.accept', $provider) }}" method="post" class="d-inline-block">
                             @csrf
