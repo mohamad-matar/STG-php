@@ -14,7 +14,7 @@ class PlaceShowSeeder extends Seeder
     public function run(): void
     {
         $placeShows = [
-            [
+          [
                 'name_ar' => '',
                 'name_en' => '',                   
                 'place_id' => 1,
@@ -104,7 +104,71 @@ class PlaceShowSeeder extends Seeder
                 'place_id' => 11,
                 'image_id' => 17,                
             ],
-            
+              [
+
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 101,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 102,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 103,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 104,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 105,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 106,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 107,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 108,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 100,
+                'image_id' => 109       ,                
+            ], 
+
            
         ];
         PlaceShow::insert($placeShows);
