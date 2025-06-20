@@ -52,7 +52,7 @@ class ImageSeeder extends Seeder
             ['id' => 109, 'name' => 'images/place-shows/109.jpg', 'type' => 'place-shows',],
             
             
-            ['id' => 1100, 'name' => 'images/provider-cover/1100.jpg', 'type' => 'provider-cove',],
+            ['id' => 1100, 'name' => 'images/provider-cover/1100.jpg', 'type' => 'provider-cover',],
 
             ['id' => 1101, 'name' => 'images/provider-shows/1101.jpg', 'type' => 'provider-shows',],
             ['id' => 1102, 'name' => 'images/provider-shows/1102.jpg', 'type' => 'provider-shows',],
