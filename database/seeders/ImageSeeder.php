@@ -50,19 +50,26 @@ class ImageSeeder extends Seeder
             ['id' => 107, 'name' => 'images/place-shows/107.jpg', 'type' => 'place-shows',],
             ['id' => 108, 'name' => 'images/place-shows/108.jpg', 'type' => 'place-shows',],
             ['id' => 109, 'name' => 'images/place-shows/109.jpg', 'type' => 'place-shows',],
-            // ['id' => 3 ,'name' => 'images/provider-cover/1.jpg', 'type' => 'provider-cover',],
-            // ['id' => 4 ,'name' => 'images/provider-shows/1.jpg' , 'type' => 'provider-shows' , ],
+            
+            
+            ['id' => 1100, 'name' => 'images/provider-cover/1100.jpg', 'type' => 'provider-cove',],
 
-            // ['id' => 5 ,'name' => 'images/branch-shows/1.jpg', 'type' => 'branch-shows',],
-            // ['id' => 6 ,'name' => 'images/branch-cover/1.jpg', 'type' => 'branch-cover',],                                            
+            ['id' => 1101, 'name' => 'images/provider-shows/1101.jpg', 'type' => 'provider-shows',],
+            ['id' => 1102, 'name' => 'images/provider-shows/1102.jpg', 'type' => 'provider-shows',],
+            ['id' => 1103, 'name' => 'images/provider-shows/1103.jpg', 'type' => 'provider-shows',],
+            ['id' => 1104, 'name' => 'images/provider-shows/1104.jpg', 'type' => 'provider-shows',],
+            ['id' => 1105, 'name' => 'images/provider-shows/1105.jpg', 'type' => 'provider-shows',],
+            ['id' => 1106, 'name' => 'images/provider-shows/1106.jpg', 'type' => 'provider-shows',],
+            ['id' => 1107, 'name' => 'images/provider-shows/1107.jpg', 'type' => 'provider-shows',],
+            ['id' => 1108, 'name' => 'images/provider-shows/1108.jpg', 'type' => 'provider-shows',],
+            ['id' => 1109, 'name' => 'images/provider-shows/1109.jpg', 'type' => 'provider-shows',],
+            ['id' => 1110, 'name' => 'images/provider-shows/1110.jpg', 'type' => 'provider-shows',],
+            ['id' => 1111, 'name' => 'images/provider-shows/1111.jpg', 'type' => 'provider-shows',],
+            ['id' => 1112, 'name' => 'images/provider-shows/1112.jpg', 'type' => 'provider-shows',],
+            ['id' => 1113, 'name' => 'images/provider-shows/1113.jpg', 'type' => 'provider-shows',],
+            ['id' => 1114, 'name' => 'images/provider-shows/1114.jpg', 'type' => 'provider-shows',],
         ];
-
-        //     ['id' => 3 ,'name' => 'images/provider-cover/1.jpg', 'type' => 'provider-cover',],
-        //     ['id' => 4 ,'name' => 'images/provider-shows/1.jpg' , 'type' => 'provider-shows' , ],
-
-        //     ['id' => 5 ,'name' => 'images/branch-shows/1.jpg', 'type' => 'branch-shows',],
-        //     ['id' => 6 ,'name' => 'images/branch-cover/1.jpg', 'type' => 'branch-cover',],                                            
-        // ];
+        
         Image::insert($images);
     }
 }
