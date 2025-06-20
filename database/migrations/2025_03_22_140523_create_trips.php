@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('end_date');
             
             $table->integer('count');
+            $table->decimal('cost' , 10 ,2);
             
             $table->string('note', 1000)->nullable();
             $table->foreignId('provider_id')->constrained();

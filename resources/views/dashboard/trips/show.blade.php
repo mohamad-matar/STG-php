@@ -4,7 +4,6 @@
     <h2>
           إدارة تفاصيل الرحلة {{ $trip->title }}</h2>
           <div>
-
               <button onclick="addRow()" class="btn btn-secondary">إضافة جزء رحلة </button>
               <a class="btn btn-secondary" href="{{ route('provider.trips.index') }}">&leftarrow;</a>
             </div>

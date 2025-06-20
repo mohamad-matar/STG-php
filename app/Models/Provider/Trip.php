@@ -16,7 +16,7 @@ class Trip extends Model
         'end_date' ,
         
         'count',
-        
+        'cost',
         'note' ,  
         
         'provider_id'      

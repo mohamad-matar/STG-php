@@ -27,7 +27,7 @@ Route::prefix('home/')->name('home.')->group(
 
         Route::get('places', [PlaceController::class,  'index'])->name('places.index');
         Route::get('places/{place}', [PlaceController::class,  'show'])->name('places.show');
-        
+
         Route::get('providers', [ProviderController::class,  'index'])->name('providers.index');
         Route::get('providers/{provider}', [ProviderController::class, 'show'])->name('providers.show');
 
@@ -38,3 +38,7 @@ Route::prefix('home/')->name('home.')->group(
         Route::get('trips/{trip}', [TripController::class, 'show'])->name('trips.show');
     }
 );
+
+Route::prefix('tourist/')->name('tourist.')->middleware(['auth'])->group(function () {
+    Route::post('trips/join/{trip}', [TripController::class, 'join'])->name('trips.join');
+});

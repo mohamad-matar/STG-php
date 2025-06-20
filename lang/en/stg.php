@@ -54,7 +54,13 @@ return [
     'end' => 'End date',    
     'cost' => 'Cost',
     'remain' => 'Remain count',
-
+    'place' => 'place',
+    'trip-title' => 'trip title',
+    'image' => 'Image',
+    'join' => 'Join',
+    'seat-count' => 'seat count',
+    'success' => 'Operation done successfuly',
+    'error' => 'Error happens, please try later',
 
     /** footer */
     'interact' => 'Interact',

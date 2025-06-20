@@ -51,6 +51,6 @@ class RegisteredUserController extends Controller
         elseif ($userType == 'tourist')
             $route = 'home.index';
 
-        return redirect(route($route, absolute: false));
+        return redirect()->intended(route($route, absolute: false));
     }
 }

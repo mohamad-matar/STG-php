@@ -45,6 +45,7 @@ class TripController extends Controller
             'end_date' => 'nullable:date',
 
             'count' => 'integer',
+            'cost' => 'decimal:0,2',
 
             'note' =>  'nullable|max:1000',
             
@@ -73,6 +74,7 @@ class TripController extends Controller
             'end_date' => 'nullable:date',
 
             'count' => 'integer',
+            'cost' => 'decimal:0,2',
 
             'note' =>  'nullable|max:1000',
         ]);

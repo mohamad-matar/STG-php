@@ -5,13 +5,16 @@
     <form action="{{ route('provider.trips.update' , $trip) }}" method="post" class="row">
         @csrf
         @method('put')
-        <x-input name="title" label="عنوان الرحلة" :dbValue="$trip->title" />
-        <div></div>
+        <x-input name="title_ar" label="عنوان الرحلة بالعربي" :dbValue="$trip->title_ar"/>
+        <x-input name="title_en" label="عنوان الرحلة بالانكليزي" :dbValue="$trip->title_en"/>
+
 
         <x-input name="start_date" label="تاريخ البدء" :dbValue="$trip->start_date" class="datetimepicker" />
         <x-input name="end_date" label="تاريخ الانتهاء" :dbValue="$trip->end_date"  class="datetimepicker"/>
         
         <x-input  type="number" name="count" :dbValue="$trip->count" label="العدد"  />
+        <x-input  type="number" name="cost" :dbValue="$trip->cost" label="الكلفة "  />
+
 
         <x-textarea  name="note" label="ملاحظات" :dbValue="$trip->note"/>
 

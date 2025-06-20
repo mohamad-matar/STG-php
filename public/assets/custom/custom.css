@@ -542,3 +542,19 @@ nav .navlink.show {
 	font-weight: 600;
 	box-shadow: 2px 2px 5px grey;
 }
+
+
+.title{
+	color: green;
+	font-weight: 600;
+}
+.info > * {
+	text-align: center;
+}
+
+.img-review {
+	width: 100%;
+	max-height: 150px;
+	object-fit: cover;
+	box-shadow: 2px 2px 3px #aaa;
+}

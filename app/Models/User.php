@@ -51,4 +51,7 @@ class User extends Authenticatable
     function provider(){
         return $this->hasOne(Provider::class);
     }
+    function tourist(){
+        return $this->hasOne(Tourist::class);
+    }
 }

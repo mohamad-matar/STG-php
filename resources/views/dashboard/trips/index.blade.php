@@ -16,6 +16,7 @@
                 <th> تاريخ البدء</th>
                 <th> تاريخ الانتهاء </th>
 
+                <th>  الكلفة</th>
                 <th> العدد الكامل</th>            
                 <th> العدد المتبقي</th>            
                 
@@ -31,6 +32,8 @@
                     <td>{{ $trip->start_date }}</td>
                     <td>{{ $trip->end_date }}</td>
 
+                    <td>{{ $trip->cost }}</td>
+                    
                     <td>{{ $trip->count }}</td>
                     <td> remain</td>
                     <td>{{ $trip->note }}</td>

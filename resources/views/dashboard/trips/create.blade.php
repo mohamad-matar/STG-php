@@ -11,6 +11,8 @@
         <x-input name="end_date" label="تاريخ الانتهاء" class="datetimepicker" />
 
         <x-input  type="number" name="count" label="العدد "  />
+        <x-input  type="number" name="cost" label="الكلفة "  />
+        
         <x-textarea  name="note" label="ملاحظات" />
         
         <div class="text-center my-2">
