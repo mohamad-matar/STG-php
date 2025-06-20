@@ -20,8 +20,11 @@ class ProviderController extends Controller
         $service_id = $request->service_id;
         if ($service_id) {
             $service = Service::find($service_id);
+            // return $service;
+
             $name = "name_$locale";
             $serviceName = $service->$name;
+            // return $serviceName;
 
             $providers = $service->providers()
                 ->select("providers.id", "name_$locale as name", "description_$locale as description", "image_id", "provider_id")

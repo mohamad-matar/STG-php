@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlaceSeeder::class);
         $this->call(PlaceShowSeeder::class);
         $this->call(ProviderSeeder::class);
+        $this->call(BranchSeeder::class);
         $this->call(SettingSeeder::class);
     }
 }
