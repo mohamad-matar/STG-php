@@ -41,11 +41,14 @@ class PlaceSeeder extends Seeder
                 'id' => 100,
                 'name_ar' => 'ال',
                 'name_en' => 'Arnos',
+                'name_ar' => 'الجامع الأموي',
+                'name_en' => 'the Umayyed Mosque ',
                 'description_ar' => 'أسواق - مطاعم - حلويات',
                 'description_en' => 'market - restuarant - desert',
                 'province_id' => 1,
                 'image_id' => 100,
                 'created_by' => 1,
+                
              ],
                 
         ];
