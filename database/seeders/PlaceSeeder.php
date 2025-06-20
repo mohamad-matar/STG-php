@@ -39,7 +39,7 @@ class PlaceSeeder extends Seeder
         Place::insert($places);
 
 
-        Place::find(1)->categories()->attach([1]);
+        Place::find(1)->categories()->attach([2]);
         Place::find(11)->categories()->attach([4]);
         
     }
