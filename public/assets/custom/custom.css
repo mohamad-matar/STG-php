@@ -181,16 +181,18 @@ p {
 }
 
 .navbar {
-	background-image: linear-gradient(rgba(41, 85, 62) 42%, rgba(41, 85, 62, 0.667) 55% ,rgba(16, 148, 9, 0), #00000000);
+	background-image: linear-gradient(rgba(41, 85, 62) 42%, rgba(41, 85, 62, 0.667) 55%, rgba(16, 148, 9, 0), #00000000);
 }
 
 .navbar-collapse {
 	align-self: flex-start;
 	padding: 5px 0;
 }
-.nav-link{
+
+.nav-link {
 	padding: 0;
 }
+
 .navbar a {
 	color: white;
 	font-weight: 700;
@@ -199,7 +201,7 @@ p {
 
 .navbar a:hover {
 	color: white;
-	text-shadow:2px 3px 5px black;
+	text-shadow: 2px 3px 5px black;
 }
 
 .active,
@@ -220,15 +222,18 @@ nav .navlink.show {
 .form-control {
 	font-size: 1em;
 }
-.btn-lang{
+
+.btn-lang {
 	background-color: white;
-	border-radius: 50px;	
-	height: 40px;	
+	border-radius: 50px;
+	height: 40px;
 }
-.btn-lang:hover {	
+
+.btn-lang:hover {
 	background-color: rgba(41, 85, 62);
 	border-color: white;
 }
+
 /* ===================================== */
 /* ************** cover-area *********** */
 /* ===================================== */
@@ -250,9 +255,10 @@ nav .navlink.show {
 	z-index: 9;
 	align-items: center;
 }
-.text-cover{
+
+.text-cover {
 	color: rgb(31, 74, 31);
-	text-shadow: 1px 1px 2px white ;
+	text-shadow: 1px 1px 2px white;
 }
 
 /*============================
@@ -339,11 +345,12 @@ nav .navlink.show {
 	display: block;
 }
 
-.x{
+.x {
 	display: fixed;
 	top: 300px;
 	left: 100px;
 }
+
 /* ********* tourist page ************/
 /* ===================================== */
 /* ************** cover-area *********** */
@@ -458,6 +465,7 @@ nav .navlink.show {
 .shadow-success {
 	box-shadow: 1px 1px 5px #014613;
 }
+
 @media(max-width:767px) {
 
 	.popular-content,
@@ -510,10 +518,12 @@ nav .navlink.show {
 	height: 50vh;
 	object-fit: cover;
 }
+
 #trips {
 	min-height: 60vh;
 }
-.trip-item> * {
+
+.trip-item>* {
 	color: #105021;
 	text-align: center;
 }
@@ -527,28 +537,50 @@ nav .navlink.show {
 	background: #fff;
 	padding: 50px 20px;
 	border: 1px solid var(--color-grey-2);
-	box-shadow: 0px 3px 35px rgba(218, 222, 228, 0.3);
+	box-shadow: 2px 10px 15px rgba(218, 222, 228, 0.3);
 	border-radius: 20px;
+	overflow: hidden;
 }
 
 .trip-item:hover {
 	background: #8bc59b;
 }
 
-.trip-item:hover > * {
-	color : #fff
+.trip-item:hover>* {
+	color: #fff
 }
+
 .trip-item:hover a {
 	font-weight: 600;
 	box-shadow: 2px 2px 5px grey;
 }
 
+.label {
+	left: -40%;
+	transform: rotate(-45deg) translate(30px, -30px);
+	width: 100%;
+	text-align: center;
+}
 
-.title{
+.bg-label {
+	background-color: #0a902e;
+	color: white;
+}
+
+.icon {
+	color: black
+}
+
+.active {
+	color: yellow
+}
+
+.title {
 	color: green;
 	font-weight: 600;
 }
-.info > * {
+
+.info>* {
 	text-align: center;
 }
 
@@ -557,4 +589,12 @@ nav .navlink.show {
 	max-height: 150px;
 	object-fit: cover;
 	box-shadow: 2px 2px 3px #aaa;
+}
+
+[id^='eval-'] {
+	top: -300px;
+	background-color: rgb(242, 252, 239);
+	border: solid 1px green;
+	width: 90%;
+	margin: auto;
 }
