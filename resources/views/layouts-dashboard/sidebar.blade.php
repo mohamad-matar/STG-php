@@ -59,7 +59,7 @@
                 </li>
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'places')) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.places.create') }}">
-                        <span class="align-middle"> إنشاء مكان</span>
+                        <span class="align-middle"> إضافة مكان</span>
                         <i class="align-middle" data-feather="aperture"></i>
                     </a>
                 </li>

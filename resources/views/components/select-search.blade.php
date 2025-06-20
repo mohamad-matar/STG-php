@@ -1,13 +1,14 @@
-@props(['name', 'element_id', 'label', 'dbValue' => [], 'options' ])
+@props(['name',  'label', 'dbValue' => [], 'options' ])
 <div class="mb-3 text-right col-md-6">
-    <label for="{{ $element_id }}" class="form-label">{{ $label }}</label>
-    <select name="{{ $name }}" id="{{ $element_id }}" class="form-select w-100" {{ $attributes }} multiple>
+    <label for="{{ $name }}" class="form-label">{{ $label }}</label>
+    <select name="{{ $name }}" id="{{ $name }}" class="form-select w-100" {{ $attributes }} >
+        <option value=""> --  @lang('stg.choose')  {{ $label }} </option>
         @foreach ($options as $option)
-            <option value="{{ $option->id }}" @selected(in_array($option->id, old($element_id, $dbValue)))>{{ $option->name }}</option>
+            <option value="{{ $option->id }}" @selected($option->id ==  old($name, $dbValue))>{{ $option->name }}</option>
         @endforeach
     </select>
     <div class="mt-1">
-        @error($element_id)
+        @error($name)
         <div class="text-danger">{{ $message }}</div>
     @enderror
     </div>
@@ -22,7 +23,7 @@
     <script>        
         // Initiating the multi-select    
         $(document).ready(function() {
-            $("#{{ $element_id }}").chosen();
+            $("#{{ $name }}").chosen();
         })
     </script>
 @endpush

@@ -11,18 +11,31 @@
     @else
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
-                <th> عنوان الرحلة</th>
+                <th> عنوان الرحلة بالعربي</th>
+                <th> عنوان الرحلة بالانكليزي</th>                
                 <th> تاريخ البدء</th>
                 <th> تاريخ الانتهاء </th>
+
+                <th>  الكلفة</th>
+                <th> العدد الكامل</th>            
+                <th> العدد المتبقي</th>            
+                
                 <th> ملاحظة</th>            
                 <th> الوظائف</th>
             </tr>
 
             @foreach ($trips as $trip)
                 <tr>
-                    <td>{{ $trip->title }}</td>
+                    <td>{{ $trip->title_ar }}</td>
+                    <td>{{ $trip->title_en }}</td>
+
                     <td>{{ $trip->start_date }}</td>
                     <td>{{ $trip->end_date }}</td>
+
+                    <td>{{ $trip->cost }}</td>
+                    
+                    <td>{{ $trip->count }}</td>
+                    <td> remain</td>
                     <td>{{ $trip->note }}</td>
                     <td class="text-nowrap">                        
                         <a class="btn btn-sm btn-outline-primary" href="{{ route('provider.trips.show', $trip) }}">

@@ -19,6 +19,7 @@ return [
     'password' => 'Password',
     'password-confirmation' => 'password confirmation',
     'remember' => 'Remember me',
+    'log-out' => 'Log Out',
     'login-btn' => 'Login',
     'register-btn' => 'Register',
     'back' => 'Back',
@@ -37,16 +38,40 @@ return [
     'home' => 'Home',
     'hotel' => 'Hotel|Hotels',
     'restaurant' => 'Restaurant|Restaurants',
-    'tour' => 'Tour|Tours',
+    'trip' => 'Trip|Trips',
     'monument' => 'Monument|Monuments',
     'religious' => 'Religious Monument|Religious Monuments',
     'cultural' => 'Cultural-Landmark|Cultural-Landmarks',
     'natural' => 'Natural-Attraction|Natural-Attractions',
     'login' => 'Login',
     'signup' => 'Sign Up',
+    'my-trip' => 'My trip',
+    'new-trips' => 'New trips',
+    'previous-trips' => '؛revious trips',
+
 
     /** most popular */
     'popular' => 'most popular attractions',
+
+    'trip-details' => 'Details',
+    'start' => 'Start date',
+    'end' => 'End date',
+    'cost' => 'Cost',
+    'remain' => 'Remain count',
+    'place' => 'place',
+    'trip-title' => 'trip title',
+    'image' => 'Image',
+    'join' => 'Join',
+    'seat-count' => 'seat count',
+    'success' => 'Operation done successfuly',
+    'error' => 'Error happens, please try later',
+    'country' => 'Country',
+    'name' => 'Name',
+    'joined' => 'Joined',
+    'eval' => 'review/comment',
+    'send' => 'Send',
+    'comment' => 'Comment',
+
 
 
     /** footer */
@@ -62,11 +87,8 @@ return [
 
     'guide-news' => 'Guide News',
 
-    'choose-type' => 'Choose Category',    
+    'choose' => 'Choose',
 
-    'news' => 'news|news',
-    'comment' => 'comment|comments',
-    'vacancy' => 'vacancy|vacancies',
     'page' => 'page|pages',
 
     'places' => 'places',

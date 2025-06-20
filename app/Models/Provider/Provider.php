@@ -11,8 +11,13 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Provider extends Model
 {
     protected $fillable = [
-        'type' ,
-        'value' ,
+        'name_ar',
+        'name_en',
+        'description_ar',
+        'description_en',
+        'license_number',
+        'place_id',
+        'image_id' ,
     ];
 
     function api(){

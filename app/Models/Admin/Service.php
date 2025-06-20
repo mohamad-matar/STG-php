@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Provider\Provider;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,5 +14,8 @@ class Service extends Model
         'name',        
     ];
 
+    function providers(){
+        return $this->belongsToMany(Provider::class);
+    }
     
 }

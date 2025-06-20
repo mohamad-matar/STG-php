@@ -15,7 +15,7 @@
 
         <div class="text-center my-2">
             <button class="btn btn-secondary">حفظ الطلب </button>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary">رجوع</a>
+            <a href="{{ route('provider.api-request.index') }}" class="btn btn-outline-secondary">رجوع</a>
         </div>
 
     </form>

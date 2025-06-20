@@ -38,10 +38,18 @@ class TripController extends Controller
     function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|max:100',
+            'title_ar' => 'required|max:100',
+            'title_en' => 'required|max:100',
+
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',
-            'note' =>  'nullable|max:1000',            
+
+            'count' => 'integer',
+            'cost' => 'decimal:0,2',
+
+            'note' =>  'nullable|max:1000',
+            
+            'provider_id' => 'exists:providers,id'           
         ]);
 
         $currProvider = User::find(Auth::user()->id)->provider;
@@ -59,9 +67,15 @@ class TripController extends Controller
     function update(Request $request , Trip $trip)
     {
         $validated = $request->validate([
-            'title' => 'required|max:100',
+            'title_ar' => 'required|max:100',
+            'title_en' => 'required|max:100',
+
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',
+
+            'count' => 'integer',
+            'cost' => 'decimal:0,2',
+
             'note' =>  'nullable|max:1000',
         ]);
         
