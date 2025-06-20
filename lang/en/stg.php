@@ -53,9 +53,9 @@ return [
     /** most popular */
     'popular' => 'most popular attractions',
 
-    'trip-details' => 'Trip details',
+    'trip-details' => 'Details',
     'start' => 'Start date',
-    'end' => 'End date',    
+    'end' => 'End date',
     'cost' => 'Cost',
     'remain' => 'Remain count',
     'place' => 'place',
@@ -67,6 +67,11 @@ return [
     'error' => 'Error happens, please try later',
     'country' => 'Country',
     'name' => 'Name',
+    'joined' => 'Joined',
+    'eval' => 'review/comment',
+    'send' => 'Send',
+    'comment' => 'Comment',
+
 
 
     /** footer */
@@ -82,11 +87,8 @@ return [
 
     'guide-news' => 'Guide News',
 
-    'choose' => 'Choose',    
+    'choose' => 'Choose',
 
-    'news' => 'news|news',
-    'comment' => 'comment|comments',
-    'vacancy' => 'vacancy|vacancies',
     'page' => 'page|pages',
 
     'places' => 'places',

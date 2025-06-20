@@ -17,12 +17,12 @@ class TripController extends Controller
         $new = $request->new;
         $trips = Trip::select("id", "title_$locale as title", "start_date", "end_date", "note", "provider_id")
             ->with('provider')
-            ->when($myTrip, function ($q) {
-                return $q->wherehas('tourists', function ($q) {
-                    $tourist_id = Auth::user()->tourist->id;
-                    return $q->where('tourist_id', $tourist_id);
-                });
-            })
+            // ->when($myTrip, function ($q) {
+            //     return $q->wherehas('tourists', function ($q) {
+            //         $tourist_id = Auth::user()->tourist->id;
+            //         return $q->where('tourist_id', $tourist_id);
+            //     });
+            // })
             ->when(
                 $new,
                 function ($q) {
@@ -55,9 +55,20 @@ class TripController extends Controller
         $validated = $request->validate([
             'seat_count' => 'integer'
         ]);
-        $tourist = User::find(Auth::user()->id)->tourist;
-        return $tourist;
+
         $trip->tourists()->attach(Auth::user()->tourist, ['seat_count' => $validated['seat_count']]);
         return back()->with('success', __('success'));
-    }
+    }    
+    
+    function eval(Trip $trip,  Request $request)
+    {
+        $validated = $request->validate([
+            'evaluate' => 'in:1,2,3,4,5',
+            'comment' => 'required|max:200'
+        ]);
+        // return $trip;
+
+        $trip->tourists()->updateExistingPivot(Auth::user()->tourist, $validated);
+        return back()->with('success', __('success'));
+    }    
 }
