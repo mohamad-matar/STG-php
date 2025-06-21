@@ -16,17 +16,21 @@ class UserSeeder extends Seeder
     // $table->rememberToken();
     public function run(): void
     {
-        $admin = [
-            'id' => 1,
-            'email' => 'a@a.com',
-            'password' => '123', /** hashed through model */
-            'type' => 'admin'
+        $users = [
+            [
+                'id' => 1,
+                'email' => 'a@a.com',
+                'password' => '123',
+                /** hashed through model */
+                'type' => 'admin'
+            ],
+            [
+                'id' => 2,
+                'email' => 't@t.com',
+                'password' => '123',
+                'type' => 'tourist'
+            ]
         ];
-        User::create($admin);
-        $providerUser = [
-            'email' => 'p@p.com',
-            'password' => '123', 
-            'type' => 'provider'
-        ];                 
+        User::insert($users);
     }
 }

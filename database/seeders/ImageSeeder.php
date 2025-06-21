@@ -29,6 +29,7 @@ class ImageSeeder extends Seeder
             ['id' => 9, 'name' => 'images/place-shows/9.jpg', 'type' => 'places-shows',],
             ['id' => 10, 'name' => 'images/place-shows/10.jpg', 'type' => 'places-shows',],
 
+
             ['id' => 11, 'name' => 'images/places/11.jpg', 'type' => 'places',],
 
             ['id' => 12, 'name' => 'images/place-shows/12.jpg', 'type' => 'places-shows',],
@@ -40,14 +41,7 @@ class ImageSeeder extends Seeder
 
 
             ['id' => 100, 'name' => 'images/places/100.jpg', 'type' => 'places',],
-
-           
-            
-
-
-
-
-
+                
             ['id' => 101, 'name' => 'images/place-shows/101.jpg', 'type' => 'place-shows',],
             ['id' => 102, 'name' => 'images/place-shows/102.jpg', 'type' => 'place-shows',],
             ['id' => 103, 'name' => 'images/place-shows/103.jpg', 'type' => 'place-shows',],

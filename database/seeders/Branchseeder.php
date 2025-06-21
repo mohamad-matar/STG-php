@@ -17,7 +17,7 @@ class Branchseeder extends Seeder
 
         Branch::create([
             'id' => 1,
-            'name_ar' => 'مطعم مكاني',
+            'name_ar' => 'فرع مكاني',
             'name_en' => 'my place restuarant',
             'description_ar' => ' مطعم مميز باكلاته الشرقية وأسعاره المناسبة',
             'description_en' => 'A distinctive restaurant with oriental cuisine and reasonable prices',
