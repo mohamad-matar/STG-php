@@ -6,11 +6,18 @@
 
         <img class="cover" src="{{ getImgUrl($provider->image_id) }}" alt="{{ getImgUrl($provider->image_id) }}">
     </div>
+
+    <div id="provider-shows" class="text-center ">
+        <div class="gallery">
+            @foreach ($provider->providerShows as $i => $providerShow)
+                <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
+            @endforeach
+        </div>
+    </div>
+    
     <section id="popular-area" class="section-wrapper">
         <div class="container popular-carousel-wrapper">
             <h2 class="text-success my-5">الفروع</h2>
-
-
             <div class="swipper-container p-4">
 
                 <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
@@ -44,15 +51,6 @@
             </div>
         </div>
     </section>
-
-    <div id="provider-shows" class="text-center ">
-        <h3 class="fs-2 ">الصور</h3>
-        <div class="gallery">
-            @foreach ($provider->providerShows as $i => $providerShow)
-                <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
-            @endforeach
-        </div>
-    </div>
 @endsection
 @push('css')
     <style>

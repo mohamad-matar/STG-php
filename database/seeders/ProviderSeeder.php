@@ -61,7 +61,7 @@ class ProviderSeeder extends Seeder
         Provider::insert($providers);
 
         Provider::find(1)->services()->attach([1]);
-        Provider::find(1)->services()->attach([2]);
+        Provider::find(2)->services()->attach([2]);
 
         $providerShows = [            
             [
