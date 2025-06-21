@@ -32,7 +32,8 @@ class ProviderSeeder extends Seeder
                 'type' => 'provider'
             ]
         ];
-        User::insert($users);
+        foreach ($users as $user)
+            User::create($user);        
 
         $providers = [
          [

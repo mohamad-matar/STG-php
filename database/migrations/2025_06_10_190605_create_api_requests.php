@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('api_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('title' , 50);
+            $table->string('title_ar', 50);
+            $table->string('title_en' , 50);
             $table->enum('method', ['get' ,'post' ,'put', 'delete']);
             $table->string('path');
             $table->string('params',2000)->nullable();

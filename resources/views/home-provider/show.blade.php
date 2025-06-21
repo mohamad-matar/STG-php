@@ -14,10 +14,10 @@
             @endforeach
         </div>
     </div>
-    
+
     <section id="popular-area" class="section-wrapper">
         <div class="container popular-carousel-wrapper">
-            <h2 class="text-success my-5">الفروع</h2>
+            <h2 class="text-success my-5">@choice('stg.branch' ,2)</h2>
             <div class="swipper-container p-4">
 
                 <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
@@ -51,12 +51,22 @@
             </div>
         </div>
     </section>
+
+    <section>
+        @foreach ($api->apiRequests as $apiRequest )
+        
+        <form action="{{ $api->usr . $apiRequest->path}}" method="{{  $apiRequest->method}}">
+            {{-- <x-input name="qantity" :label="__('stg.quantity')"/> --}}
+            <button>{{ $apiRequest->title }}</button>
+        </form>
+
+
+        @endforeach
+    </section>
 @endsection
 @push('css')
     <style>
         body {
-            /* display: grid; */
-            /* place-content: center; */
             background-color: rgb(249, 245, 239);
         }
 

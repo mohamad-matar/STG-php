@@ -54,9 +54,14 @@ class ProviderController extends Controller
             ->with(['branches' => function ($q) use ($locale) {
                 return $q->select("id" , "name_$locale as name", "description_$locale as description", "image_id", "provider_id");
             }])
-            ->first();        
+            ->first();
 
-        return view('home-provider.show', compact('provider'));
+        $api = $provider->api()->with(['apiRequests'=> function($q) use ($locale){
+            return $q->select('id' , "title_$locale as title" , "api_id");
+        }])->first();
+        // return $api->apiRequests;
+
+        return view('home-provider.show', compact('provider' , 'api' ));
     }
     
     function branchShow(Branch $branch , Request $request)

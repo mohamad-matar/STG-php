@@ -33,6 +33,7 @@ return [
     'back' => 'Back',
     'notFound' => 'No Elements',
 
+    'branch' => 'branch|branches',
 
     /** ************* menu ****************/
     'home' => 'Home',

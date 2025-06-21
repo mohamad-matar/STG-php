@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
                 'type' => 'tourist'
             ]
         ];
-        User::insert($users);
+        foreach ($users as $user)
+            User::create($user);
     }
 }

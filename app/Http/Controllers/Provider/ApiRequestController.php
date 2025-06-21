@@ -13,13 +13,9 @@ class ApiRequestController extends Controller
 
     /**
      * Display the specified resource.
-     */
-    public function show(ApiRequest $apiRequest)
-    {
-        // return  view('dashboard.api-request.show', compact('branch'));
-    }
+     */    
 
-    function create(Request $request)
+    function create()
     {
         return view('dashboard.api-requests.create');
     }
@@ -28,7 +24,8 @@ class ApiRequestController extends Controller
     {
         // return $request;        
         $validated = $request->validate([
-            'title' => 'required|max:50',
+            'title_ar' => 'required|max:50',
+            'title_en' => 'required|max:50',
             'method' =>  'required|in:get,post,put,delete',
             'path' => 'nullable:max:255',
             'params' => 'nullable|max:2000',
@@ -50,7 +47,8 @@ class ApiRequestController extends Controller
     function update(Request $request, ApiRequest $apiRequest)
     {
         $validated = $request->validate([
-            'title' => 'required|max:50',
+            'title_ar' => 'required|max:50',
+            'title_en' => 'required|max:50',
             'method' =>  'required|in:get,post,put,delete',
             'path' => 'nullable:max:255',
             'params' => 'nullable|max:2000',
