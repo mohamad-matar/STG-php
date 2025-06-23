@@ -109,10 +109,6 @@ p {
 	background-color: var(--color-basic-5);
 }
 
-.btn {
-	border-radius: 0;
-}
-
 .btn-basic {
 	background-color: var(--color-basic-5);
 	color: white;
@@ -142,7 +138,7 @@ p {
 }
 
 .mt-6 {
-	margin-top: 200px;
+	margin-top: 6em;
 }
 
 .pt-6 {

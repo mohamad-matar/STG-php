@@ -35,6 +35,17 @@ return [
 
     'branch' => 'branch|branches',
 
+    'quantity' => 'Quantity',
+    'request' => 'Request',
+
+    'user-type' => 'User type should be ',
+    'preview-requests' => 'معاينة الطلبات',
+
+
+    'tourist' => 'tourist',
+    'provider' => 'service provider',
+    'admin' => 'site administrator',
+    
     /** ************* menu ****************/
     'home' => 'Home',
     'hotel' => 'Hotel|Hotels',

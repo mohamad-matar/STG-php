@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tourist;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,22 +17,26 @@ class UserSeeder extends Seeder
     // $table->rememberToken();
     public function run(): void
     {
-        $users = [
+        User::create(
             [
                 'id' => 1,
                 'email' => 'a@a.com',
                 'password' => '123',
                 /** hashed through model */
                 'type' => 'admin'
-            ],
-            [
+            ]);
+
+        User::create([
                 'id' => 2,
                 'email' => 't@t.com',
                 'password' => '123',
                 'type' => 'tourist'
-            ]
-        ];
-        foreach ($users as $user)
-            User::create($user);
+        ]);
+        Tourist::create([
+            'name' => 'test account',
+            'country_id' => 200 , 
+            'user_id' => 2
+        ]);
+        
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserType
@@ -15,9 +16,9 @@ class UserType
      */
     public function handle(Request $request, Closure $next , $type): Response
     {
-        if (auth()->user()->type == $type)
+        if (Auth::user()->type == $type)
             return $next($request);
         else    
-            abort('403');
+            return back()->with('error' , __('stg.user-type') . __("stg.$type"));
     }
 }

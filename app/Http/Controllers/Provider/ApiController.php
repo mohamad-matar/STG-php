@@ -12,9 +12,7 @@ class ApiController extends Controller
 {
     function edit()
     {
-        $currUser = User::find(Auth::user()->id);
-        if (! $provider = $currUser->provider)
-            return back()->with('error', 'يجب ضبط الأعدادات أولاً');
+        $provider = Auth::user()->provider;        
         
         if (! $api = $provider->api)
             $api = $provider->api()->create([]);
@@ -25,9 +23,11 @@ class ApiController extends Controller
     function update(Request $request )
     {
         $validated = $request->validate([
-            'url' => 'required|max:255',
+            'services_url'  => 'required|max:1000',
+            'request_url'  => 'required|max:1000',
+            'view_url'  => 'required|max:1000',
         ]);
-        User::find(Auth::user()->id)->provider->api()->update($validated);
+        Auth::user()->provider->api()->update($validated);
         return back()->with('success', 'تم حفظ الرابط بنجاح');
     }
 }

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('apis', function (Blueprint $table) {
             $table->id();
-            $table->string('url')->nullable();
+            $table->string('services_url',1000)->nullable();
+            $table->string('request_url' ,1000)->nullable();
+            $table->string('view_url', 1000)->nullable();
             $table->foreignId('provider_id')->unique()->constrained();
             $table->timestamps();
         });

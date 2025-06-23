@@ -32,6 +32,15 @@ return [
     'notFound' => 'لا يوجد عناصر ',
 
     'branch'=> 'فروع|فرع',
+
+    'quantity' => 'كمية',
+    'request' => 'اطلب',
+    'preview-requests' => 'Preview the orders',
+
+    'user-type' => 'نوع المستخدم يجب أن يكون ',
+    'tourist' => 'سائح',
+    'provider' => 'مزود خدمة',
+    'admin' => 'مدير الموقع',
     /** ************* menu ****************/
     'home' => 'الرئيسية',
     'hotel' => 'فنادق|فندق',

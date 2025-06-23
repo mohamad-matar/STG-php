@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Api extends Model
 {
     protected $fillable = [
-        'url' ,
+        'services_url',
+        'request_url',
+        'view_url',
         'provider_id' ,
     ];
     function apiRequests()

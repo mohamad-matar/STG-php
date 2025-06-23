@@ -30,6 +30,8 @@ Route::prefix('home/')->name('home.')->group(
 
         Route::get('providers', [ProviderController::class,  'index'])->name('providers.index');
         Route::get('providers/{provider}', [ProviderController::class, 'show'])->name('providers.show');
+        
+        Route::middleware(['auth' , 'user-type:tourist'])->post('providers/request', [ProviderController::class, 'request'])->name('providers.request');
 
         Route::get('branches/{branch}', [ProviderController::class, 'branchShow'])->name('branches.show');
 

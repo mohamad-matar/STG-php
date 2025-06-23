@@ -66,7 +66,7 @@
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.api.edit') ) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.api.edit') }}">
                         <span class="align-middle">إدارة الروابط </span>
-                        <i class="align-middle" data-feather="sliders"></i>
+                        <i class="align-middle" data-feather="navigation"></i>
                     </a>
                 </li>                
             @endif
