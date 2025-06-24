@@ -31,7 +31,8 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50',
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
         ]);
         Service::create($validated);
         return to_route('admin.services.index')->with('success' , 'تم إضافة الخدمة بنجاح');
@@ -52,7 +53,8 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50',
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
         ]);
         $service->update($validated);
         return to_route('admin.services.index')->with('success', 'تم تعديل الخدمة بنجاح');

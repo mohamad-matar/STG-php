@@ -51,7 +51,7 @@ return [
     'tourist' => 'tourist',
     'provider' => 'service provider',
     'admin' => 'site administrator',
-    'dashboard' => 'site administrator or service provider',
+    'dashboard-user' => 'site administrator or service provider',
 
 
     /** ************* menu ****************/

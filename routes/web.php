@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController as ControllersHomeController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\Tourists\PlaceController;
 use App\Http\Controllers\Tourists\HomeController;
@@ -14,10 +15,9 @@ require __DIR__ . '/provider.php';
 require __DIR__ . '/auth.php';
 
 
-Route::get('/dashboard', function () {
-    return view('layouts-dashboard.dashboard');
-})->middleware(['auth' , 'user-type:dashboard'])->name('dashboard');
-
+Route::get('/dashboard', [ControllersHomeController::class , 'index'])
+->middleware(['auth' ])->name('dashboard');
+// 'user-type:dashboard-user'
 Route::get('/', [HomeController::class,  'index'])->name('home.index');
 Route::get('/language', [LangController::class,  'lang']);
 

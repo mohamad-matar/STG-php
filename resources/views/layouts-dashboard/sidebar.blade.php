@@ -9,7 +9,7 @@
             @if (auth()->user()->type == 'admin')
                 <li class="sidebar-item @if (str_contains(Route::currentRouteName(), 'services')) active @endif">
                     <a class="sidebar-link" href="{{ route('admin.services.index') }}">
-                        <span class="align-middle">خدمات المزويدين</span>
+                        <span class="align-middle">الخدمات </span>
                         <i class="align-middle" data-feather="activity"></i>
                     </a>
                 </li>

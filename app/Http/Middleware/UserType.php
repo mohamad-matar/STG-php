@@ -16,12 +16,16 @@ class UserType
      */
     public function handle(Request $request, Closure $next, $type): Response
     {
-        if ($type == 'dashboard' && Auth::user()->type != 'admin' && Auth::user()->type != 'provider')
-            return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
-
-        if (Auth::user()->type == $type)
-            return $next($request);
-        else
-            return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+        if ($type == 'dashboard') {
+            if (Auth::user()->type != 'admin' && Auth::user()->type != 'provider')
+                return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+            else
+                return $next($request);
+        } else {
+            if (Auth::user()->type == $type)
+                return $next($request);
+            else
+                return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+        }
     }
 }
