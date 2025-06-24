@@ -33,11 +33,58 @@
                         <div class="card-body text-center">
                             <h5 class="card-title text-center">{{ $provider->name }}</h5>
                             <p class="card-text">{{ $provider->description }} </p>
+                            <p class="text-center"> <span class="title"> @lang('stg.eval'): </span>
+                                {{ round($provider->tourists_avg_provider_touristevaluate, 1) }} </p>
                             <a href="{{ route('home.providers.show', $provider) }}" class="text-success">@lang('stg.more')</a>
                         </div>
+                        <div class="text-center">
+                            <button class="btn btn-success text-white mb-2" onclick="showForm('eval-{{ $provider->id }}')">
+                                @lang('stg.eval')
+                            </button>
+                        </div>
+                        <form action="{{ route('tourist.providers.eval', $provider->id) }}" method=post
+                            class="shadow p-2 rounded-2 position-absolute d-none text-center"
+                            id="eval-{{ $provider->id }}" onsubmit="getEval('eval-{{ $provider->id }}')">
+                            <h3 class="text-success text-center">@lang('stg.eval')</h3>
+                            @csrf
+                            <input type="hidden" name="provider_id" value="{{ $provider->id }}">
+                            <input type="hidden" name="evaluate">
+
+                            <div class="text-center my-3">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <i class="far fa-star" onclick=flipMe(this)></i>
+                                @endfor
+                            </div>
+
+                            <button class="btn btn-success">@lang('stg.send')</button>
+                            <button class="btn btn-outline-success" type=button
+                                onclick="hideForm('eval-{{ $provider->id }}')">@lang('stg.back')</button>
+                        </form>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        function flipMe(icon) {
+            icon.classList.toggle('text-warning')
+        }
+
+        function getEval(frm) {
+            const currFrom = document.getElementById(frm)
+            const count = currFrom.querySelectorAll('.text-warning').length
+            currFrom.evaluate.value = count
+            console.log(count)
+        }
+
+        function showForm(frm) {
+            document.getElementById(frm).classList.remove('d-none')
+        }
+
+        function hideForm(frm) {
+            document.getElementById(frm).classList.add('d-none')
+        }
+    </script>
+@endpush

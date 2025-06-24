@@ -56,8 +56,6 @@
                         <button class="btn btn-outline-success" type=button
                             onclick="hideForm('eval-{{ $trip->id }}')">@lang('stg.back')</button>
                     </form>
-
-
                 </div>
             @endforeach
         </div>

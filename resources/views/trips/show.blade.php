@@ -54,8 +54,8 @@
                     @lang('stg.add-comment') 
                 </h4>
                 @csrf
-                <x-select-arr name="type" label="" :options="[__('stg.comment'), __('stg.complain')]" dbValue="{{ __('stg.comment')}}"
-                    col="3" />
+                <x-select-arr name="type" label="" :options="['comment','complain']" dbValue="comment"
+                col="3" />
                 <x-textarea name="comment" label="{{ __('stg.comment') }}" col="12" rows="2" />
                 <button class="btn btn-success">@lang('stg.send')</button>
                 <button class="btn btn-outline-success" type=button

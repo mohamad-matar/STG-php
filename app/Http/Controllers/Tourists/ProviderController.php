@@ -41,11 +41,11 @@ class ProviderController extends Controller
                         ->orWhere('description_en',  'like', "%$search%");
                 })
                 ->with('place.province')
+                ->withAvg('tourists', 'provider_tourist.evaluate')
                 ->where('accepted', '1')
                 ->get();
         } else
             return redirect()->route('home.index')->with('error', '');
-        // return $providers;
 
         return view('home-provider.index', compact('providers', 'serviceName', 'service_id', 'search'));
     }
@@ -66,14 +66,14 @@ class ProviderController extends Controller
         $api = $provider->api;
         try {
             if ($api && $api->services_url)
-            $services  = json_decode(Http::get($api->services_url));
-        } catch(Exception  $e) {
+                $services  = json_decode(Http::get($api->services_url));
+        } catch (Exception  $e) {
             $msg = __('stg.no-connection');
         }
 
         // return $services;
         $locale = app()->getLocale();
-        return view('home-provider.show', compact('provider', 'api', 'services', 'locale' , 'msg'));
+        return view('home-provider.show', compact('provider', 'api', 'services', 'locale', 'msg'));
     }
 
 
@@ -91,11 +91,10 @@ class ProviderController extends Controller
             'quantity' => $validated['quantity'],
             'service_id' => $validated['service_id'],
         ]);
-        if($request){
-            return back()->with('success' , __('stg.success'));
+        if ($request) {
+            return back()->with('success', __('stg.success'));
             ApiRequest::create($validated);
-        }
-        else
+        } else
             return back()->with('error', __('stg.error'));
     }
 
@@ -109,5 +108,34 @@ class ProviderController extends Controller
             }])->first();
 
         return view('home-provider.branch-show', compact('branch', 'providerName'));
+    }
+
+
+    function eval(Provider $provider,  Request $request)
+    {
+        $validated = $request->validate([
+            'evaluate' => 'in:1,2,3,4,5',
+        ]);
+        // return $provider;
+        $currTourist = Auth::user()->tourist->id;
+
+        if ($provider->tourists()->where('tourist_id', $currTourist)->first())
+            $provider->tourists()->updateExistingPivot($currTourist, $validated);
+        else
+            $provider->tourists()->attach($currTourist, $validated);
+
+        return back()->with('success', __('stg.success'));
+    }
+
+    function comment(Provider $provider,  Request $request)
+    {
+        $validated = $request->validate([
+            'comment' => 'required|max:200',
+            'type' => 'nullable|in:comment,complain'
+        ]);
+        // return $provider;
+
+        $provider->comments()->create(['tourist_id' => Auth::user()->tourist->id, 'comment' => $validated['comment']]);
+        return back()->with('success', __('stg.success'));
     }
 }

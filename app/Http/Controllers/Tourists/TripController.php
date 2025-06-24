@@ -93,7 +93,7 @@ class TripController extends Controller
     {
         $validated = $request->validate([
             'comment' => 'required|max:200',
-            ''
+            'type' => 'nullable|in:comment,complain'
         ]);
         // return $trip;
 

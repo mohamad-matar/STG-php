@@ -25,7 +25,7 @@ return [
     'create-account' => 'إنشاء حساب جديد',
 
     'dashboard' => 'لوحة التحكم',
-
+    'search' => 'بحث',
     /** intefaces */
     'readmore' => 'قراءة المزيد',
     'back' => 'عودة',

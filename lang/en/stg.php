@@ -26,6 +26,7 @@ return [
     'back' => 'Back',
     'have-account' => 'Have account',
     'create-account' => 'Create new account',
+    'search' => 'search',
 
     'dashboard' => 'Dashboard',
 

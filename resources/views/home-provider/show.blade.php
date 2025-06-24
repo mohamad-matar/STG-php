@@ -87,6 +87,31 @@
         <div class="text-center my-2">{{ $msg . $provider->name }}</div>
     @endif
 
+
+    <section class="container">
+
+        <form action="{{ route('tourist.providers.comment', $provider->id) }}" method=post class="alert alert-success">
+            <h4 class="text-success">
+                @lang('stg.add-comment') 
+            </h4>
+            @csrf
+            <x-select-arr name="type" label="" :options="['comment','complain']" dbValue="comment"
+                col="3" />
+            <x-textarea name="comment" label="{{ __('stg.comment') }}" col="12" rows="2" />
+            <button class="btn btn-success">@lang('stg.send')</button>            
+        </form>
+        @foreach ($provider->comments as $comment)
+            <div class="alert alert-success  bg-white">
+                <div class="text-success">
+                    {{ $comment->tourist->name }}
+                </div>
+                <div>
+                    {{ $comment->comment }}
+                </div>
+            </div>
+        @endforeach
+    </section>
+
 @endsection
 @push('css')
     <style>
