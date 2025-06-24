@@ -21,7 +21,8 @@ class CategorySeeder extends Seeder
             ['id'=> 4 ,'name_ar' => 'معالم طبيعة' , 'name_en' => 'Natural-Attractions'],
             ['id'=> 6 ,'name_ar' => 'طبية' , 'name_en' => 'Medical'],
             ['id'=> 8 ,'name_ar' => 'اسواق' , 'name_en' => 'Market'],
-            ['id'=> 9 ,'name_ar' => 'مطاعم' , 'name_en' => 'Restaurants'],
+            ['id' => 9, 'name_ar' => 'مطاعم', 'name_en' => 'Restaurants'],
+            ['id'=> 10 ,'name_ar' => 'استراحات' , 'name_en' => 'Rest stops'],
            
         ];
         Category::insert($categories);

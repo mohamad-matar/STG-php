@@ -201,5 +201,26 @@ class ProviderSeeder extends Seeder
                 'image_id' => 1114,
             ]
         ]);
+
+        /** ******************** مكتب عنبر  *************/
+        User::create([
+            'id' => 2000 ,
+            'email' => 'amani@gmail.com',
+            'password' => '123',
+            'type' => 'provider'
+        ]);
+
+        Provider::create([
+            'id' => 2000,
+            'name_ar' => ' مكتب اماني للسياحة والسفر',
+            'name_en' => 'Amani Tourism and Travel Office',
+            'description_ar' => ' مكتب اماني للسياحة والسفر بأسعاره المنافسة',
+            'description_en' => 'Amani Tourism and Travel Office with competitive prices',
+            'license_number' => 'x3aaam',
+            'accepted' => 1,
+            'image_id' => 2000,
+            'user_id' => 2000,
+        ]);
     }
+
 }

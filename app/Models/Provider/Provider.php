@@ -3,6 +3,7 @@
 namespace App\Models\Provider;
 
 use App\Models\Admin\Service;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Place;
 use Illuminate\Database\Eloquent\Model;
@@ -48,6 +49,10 @@ class Provider extends Model
     public function contacts(): MorphMany
     {
         return $this->morphMany(Contact::class, 'owner');
+    }
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commented');
     }
 }
  

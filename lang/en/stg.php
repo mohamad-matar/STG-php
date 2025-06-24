@@ -6,6 +6,7 @@ return [
     'dir' => 'ltr',
     'align' => 'left',
 
+
     'more' => 'More',
     'detail-imgs' => 'Detail images',
 
@@ -39,13 +40,19 @@ return [
     'request' => 'Request',
 
     'user-type' => 'User type should be ',
-    'preview-requests' => 'معاينة الطلبات',
+    'type' => 'Type',
+
+    'preview-requests' => 'Preview the orders',
+    'no-connection' => 'Services cannot be viewed because there is no connection with ',
+    'total' => 'Total',
 
 
     'tourist' => 'tourist',
     'provider' => 'service provider',
     'admin' => 'site administrator',
-    
+    'dashboard' => 'site administrator or service provider',
+
+
     /** ************* menu ****************/
     'home' => 'Home',
     'hotel' => 'Hotel|Hotels',
@@ -59,7 +66,7 @@ return [
     'signup' => 'Sign Up',
     'my-trip' => 'My trip',
     'new-trips' => 'New trips',
-    'previous-trips' => '؛revious trips',
+    'previous-trips' => 'Previous trips',
 
 
     /** most popular */
@@ -80,9 +87,12 @@ return [
     'country' => 'Country',
     'name' => 'Name',
     'joined' => 'Joined',
-    'eval' => 'review/comment',
+    'eval' => 'review',
     'send' => 'Send',
     'comment' => 'Comment',
+    'add-comment' => 'Add comment',
+
+    'complain' => 'complain',
 
 
 

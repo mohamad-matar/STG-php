@@ -1,4 +1,6 @@
 @extends('layouts.master')
+@section('title' ,  $serviceName )
+
 @section('content')
     <div class="container my-5 pt-4">
         <h1 class="text-center text-success fw-bold fs-2 ">{{ $serviceName }}  </h1>

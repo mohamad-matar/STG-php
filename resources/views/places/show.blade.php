@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title' ,  $place->name)
 @section('content')
     <div class="my-5">
         <div class="p-2 my-3">

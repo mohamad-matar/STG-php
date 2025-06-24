@@ -589,7 +589,7 @@ nav .navlink.show {
 }
 
 [id^='eval-'] {
-	top: -300px;
+	top: 240px;
 	background-color: rgb(242, 252, 239);
 	border: solid 1px green;
 	width: 90%;

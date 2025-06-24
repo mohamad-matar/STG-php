@@ -14,11 +14,14 @@ class UserType
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next , $type): Response
+    public function handle(Request $request, Closure $next, $type): Response
     {
+        if ($type == 'dashboard' && Auth::user()->type != 'admin' && Auth::user()->type != 'provider')
+            return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+
         if (Auth::user()->type == $type)
             return $next($request);
-        else    
-            return back()->with('error' , __('stg.user-type') . __("stg.$type"));
+        else
+            return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
     }
 }

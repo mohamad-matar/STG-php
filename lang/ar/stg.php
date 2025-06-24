@@ -35,12 +35,15 @@ return [
 
     'quantity' => 'كمية',
     'request' => 'اطلب',
-    'preview-requests' => 'Preview the orders',
-
+    'preview-requests' => 'معاينة الطلبات',
+    'no-connection' => 'لا يمكن عرض الخدمات لعدم وجود اتصال مع ',
+    'total' => 'الكامل',
+    'type' => 'نوع',
     'user-type' => 'نوع المستخدم يجب أن يكون ',
     'tourist' => 'سائح',
     'provider' => 'مزود خدمة',
     'admin' => 'مدير الموقع',
+    'dashboard' => 'مدير الموقع أو مزود خدمة',
     /** ************* menu ****************/
     'home' => 'الرئيسية',
     'hotel' => 'فنادق|فندق',
@@ -75,9 +78,12 @@ return [
     'country' => 'البلد',
     'name' => 'الاسم',
     'joined' => 'تم الاشتراك',
-    'eval' => 'تقييم/تعليق',
+    'eval' => 'تقييم',
     'send' => 'ارسل',
     'comment' => 'تعليق',
+    'add-comment' => 'إضافة تعليق',
+    'complain' => 'شكوى',
+
 
 
     /** footer */

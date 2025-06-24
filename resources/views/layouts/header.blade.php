@@ -47,11 +47,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home.trips.index' , ['new' => true]) }}">@lang('stg.new-trips') </a>
+                                    <a class="nav-link" href="{{ route('home.trips.index' , ['new' => 'y']) }}">@lang('stg.new-trips') </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                        href="{{ route('home.trips.index' ) }}">@lang('stg.previous-trips') </a>
+                                        href="{{ route('home.trips.index' , ['new' => 'n'] ) }}">@lang('stg.previous-trips') </a>
                                 </li>
                             </ul>
                         </li>

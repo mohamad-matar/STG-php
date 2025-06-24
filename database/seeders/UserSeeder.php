@@ -26,6 +26,7 @@ class UserSeeder extends Seeder
                 'type' => 'admin'
             ]);
 
+            /** tourist 1 */
         User::create([
                 'id' => 2,
                 'email' => 't@t.com',
@@ -33,9 +34,24 @@ class UserSeeder extends Seeder
                 'type' => 'tourist'
         ]);
         Tourist::create([
+            'id' => 2,
             'name' => 'test account',
             'country_id' => 200 , 
             'user_id' => 2
+        ]);
+
+        /** tourist 2 */
+        User::create([
+                'id' => 3,
+                'email' => 'to@to.com',
+                'password' => '123',
+                'type' => 'tourist'
+        ]);
+        Tourist::create([
+            'id' => 3,
+            'name' => 'tourist account 2',
+            'country_id' => 100 , 
+            'user_id' => 3
         ]);
         
     }

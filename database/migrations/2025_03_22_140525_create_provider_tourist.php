@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tourist_trip', function (Blueprint $table) {
-            $table->integer('seat_count')->nullable()->default(1);
+        Schema::create('provider_tourist', function (Blueprint $table) {
             
             $table->enum('evaluate', [1, 2, 3, 4, 5])->nullable();
 
             $table->foreignId('tourist_id')->constrained();
-            $table->foreignId('trip_id')->constrained();
-            $table->primary(['tourist_id', 'trip_id']);
+            $table->foreignId('provider_id')->constrained();
+            $table->primary(['tourist_id', 'provider_id']);
 
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tourist_trip');
+        Schema::dropIfExists('provider_tourist');
     }
 };

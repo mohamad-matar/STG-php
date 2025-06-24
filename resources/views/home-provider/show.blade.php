@@ -1,4 +1,6 @@
 @extends('layouts.master')
+@section('title' ,  $provider->name )
+
 @section('content')
     <div class="text-center">
         <h1 class="mt-5 pt-4 text-success fs-2">{{ $provider->name }}</h1>
@@ -15,42 +17,45 @@
         </div>
     </div>
 
-    <section id="popular-area" class="section-wrapper">
-        <div class="container popular-carousel-wrapper">
-            <h2 class="text-success my-5">@choice('stg.branch', 2)</h2>
-            <div class="swipper-container p-4">
+    {{-- -------------- branches  ------------------ --}}
+    @if ($provider->branches->count())
+        <section id="popular-area" class="section-wrapper">
+            <div class="container popular-carousel-wrapper">
+                <h2 class="text-success my-5">@choice('stg.branch', 2)</h2>
+                <div class="swipper-container p-4">
 
-                <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
-                <div class="btn-swipper-next"><i class="fa fa-chevron-right"></i></div>
+                    <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
+                    <div class="btn-swipper-next"><i class="fa fa-chevron-right"></i></div>
 
-                <div class="swiper popular-swiper">
-                    <div class="swiper-wrapper">
+                    <div class="swiper popular-swiper">
+                        <div class="swiper-wrapper">
 
-                        @foreach ($provider->branches as $branch)
-                            <div class="swiper-slide container" data-aos="fade-up">
+                            @foreach ($provider->branches as $branch)
+                                <div class="swiper-slide container" data-aos="fade-up">
 
-                                <div class="row">
-                                    <div class="col-md-6 popular-img p-0">
-                                        <img src="{{ getImgUrl($branch->image_id) }}" class="card-img-top"
-                                            alt="{{ getImgUrl($branch->image_id) }}">
-                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 popular-img p-0">
+                                            <img src="{{ getImgUrl($branch->image_id) }}" class="card-img-top"
+                                                alt="{{ getImgUrl($branch->image_id) }}">
+                                        </div>
 
-                                    <div class="col-md-6 mb-5 p-0">
-                                        <div class="popular-content bg-white p-3 shadow-success">
-                                            <h5 class="card-title my-3 text-success">{{ $branch->name }}</h5>
-                                            <p class="card-text">{{ $branch->description }} </p>
-                                            <a href="{{ route('home.branches.show', ['branch' => $branch, 'providerName' => $provider->name]) }}"
-                                                class="text-success">@lang('stg.more')</a>
+                                        <div class="col-md-6 mb-5 p-0">
+                                            <div class="popular-content bg-white p-3 shadow-success">
+                                                <h5 class="card-title my-3 text-success">{{ $branch->name }}</h5>
+                                                <p class="card-text">{{ $branch->description }} </p>
+                                                <a href="{{ route('home.branches.show', ['branch' => $branch, 'providerName' => $provider->name]) }}"
+                                                    class="text-success">@lang('stg.more')</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @if ($services)
         @php $name = "name_$locale" @endphp
@@ -71,13 +76,17 @@
                     </div>
                 @endforeach
             </div>
-             <div class="text-center mt-5">
+            <div class="text-center mt-5">
                 <a href="{{ $api->view_url }}" target="_blank" class="btn btn-outline-success ">
                     @lang('stg.preview-requests')
                 </a>
-            </div>            
+            </div>
         </div>
     @endif
+    @if ($msg)
+        <div class="text-center my-2">{{ $msg . $provider->name }}</div>
+    @endif
+
 @endsection
 @push('css')
     <style>

@@ -8,6 +8,7 @@ use App\Models\Provider\Api;
 use App\Models\Provider\ApiRequest;
 use App\Models\Provider\Branch;
 use App\Models\Provider\Provider;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -61,13 +62,18 @@ class ProviderController extends Controller
             }])
             ->first();
         $services = null;
+        $msg = null;
         $api = $provider->api;
-        if ($api && $api->services_url)
+        try {
+            if ($api && $api->services_url)
             $services  = json_decode(Http::get($api->services_url));
+        } catch(Exception  $e) {
+            $msg = __('stg.no-connection');
+        }
 
         // return $services;
         $locale = app()->getLocale();
-        return view('home-provider.show', compact('provider', 'api', 'services', 'locale'));
+        return view('home-provider.show', compact('provider', 'api', 'services', 'locale' , 'msg'));
     }
 
 

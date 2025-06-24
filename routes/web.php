@@ -16,7 +16,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/dashboard', function () {
     return view('layouts-dashboard.dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth' , 'user-type:dashboard'])->name('dashboard');
 
 Route::get('/', [HomeController::class,  'index'])->name('home.index');
 Route::get('/language', [LangController::class,  'lang']);
@@ -45,4 +45,5 @@ Route::prefix('tourist/')->name('tourist.')->middleware(['auth'])->group(functio
     Route::get('trips', [TripController::class, 'index'])->name('trips.index');
     Route::post('trips/join/{trip}', [TripController::class, 'join'])->name('trips.join');
     Route::post('trips/{trip}', [TripController::class, 'eval'])->name('trips.eval');
+    Route::post('trips/comment/{trip}', [TripController::class, 'comment'])->name('trips.comment');
 });
