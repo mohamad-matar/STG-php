@@ -18,6 +18,9 @@ class Branchseeder extends Seeder
         Branch::create([
             'id' => 1,
             'name_ar' => 'فرع كفرسوسة',
+            'name_en' => 'Kafr Sousa Branch',
+            'description_ar' => ' مطعم مميز باكلاته الشرقية وأسعاره المناسبة',
+            'description_en' => 'A distinctive restaurant with oriental cuisine and reasonable prices',
             'name_en' => 'Kafrsousa Branch',
             'description_ar' => ' إطلالة رائعة - خدمة ممتازة - اكلات غربية ',
             'description_en' => 'Great view - excellent service - Western food',
