@@ -13,6 +13,14 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         $images = [
+            ['id' => 300, 'name' => 'images/places/300.jpg', 'type' => 'places',],
+
+            ['id' => 301, 'name' => 'images/places-shows/301.jpg', 'type' => 'places-shows',],
+            ['id' => 302, 'name' => 'images/places-shows/302.jpg', 'type' => 'places-shows',],
+            ['id' => 303, 'name' => 'images/places-shows/303.jpg', 'type' => 'places-shows',],
+            ['id' => 304, 'name' => 'images/places-shows/304.jpg', 'type' => 'places-shows',],
+
+
             ['id' => 200 ,'name' => 'images/places/200.jpg', 'type' => 'places',],
 
             ['id' => 201 ,'name' => 'images/place-shows/201.jpg', 'type' => 'place-shows',],

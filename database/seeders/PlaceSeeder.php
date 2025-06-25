@@ -16,7 +16,7 @@ class PlaceSeeder extends Seeder
     {
         $places = [
             [
-                'id' => 200,
+                'id' => 300,
                 'name_ar' =>  'قصر العظم ',
                 'name_en' => 'palaic Azem',
                 'description_ar' => 'متاحف -اثار ',
@@ -42,7 +42,7 @@ class PlaceSeeder extends Seeder
                 'description_ar' => 'أسواق قديمة',
                 'description_en' => 'OLD MARKETS',
                 'province_id' => 1,
-                'image_id' => 1,
+                'image_id' => 300,
                 'created_by' => 1,
             ],
             [
@@ -90,6 +90,8 @@ class PlaceSeeder extends Seeder
         Place::find(200)->categories()->attach([2,3]);
         Place::find(215)->categories()->attach([1,2]);
 
+
+        Place::find(300)->categories()->attach([2]);
         Place::find(1)->categories()->attach([2]);                
         
         Place::find(11)->categories()->attach([4]);
