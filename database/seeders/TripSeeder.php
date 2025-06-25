@@ -52,7 +52,7 @@ class TripSeeder extends Seeder
                 'start_date' => '2025-07-17 18:00:00',
                 'end_date' => '2025-07-17 20:30:00',
                 'trip_id' => 1,
-                'place_id' => '1001',
+                'place_id' => '2101',
             ]
         ]);
 
