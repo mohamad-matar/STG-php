@@ -17,7 +17,6 @@ class PlaceSeeder extends Seeder
         $places = [
             [
                 'id' => 300,
-                'id' => 200,
                 'name_ar' =>  'قصر العظم ',
                 'name_en' => 'palaic Azem',
                 'description_ar' => 'متاحف -اثار ',
