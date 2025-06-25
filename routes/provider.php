@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\Provider\ApiController;
-use App\Http\Controllers\Provider\ApiRequestController;
 use App\Http\Controllers\Provider\ProviderController;
 use App\Http\Controllers\Provider\BranchController;
 use App\Http\Controllers\Provider\ProviderShowController;

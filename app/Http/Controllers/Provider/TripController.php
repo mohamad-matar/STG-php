@@ -38,8 +38,8 @@ class TripController extends Controller
     function store(Request $request)
     {
         $validated = $request->validate([
-            'title_ar' => 'required|max:100',
-            'title_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
+            'name_en' => 'required|max:100',
 
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',
@@ -67,8 +67,8 @@ class TripController extends Controller
     function update(Request $request , Trip $trip)
     {
         $validated = $request->validate([
-            'title_ar' => 'required|max:100',
-            'title_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
+            'name_en' => 'required|max:100',
 
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',

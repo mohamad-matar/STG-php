@@ -34,7 +34,8 @@
                     <td>{{ $comment->tourist->name }}</td>
                     <td>{{ $comment->comment }}</td>
                     <td>{{ $comment->commented_type == 'App\Models\Provider\Provider'?
-                         'مزود خدمة' :  'مكان'    }}
+                          'مزود خدمة' : ($comment->commented_type == 'App\Models\Place'?
+                           'مكان': 'رحلة'   ) }}
                     </td>
                     <td>{{ $comment->commented->name_ar }}</td>
                 </tr>

@@ -26,8 +26,8 @@
 
             @foreach ($trips as $trip)
                 <tr>
-                    <td>{{ $trip->title_ar }}</td>
-                    <td>{{ $trip->title_en }}</td>
+                    <td>{{ $trip->name_ar }}</td>
+                    <td>{{ $trip->name_en }}</td>
 
                     <td>{{ $trip->start_date }}</td>
                     <td>{{ $trip->end_date }}</td>

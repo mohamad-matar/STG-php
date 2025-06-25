@@ -17,8 +17,8 @@ class TripSeeder extends Seeder
     {
         Trip::create([
             'id' => 1,
-            'title_ar' => 'ساحل طرطوس',
-            'title_en' => 'Tartos beach',
+            'name_ar' => 'ساحل طرطوس',
+            'name_en' => 'Tartos beach',
 
             'start_date' => '2025-07-17 07:00:00',
             'end_date' => '2025-07-23 16:42:52',
@@ -40,16 +40,16 @@ class TripSeeder extends Seeder
 
         TripDetail::insert([
             [
-                'title_ar' => 'فطور ضمن الاستراحة',
-                'title_en' => 'Breakfast  within rest stop',
+                'name_ar' => 'فطور ضمن الاستراحة',
+                'name_en' => 'Breakfast  within rest stop',
                 'start_date' => '2025-07-17 10:00:00',
                 'end_date' => '2025-07-17 10:30:00',
                 'trip_id' => 1,
                 'place_id' => '1000',
             ],
             [
-                'title_ar' => 'جلوس على الشط',
-                'title_en' => 'Sitting on the beach',
+                'name_ar' => 'جلوس على الشط',
+                'name_en' => 'Sitting on the beach',
                 'start_date' => '2025-07-17 18:00:00',
                 'end_date' => '2025-07-17 20:30:00',
                 'trip_id' => 1,
@@ -60,8 +60,8 @@ class TripSeeder extends Seeder
         Trip::insert([
             [
                 'id' => 2,
-                'title_ar' => 'مدرجات بصرى الشام',
-                'title_en' => 'Bosra Amphitheater',
+                'name_ar' => 'مدرجات بصرى الشام',
+                'name_en' => 'Bosra Amphitheater',
 
                 'start_date' => '2025-08-01 07:00:00',
                 'end_date' => '2025-08-01 22:30:00',
@@ -73,8 +73,8 @@ class TripSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'title_ar' => 'شلالات تل شهاب',
-                'title_en' => 'Tell Shehab',
+                'name_ar' => 'شلالات تل شهاب',
+                'name_en' => 'Tell Shehab',
 
                 'start_date' => '2025-05-01 07:00:00',
                 'end_date' => '2025-05-01 22:30:00',

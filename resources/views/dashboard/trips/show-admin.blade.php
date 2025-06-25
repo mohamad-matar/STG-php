@@ -20,8 +20,8 @@
 
             @foreach ($tripDetails as $tripDetail)
                 <tr class="">
-                    <td>{{ $tripDetail->title_ar }} </td>
-                    <td> {{ $tripDetail->title_en }} </td>
+                    <td>{{ $tripDetail->name_ar }} </td>
+                    <td> {{ $tripDetail->name_en }} </td>
                     <td>{{ $tripDetail->start_date }}</td>
                     <td>{{ $tripDetail->end_date }}</td>
                     <td>{{ $tripDetail->place?->name_ar }} </td>

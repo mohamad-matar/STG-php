@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->string('title_ar', 100);
-            $table->string('title_en', 100);
+            $table->string('name_ar', 100);
+            $table->string('name_en', 100);
             
             $table->dateTime('start_date');
             $table->dateTime('end_date');

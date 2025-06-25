@@ -33,8 +33,8 @@
                         @method('put')
                         <input type="hidden" name="trip_id" value={{ $trip->id }}>
 
-                        <td><x-input-sm name="title_ar" label="عنوان الرحلة بالعربي" :dbValue="$tripDetail->title_ar"/>
-                        <td> <x-input-sm name="title_en" label="عنوان الرحلة بالانكليزي" :dbValue="$tripDetail->title_en" />
+                        <td><x-input-sm name="name_ar" label="عنوان الرحلة بالعربي" :dbValue="$tripDetail->name_ar"/>
+                        <td> <x-input-sm name="name_en" label="عنوان الرحلة بالانكليزي" :dbValue="$tripDetail->name_en" />
                         <td><x-input-sm name="start_date" :dbValue="$tripDetail->start_date" class="datetimepicker" /></td>
                         <td><x-input-sm name="end_date" :dbValue="$tripDetail->end_date" class="datetimepicker" /></td>
                         <td><x-select-sm name="place_id" label="مكان" :dbValue="$tripDetail->place_id" :options="$places" /></td>
@@ -58,8 +58,8 @@
                     @csrf
                     <input type="hidden" name="trip_id" value={{ $trip->id }}>
 
-                    <td><x-input-sm name="title_ar" label="عنوان الرحلة بالعربي" /> </td>
-                    <td> <x-input-sm name="title_en" label="عنوان الرحلة بالانكليزي" /> </td>
+                    <td><x-input-sm name="name_ar" label="عنوان الرحلة بالعربي" /> </td>
+                    <td> <x-input-sm name="name_en" label="عنوان الرحلة بالانكليزي" /> </td>
                     <td><x-input-sm name="start_date" class="datetimepicker" /></td>
                     <td><x-input-sm name="end_date" class="datetimepicker" /></td>
                     <td><x-select-sm name="place_id" label="مكان" :options="$places" /></td>

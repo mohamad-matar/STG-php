@@ -19,7 +19,7 @@ class TripController extends Controller
 
         $particpate = Auth::user() && Auth::user()->tourist;
 
-        $trips = Trip::select("id", "title_$locale as title", "start_date", "end_date", "count", "cost", "provider_id")
+        $trips = Trip::select("id", "name_$locale as name", "start_date", "end_date", "count", "cost", "provider_id")
             ->when($myTrip, function ($q) {
                 return $q->wherehas('tourists', function ($q) {
                     $tourist_id = Auth::user()->tourist->id;
@@ -41,7 +41,7 @@ class TripController extends Controller
             }])->withSum('tourists', 'tourist_trip.seat_count')
             ->withAvg('tourists', 'tourist_trip.evaluate')
             ->with(['tripDetails' => function ($q) use ($locale) {
-                return $q->select("id", "title_$locale as title", "start_date", "end_date", "trip_id", "place_id")
+                return $q->select("id", "name_$locale as name", "start_date", "end_date", "trip_id", "place_id")
                     ->with(['place' => function ($q) use ($locale) {
                         return $q->select('id', "name_$locale as name");
                     }]);
@@ -55,10 +55,10 @@ class TripController extends Controller
     {
         $locale =   app()->getLocale();
         $trip = Trip::where('id', $trip->id)
-            ->select("id", "title_$locale as title", "start_date", "end_date", "count", "cost")
+            ->select("id", "name_$locale as name", "start_date", "end_date", "count", "cost")
             ->withSum('tourists', 'tourist_trip.seat_count')
             ->with(['tripDetails' => function ($q) use ($locale) {
-                return $q->select("id", "title_$locale as title", "start_date", "end_date", "trip_id", "place_id")
+                return $q->select("id", "name_$locale as name", "start_date", "end_date", "trip_id", "place_id")
                     ->with(['place' => function ($q) use ($locale) {
                         return $q->select('id', "name_$locale as name" , "image_id");
                     }]);

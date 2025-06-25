@@ -12,8 +12,8 @@ class TripDetailsController extends Controller
     function store(Request $request)
     {
         $validated = $request->validate([
-            'title_ar' => 'required|max:100',
-            'title_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
+            'name_en' => 'required|max:100',
             'start_date' =>  'required',
             'end_date' => 'nullable',
             'note' =>  'nullable|max:1000',
@@ -30,8 +30,8 @@ class TripDetailsController extends Controller
     function update(Request $request , TripDetail $tripDetail)
     {
         $validated = $request->validate([
-            'title_ar' => 'required|max:100',
-            'title_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
+            'name_en' => 'required|max:100',
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',
             'note' =>  'nullable|max:1000',
