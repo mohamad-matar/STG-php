@@ -4,7 +4,8 @@
 
     <form action="{{ route('provider.api-request.store') }}" method="post" class="row">
         @csrf
-        <x-input name="title" label="عنوان الطلب" />
+        <x-input name="title_ar" label="عنوان الطلب بالعربي" />
+        <x-input name="title_en" label="عنوان الطلب بالانكليزي" />
         
         <x-select-arr name="method" label="الطريقة" :options="['get','post','put','delete']" required/>        
                  

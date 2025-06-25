@@ -19,12 +19,11 @@ class CategorySeeder extends Seeder
             ['id'=> 2 ,'name_ar' => 'معالم أثرية' , 'name_en' => 'Monuments'],
             ['id'=> 3 ,'name_ar' => 'معالم ثقافية' , 'name_en' => 'Cultural-Landmarks'],
             ['id'=> 4 ,'name_ar' => 'معالم طبيعة' , 'name_en' => 'Natural-Attractions'],
-            ['id'=> 5 ,'name_ar' => 'بحر' , 'name_en' => 'Sea'],
             ['id'=> 6 ,'name_ar' => 'طبية' , 'name_en' => 'Medical'],
-            ['id'=> 7 ,'name_ar' => 'رحلات' , 'name_en' => 'tours'],
             ['id'=> 8 ,'name_ar' => 'اسواق' , 'name_en' => 'Market'],
-            ['id'=> 9 ,'name_ar' => 'مطاعم' , 'name_en' => 'Restaurants'],
-            ['id'=> 10,'name_ar' => 'حلويات' , 'name_en' => 'Desert'],
+            ['id' => 9, 'name_ar' => 'مطاعم', 'name_en' => 'Restaurants'],
+            ['id'=> 10 ,'name_ar' => 'استراحات' , 'name_en' => 'Rest stops'],
+           
         ];
         Category::insert($categories);
     }

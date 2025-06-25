@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('api_sent_requests', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('data' , 1000 );
+            $table->string('comment', 200)->nullable();
+            $table->enum('type', ['comment' ,'complaint' ]);
 
-            $table->foreignId('api_request_id')->constrained();
+            $table->foreignId('commented_id');
+            $table->string('commented_type');
+            $table->foreignId('tourist_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api_sent_requests');
+        Schema::dropIfExists('comments');
     }
 };

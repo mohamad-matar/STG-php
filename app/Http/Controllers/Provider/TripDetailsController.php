@@ -12,9 +12,10 @@ class TripDetailsController extends Controller
     function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|max:100',
-            'start_date' =>  'required|date_format:Y-m-d H:i:s',
-            'end_date' => 'nullable:date_format:Y-m-d H:i:s',
+            'title_ar' => 'required|max:100',
+            'title_en' => 'required|max:100',
+            'start_date' =>  'required',
+            'end_date' => 'nullable',
             'note' =>  'nullable|max:1000',
             'trip_id' => 'required|exists:trips,id',
             'place_id' => 'required|exists:places,id' 
@@ -29,7 +30,8 @@ class TripDetailsController extends Controller
     function update(Request $request , TripDetail $tripDetail)
     {
         $validated = $request->validate([
-            'title' => 'required|max:100',
+            'title_ar' => 'required|max:100',
+            'title_en' => 'required|max:100',
             'start_date' =>  'required|date',
             'end_date' => 'nullable:date',
             'note' =>  'nullable|max:1000',

@@ -6,7 +6,8 @@
         @csrf
         @method('put')
 
-        <x-input name="title" label="العنوان" :dbValue="$apiRequest->title" />
+        <x-input name="title_ar" label="عنوان الطلب بالعربي" :dbValue="$apiRequest->title_ar"/>
+        <x-input name="title_en" label="عنوان الطلب بالانكليزي" :dbValue="$apiRequest->title_en"/>     
             
         <x-select-arr name="method" label="الطريقة" :options="['get', 'post', 'put', 'delete']" :dbValue="$apiRequest->method" required />
 
@@ -15,7 +16,7 @@
 
         <div class="text-center my-2">
             <button class="btn btn-secondary">حفظ الطلب </button>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-secondary">رجوع</a>
+            <a href="{{ route('provider.api-request.index') }}" class="btn btn-outline-secondary">رجوع</a>
         </div>
 
     </form>

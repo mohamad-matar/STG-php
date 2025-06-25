@@ -13,7 +13,7 @@
 
         function showImages(id) {
             const currentImages = Array.from(document.getElementById(`place-${ id }`).children);
-            console.log(currentImages)
+            // console.log(currentImages)
             const album = document.getElementById('album')
             album.innerHTML = ""
             currentImages.forEach(element => {

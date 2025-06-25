@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserType
@@ -13,11 +14,18 @@ class UserType
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next , $type): Response
+    public function handle(Request $request, Closure $next, $type): Response
     {
-        if (auth()->user()->type == $type)
-            return $next($request);
-        else    
-            abort('403');
+        if ($type == 'dashboard') {
+            if (Auth::user()->type != 'admin' && Auth::user()->type != 'provider')
+                return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+            else
+                return $next($request);
+        } else {
+            if (Auth::user()->type == $type)
+                return $next($request);
+            else
+                return to_route('home.index')->with('error', __('stg.user-type') . __("stg.$type"));
+        }
     }
 }

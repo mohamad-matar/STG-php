@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('branch_shows', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar', 50)->index();
-            $table->string('name_en', 50)->index();
+            $table->string('name_ar', 50)->nullable();
+            $table->string('name_en', 50)->nullable();
 
             $table->foreignId('branch_id')->constrained();
             $table->foreignId('image_id')->nullable()->constrained()->onDelete('set null');;

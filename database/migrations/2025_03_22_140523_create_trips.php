@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
+            $table->string('title_ar', 100);
+            $table->string('title_en', 100);
+            
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            
+            $table->integer('count');
+            $table->decimal('cost' , 10 ,2);
+            
             $table->string('note', 1000)->nullable();
             $table->foreignId('provider_id')->constrained();
 
