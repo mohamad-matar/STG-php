@@ -16,13 +16,23 @@ class PlaceSeeder extends Seeder
     {
         $places = [
             [
+                'id' => 200,
+                'name_ar' =>  'صلاح الدين الأيوبي ',
+                'name_en' => 'Salah Deen AyobiAzem',
+                'description_ar' => ' ',
+                'description_en' => '',
+                'province_id' => 1,
+                'image_id' => 200,
+                'created_by' => 1,
+            ],
+            [
                 'id' => 300,
                 'name_ar' =>  'قصر العظم ',
                 'name_en' => 'palaic Azem',
                 'description_ar' => 'متاحف -اثار ',
                 'description_en' => 'museum-history',
                 'province_id' => 1,
-                'image_id' => 200,
+                'image_id' => 300,
                 'created_by' => 1,
             ],
             [
