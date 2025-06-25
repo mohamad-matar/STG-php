@@ -30,10 +30,12 @@ class PlaceSeeder extends Seeder
                 'name_ar' =>  'الاسوق القديمة',
                 'name_en' => 'Old Souck',
                 'description_ar' => 'تاريخ -ثقافة',
-                'description_en' => 'Cultural - history',
+                'description_en' => 'Cultural - history',                
                 'province_id' => 1,
                 'image_id' => 215,
-            ],[
+                'created_by' => 1,
+            ],
+            [
                 'id' => 1,
                 'name_ar' => 'أسواق قديمة ',
                 'name_en' => 'OLD MARKETS',

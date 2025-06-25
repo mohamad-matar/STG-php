@@ -31,8 +31,21 @@ class ImageSeeder extends Seeder
 
 
             ['id' => 215 ,'name' => 'images/places/215.jpg', 'type' => 'places',],
+            
             ['id' => 216 ,'name' => 'images/place-shows/216.jpg', 'type' => 'places-show',],
-             ['id' => 217 ,'name' =>'images/place-shows/217.jpg', 'type' => 'places-show',],
+             ['id' => 217, 'name' => 'images/place-shows/217.jpg', 'type' => 'places-show',],
+             ['id' => 218, 'name' => 'images/place-shows/218.jpg', 'type' => 'places-show',],
+             ['id' => 219, 'name' => 'images/place-shows/219.jpg', 'type' => 'places-show',],
+             ['id' => 220, 'name' => 'images/place-shows/220.jpg', 'type' => 'places-show',],
+            ['id' => 221, 'name' => 'images/place-shows/221.jpg', 'type' => 'places-show',],
+            ['id' => 222, 'name' => 'images/place-shows/222.jpg', 'type' => 'places-show',],
+            ['id' => 223, 'name' => 'images/place-shows/223.jpg', 'type' => 'places-show',],
+            ['id' => 224, 'name' => 'images/place-shows/224.jpg', 'type' => 'places-show',],
+            ['id' => 225, 'name' => 'images/place-shows/225.jpg', 'type' => 'places-show',],
+            ['id' => 226, 'name' => 'images/place-shows/226.jpg', 'type' => 'places-show',],
+            ['id' => 227, 'name' => 'images/place-shows/227.jpg', 'type' => 'places-show',],
+            ['id' => 228, 'name' => 'images/place-shows/228.jpg', 'type' => 'places-show',],
+            ['id' => 229,'name' =>'images/place-shows/229.jpg', 'type' => 'places-show',],
 
             ['id' => 1, 'name' => 'images/places/1.jpg', 'type' => 'places',],
 
