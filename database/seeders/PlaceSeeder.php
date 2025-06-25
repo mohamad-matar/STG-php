@@ -94,7 +94,18 @@ class PlaceSeeder extends Seeder
                 'province_id' => 8,
                 'image_id' => 2101 ,
                 'created_by' => 1,                
-             ],                
+           
+            ],
+               [
+                'id' => 4000,                
+                'name_ar' => ' متحف الطب  العلوم',
+                'name_en' => 'Museum of medicine and science',
+                'description_ar' => 'متحف الطب والعلوم عند العرب في مدينة دمشق، أقيم في البيمارستان النوري، بعد أن أعادت ترميمَه المديرية العامة للآثار والمتاحف عام',
+                'description_en' => 'The Museum of Arab Medicine and Science in Damascus, located in the Al-Nouri Hospital, after it was restored by the General Directorate of Antiquities and Museums in the year',
+                'province_id' => 1,
+                'image_id' => 4000 ,
+                'created_by' => 1,                
+             ],                         
         ];
         Place::insert($places);
         Place::find(200)->categories()->attach([2,3]);
@@ -111,5 +122,7 @@ class PlaceSeeder extends Seeder
         Place::find(1000)->categories()->attach([10]);
         
         Place::find(1001)->categories()->attach([4]);
+        Place::find(4000)->categories()->attach([3]);
+
     }
 }
