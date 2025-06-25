@@ -380,7 +380,36 @@ class PlaceShowSeeder extends Seeder
                 'place_id' => 5000,
                 'image_id' => 5004,                
             ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 5000,
+                'image_id' => 5005,                
+            ],
             
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 2101,
+                'image_id' => 2102,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 2101,
+                'image_id' => 2103,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 2101 ,
+                'image_id' => 2104,                
+            ],
+
 
            
         ];
