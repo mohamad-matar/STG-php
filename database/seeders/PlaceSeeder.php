@@ -103,7 +103,7 @@ class PlaceSeeder extends Seeder
                 'description_ar' => 'متحف الطب والعلوم عند العرب في مدينة دمشق، أقيم في البيمارستان النوري، بعد أن أعادت ترميمَه المديرية العامة للآثار والمتاحف عام',
                 'description_en' => 'The Museum of Arab Medicine and Science in Damascus, located in the Al-Nouri Hospital, after it was restored by the General Directorate of Antiquities and Museums in the year',
                 'province_id' => 1,
-                'image_id' => 2101 ,
+                'image_id' => 4000 ,
                 'created_by' => 1,                
              ],                         
         ];
