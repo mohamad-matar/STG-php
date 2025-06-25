@@ -60,9 +60,8 @@ class PlaceSeeder extends Seeder
 
         
         
-        Place::find(1)->categories()->attach([1]);
         Place::find(11)->categories()->attach([4]);
         
-        Place::find(100)->categories()->attach([1,2]);
+        Place::find(100)->categories()->attach([1]);
     }
 }
