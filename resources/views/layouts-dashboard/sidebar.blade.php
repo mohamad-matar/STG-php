@@ -31,6 +31,24 @@
                         <i class="align-middle" data-feather="alert-circle"></i>
                     </a>
                 </li>
+                <li class="sidebar-item @if (Route::currentRouteName() == 'admin.trips.index') ) active @endif">
+                    <a class="sidebar-link" href="{{ route('admin.trips.index' ) }}">
+                        <span class="align-middle"> عرض الرحلات </span>
+                        <i class="align-middle" data-feather="briefcase"></i>
+                    </a>
+                </li>
+                <li class="sidebar-item @if (Route::currentRouteName() == 'admin.comments.index' && request()->query('type') === 'comment') active @endif">
+                    <a class="sidebar-link" href="{{ route('admin.comments.index' , ['type' => 'comment']) }}">
+                        <span class="align-middle"> عرض التعليقات </span>
+                        <i class="align-middle" data-feather="airplay"></i>
+                    </a>
+                </li>
+                <li class="sidebar-item @if (Route::currentRouteName() == 'admin.comments.index' && request()->query('type') === 'complaint')  active @endif">
+                    <a class="sidebar-link" href="{{ route('admin.comments.index' , ['type' => 'complaint'] ) }}">
+                        <span class="align-middle"> عرض الشكاوى </span>
+                        <i class="align-middle" data-feather="alert-circle"></i>
+                    </a>
+                </li>
 
             @elseif (auth()->user()->type == 'provider')
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.edit') ) active @endif">
@@ -63,6 +81,20 @@
                         <i class="align-middle" data-feather="aperture"></i>
                     </a>
                 </li>
+
+                <li class="sidebar-item @if (Route::currentRouteName() == 'provider.comments.index' && request()->query('type') === 'comment') active @endif">
+                    <a class="sidebar-link" href="{{ route('provider.comments.index' , ['type' => 'comment']) }}">
+                        <span class="align-middle"> عرض التعليقات </span>
+                        <i class="align-middle" data-feather="airplay"></i>
+                    </a>
+                </li>
+                <li class="sidebar-item @if (Route::currentRouteName() == 'provider.comments.index' && request()->query('type') === 'complaint') ) active @endif">
+                    <a class="sidebar-link" href="{{ route('provider.comments.index' , ['type' => 'complaint'] ) }}">
+                        <span class="align-middle"> عرض الشكاوى </span>
+                        <i class="align-middle" data-feather="alert-circle"></i>
+                    </a>
+                </li>
+
                 <li class="sidebar-item @if (Route::currentRouteName() == 'provider.api.edit') ) active @endif">
                     <a class="sidebar-link" href="{{ route('provider.api.edit') }}">
                         <span class="align-middle">إدارة الروابط </span>

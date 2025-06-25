@@ -1,9 +1,7 @@
 @extends('layouts-dashboard.master')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h2> الربط </h2>
-        <a href="{{ route('provider.api-request.create', ['api_id' => $api]) }}" class="btn btn-secondary">إضافة طلب </a>
-
+        <h2> الربط </h2>    
     </div>
     <form action="{{ route('provider.api.update') }}" method="post">
         @csrf
