@@ -23,6 +23,8 @@ class CategorySeeder extends Seeder
             ['id'=> 8 ,'name_ar' => 'اسواق' , 'name_en' => 'Market'],
             ['id'=> 9 ,'name_ar' => 'مطاعم' , 'name_en' => 'Restaurants'],
         
+            ['id'=> 10 ,'name_ar' => 'استراحات' , 'name_en' => 'Rest stops'],
+           
         ];
         Category::insert($categories);
     }

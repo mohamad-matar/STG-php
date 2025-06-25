@@ -5,7 +5,8 @@
     <form action="{{ route('admin.categories.update' , $category) }}" method="post" >
         @csrf
         @method('put')
-        <x-input name="name" label="الاسم" :dbValue="$category->name"/>
+        <x-input name="name_ar" label="الاسم بالعربي" :dbValue="$category->name_ar"/>
+        <x-input name="name_en" label=" الاسم بالانكليزي" :dbValue="$category->name_en"/>
         
         <button class="btn btn-secondary">تعديل التصنيف</button>
         <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-secondary">رجوع</a>

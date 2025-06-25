@@ -12,3 +12,18 @@
     @enderror
     </div>
 </div>
+@push('css')
+    @include('dashboard.css-components.multi-select')
+@endpush
+
+@push('js')
+    @include('dashboard.js-components.multi-select')
+
+    <script>        
+        // Initiating the multi-select    
+        $(document).ready(function() {
+            $("#{{ $element_id }}").chosen();
+        })
+    </script>
+@endpush
+

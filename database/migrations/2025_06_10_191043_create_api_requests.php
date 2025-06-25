@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('place_tourist', function (Blueprint $table) {
+        Schema::create('api_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('comment', 200);
+            $table->bigInteger('service_id');
+            $table->integer('quantity' , );
+
+            $table->foreignId('api_id')->constrained();
             $table->foreignId('tourist_id')->constrained();
-            $table->foreignId('place_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('place_tourist');
+        Schema::dropIfExists('api_requests');
     }
 };

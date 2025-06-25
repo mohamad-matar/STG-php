@@ -6,6 +6,7 @@ return [
     'dir' => 'ltr',
     'align' => 'left',
 
+
     'more' => 'More',
     'detail-imgs' => 'Detail images',
 
@@ -19,11 +20,13 @@ return [
     'password' => 'Password',
     'password-confirmation' => 'password confirmation',
     'remember' => 'Remember me',
+    'log-out' => 'Log Out',
     'login-btn' => 'Login',
     'register-btn' => 'Register',
     'back' => 'Back',
     'have-account' => 'Have account',
     'create-account' => 'Create new account',
+    'search' => 'search',
 
     'dashboard' => 'Dashboard',
 
@@ -32,21 +35,66 @@ return [
     'back' => 'Back',
     'notFound' => 'No Elements',
 
+    'branch' => 'branch|branches',
+
+    'quantity' => 'Quantity',
+    'request' => 'Request',
+
+    'user-type' => 'User type should be ',
+    'type' => 'Type',
+
+    'preview-requests' => 'Preview the orders',
+    'no-connection' => 'Services cannot be viewed because there is no connection with ',
+    'total' => 'Total',
+
+
+    'tourist' => 'tourist',
+    'provider' => 'service provider',
+    'admin' => 'site administrator',
+    'dashboard-user' => 'site administrator or service provider',
+
 
     /** ************* menu ****************/
     'home' => 'Home',
     'hotel' => 'Hotel|Hotels',
     'restaurant' => 'Restaurant|Restaurants',
-    'tour' => 'Tour|Tours',
+    'trip' => 'Trip|Trips',
     'monument' => 'Monument|Monuments',
     'religious' => 'Religious Monument|Religious Monuments',
     'cultural' => 'Cultural-Landmark|Cultural-Landmarks',
     'natural' => 'Natural-Attraction|Natural-Attractions',
     'login' => 'Login',
     'signup' => 'Sign Up',
+    'my-trip' => 'My trip',
+    'new-trips' => 'New trips',
+    'previous-trips' => 'Previous trips',
+
 
     /** most popular */
     'popular' => 'most popular attractions',
+
+    'trip-details' => 'Details',
+    'start' => 'Start date',
+    'end' => 'End date',
+    'cost' => 'Cost',
+    'remain' => 'Remain count',
+    'place' => 'place',
+    'trip-title' => 'trip title',
+    'image' => 'Image',
+    'join' => 'Join',
+    'seat-count' => 'seat count',
+    'success' => 'Operation done successfuly',
+    'error' => 'Error happens, please try later',
+    'country' => 'Country',
+    'name' => 'Name',
+    'joined' => 'Joined',
+    'eval' => 'review',
+    'send' => 'Send',
+    'comment' => 'Comment',
+    'add-comment' => 'Add comment',
+
+    'complain' => 'complain',
+
 
 
     /** footer */
@@ -62,11 +110,8 @@ return [
 
     'guide-news' => 'Guide News',
 
-    'choose-type' => 'Choose Category',    
+    'choose' => 'Choose',
 
-    'news' => 'news|news',
-    'comment' => 'comment|comments',
-    'vacancy' => 'vacancy|vacancies',
     'page' => 'page|pages',
 
     'places' => 'places',

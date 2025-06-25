@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('place_evaluates', function (Blueprint $table) {
-            $table->id();
+        Schema::create('place_tourist', function (Blueprint $table) {
             $table->enum('evaluate', [1,2,3,4,5]);
             $table->foreignId('tourist_id')->constrained();
             $table->foreignId('place_id')->constrained();
+            $table->primary(['tourist_id', 'place_id']);
+
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('place_evaluates');
+        Schema::dropIfExists('place_tourist');
     }
 };

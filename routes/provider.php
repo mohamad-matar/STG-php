@@ -7,6 +7,7 @@ use App\Http\Controllers\Provider\ProviderController;
 use App\Http\Controllers\Provider\BranchController;
 use App\Http\Controllers\Provider\ProviderShowController;
 use App\Http\Controllers\Provider\BranchShowController;
+use App\Http\Controllers\Provider\CommentController;
 use App\Http\Controllers\Provider\TripController;
 use App\Http\Controllers\Provider\TripDetailsController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,5 @@ Route::middleware(['auth', 'user-type:provider'])->prefix('provider/')->name('pr
     Route::get('api-edit', [ApiController::class, 'edit'])->name('api.edit');
     Route::put('api-update', [ApiController::class, 'update'])->name('api.update');
 
-    Route::resource('api-request', ApiRequestController::class);
+    Route::resource('comments', CommentController::class)->only('index');
 });

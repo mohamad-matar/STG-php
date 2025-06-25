@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tourist_trip', function (Blueprint $table) {
-            $table->id();
+            $table->integer('seat_count')->nullable()->default(1);
+            
             $table->enum('evaluate', [1, 2, 3, 4, 5])->nullable();
-            $table->string('comment', 200)->nullable();
+
             $table->foreignId('tourist_id')->constrained();
             $table->foreignId('trip_id')->constrained();
+            $table->primary(['tourist_id', 'trip_id']);
+
             $table->timestamps();
         });
     }

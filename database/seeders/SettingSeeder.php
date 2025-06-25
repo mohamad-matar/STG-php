@@ -27,49 +27,63 @@ class SettingSeeder extends Seeder
                         [
                 'key' => 'telegram',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'youtube',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'linked-in',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'instagram',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'X-twitter',
                 'value' => "",
+                'isFile' => 0,
             ],            
             [
                 'key' => 'facebook',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'phone',
                 'value' => "",
+                'isFile' => 0,
             ],
             [
                 'key' => 'mail',
                 'value' => "",
+                'isFile' => 0,
             ],                       
             [
                 'key' => 'restaurant',
                 'value' => 200,
+                'isFile' => 0,
             ],
             [
                 'key' => 'Hotel',
                 'value' => 14,
+                'isFile' => 0,
             ],
             [
                 'key' => 'tour',
                 'value' => '1446',
+                'isFile' => 0,
             ],
         ];
-        foreach ($components as $component)
-            Setting::create($component);
+        Setting::insert($components);
     }
 }
+          
+
+
+

@@ -38,8 +38,8 @@
                             <a class="btn btn-outline-success" href="{{ route('home.index') }}">@lang('stg.back')</a>
                         </div>
                     </form>
-                    <div class="text-center">
-                        <a href="{{ route('register') }}" class="fs-5 m-2 text-secondary d-inline-block ">@lang('stg.create-account')</a>
+                    <div class="text-center m-2 mt-3">
+                        <a href="{{ route('register') }}" class="fs-4 fw-bold  text-success  ">@lang('stg.create-account')</a>
                     </div>
                 </div>
             </div>
