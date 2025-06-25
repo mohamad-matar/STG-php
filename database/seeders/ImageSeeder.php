@@ -15,27 +15,27 @@ class ImageSeeder extends Seeder
         $images = [
             ['id' => 300, 'name' => 'images/places/300.jpg', 'type' => 'places',],
 
-            ['id' => 301, 'name' => 'images/places-shows/301.jpg', 'type' => 'places-shows',],
-            ['id' => 302, 'name' => 'images/places-shows/302.jpg', 'type' => 'places-shows',],
-            ['id' => 303, 'name' => 'images/places-shows/303.jpg', 'type' => 'places-shows',],
-            ['id' => 304, 'name' => 'images/places-shows/304.jpg', 'type' => 'places-shows',],
+            ['id' => 301, 'name' => 'images/place-shows/301.jpg', 'type' => 'place-shows',],
+            ['id' => 302, 'name' => 'images/place-shows/302.jpg', 'type' => 'place-shows',],
+            ['id' => 303, 'name' => 'images/place-shows/303.jpg', 'type' => 'place-shows',],
+            ['id' => 304, 'name' => 'images/place-shows/304.jpg', 'type' => 'place-shows',],
 
 
             ['id' => 200 ,'name' => 'images/places/200.jpg', 'type' => 'places',],
 
             ['id' => 201 ,'name' => 'images/place-shows/201.jpg', 'type' => 'place-shows',],
-            ['id' => 202 ,'name' => 'images/place-shows/202.jpg', 'type' => 'places-show',],
-            ['id' => 203 ,'name' => 'images/place-shows/203.jpg', 'type' => 'places-show',],
-            ['id' => 204 ,'name' => 'images/place-shows/204.jpg', 'type' => 'places-show',],
-            ['id' => 205 ,'name' => 'images/place-shows/205.jpg', 'type' => 'places-show',],
-            ['id' => 206 ,'name' => 'images/place-shows/206.jpg', 'type' => 'places-show',],
-            ['id' => 207 ,'name' => 'images/place-shows/207.jpg', 'type' => 'places-show',],
-            ['id' => 208 ,'name' => 'images/place-shows/208.jpg', 'type' => 'places-show',],
-            ['id' => 209 ,'name' => 'images/place-shows/209.jpg', 'type' => 'places-show',],
-            ['id' => 210 ,'name' => 'images/place-shows/210.jpg', 'type' => 'places-show',],
-            ['id' => 211 ,'name' => 'images/place-shows/211.jpg', 'type' => 'places-show',],
-            ['id' => 212 ,'name' => 'images/place-shows/212.jpg', 'type' => 'places-show',],
-            ['id' => 213 ,'name' => 'images/place-shows/213.jpg', 'type' => 'places-show',],
+            ['id' => 202 ,'name' => 'images/place-shows/202.jpg', 'type' => 'place-shows',],
+            ['id' => 203 ,'name' => 'images/place-shows/203.jpg', 'type' => 'place-shows',],
+            ['id' => 204 ,'name' => 'images/place-shows/204.jpg', 'type' => 'place-shows',],
+            ['id' => 205 ,'name' => 'images/place-shows/205.jpg', 'type' => 'place-shows',],
+            ['id' => 206 ,'name' => 'images/place-shows/206.jpg', 'type' => 'place-shows',],
+            ['id' => 207 ,'name' => 'images/place-shows/207.jpg', 'type' => 'place-shows',],
+            ['id' => 208 ,'name' => 'images/place-shows/208.jpg', 'type' => 'place-shows',],
+            ['id' => 209 ,'name' => 'images/place-shows/209.jpg', 'type' => 'place-shows',],
+            ['id' => 210 ,'name' => 'images/place-shows/210.jpg', 'type' => 'place-shows',],
+            ['id' => 211 ,'name' => 'images/place-shows/211.jpg', 'type' => 'place-shows',],
+            ['id' => 212 ,'name' => 'images/place-shows/212.jpg', 'type' => 'place-shows',],
+            ['id' => 213 ,'name' => 'images/place-shows/213.jpg', 'type' => 'place-shows',],
 
 
             ['id' => 215 ,'name' => 'images/places/215.jpg', 'type' => 'places',],
