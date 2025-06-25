@@ -96,7 +96,17 @@ class PlaceSeeder extends Seeder
                 'province_id' => 1,
                 'image_id' => 4000 ,
                 'created_by' => 1,                
-             ],                         
+             ],    
+             [
+                'id' => 5000,                
+                'name_ar' => ' الكنيسة المريمية ',
+                'name_en' => 'Mary Church ',
+                'description_ar' => 'لكنيسة المريمية أو الكاتدرائية المريمية وهي إحدى كنائس مدينة دمشق عاصمة الجمهورية العربية السورية',
+                'description_en' => 'The Mary Church or the Mary Cathedral is one of the churches in Damascus, the capital of the Syrian Arab Republic.',
+                'province_id' => 1,
+                'image_id' => 5000 ,
+                'created_by' => 1,                
+             ],                                         
         ];
         Place::insert($places);
         Place::find(200)->categories()->attach([2,3]);
@@ -114,6 +124,8 @@ class PlaceSeeder extends Seeder
         Place::find(11)->categories()->attach([4]);
         Place::find(1001)->categories()->attach([4]);
         Place::find(4000)->categories()->attach([3]);
+        Place::find(5000)->categories()->attach([1]);
+
 
     }
 }
