@@ -77,7 +77,7 @@ class PlaceSeeder extends Seeder
                 'created_by' => 1,                
              ],
              [
-                'id' => 1001,                
+                'id' => 2101,                
                 'name_ar' => 'شاطئ هوليداي',
                 'name_en' => 'Holiday Beach',
                 'description_ar' => 'منتجعات - غرف تبديل',
@@ -122,7 +122,7 @@ class PlaceSeeder extends Seeder
         Place::find(1000)->categories()->attach([10]);
         
         Place::find(11)->categories()->attach([4]);
-        Place::find(1001)->categories()->attach([4]);
+        Place::find(2101)->categories()->attach([4]);
         Place::find(4000)->categories()->attach([3]);
         Place::find(5000)->categories()->attach([1]);
 

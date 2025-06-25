@@ -130,7 +130,14 @@ class ImageSeeder extends Seeder
             ['id' => 2000, 'name' => 'images/provider-cover/2000.jpg', 'type' => 'provider-cover',],
             
             ['id' => 2100, 'name' => 'images/places/2100.jpg', 'type' => 'places',],
+
             ['id' => 2101, 'name' => 'images/places/2101.jpg', 'type' => 'places',],
+
+            ['id' => 2102, 'name' => 'images/place-shows/2102.jpg', 'type' => 'places-show',],
+            ['id' => 2103, 'name' => 'images/place-shows/2103.jpg', 'type' => 'places-show',],
+            ['id' => 2104, 'name' => 'images/place-shows/2104.jpg', 'type' => 'places-show',],
+
+
 
             ['id' => 4000, 'name' => 'images/places/4000.jpg', 'type' => 'places',],
 
