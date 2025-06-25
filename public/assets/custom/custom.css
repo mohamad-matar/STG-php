@@ -430,18 +430,14 @@ nav .navlink.show {
 
 .popular-img {
 	position: relative;
-	bottom: 30px;
-	right: 15px;
 	overflow: hidden;
 	min-height: 300px;
-	z-index: 2;
+	z-index: -1;
 }
 
 .popular-content {
 	text-align: center;
 	position: relative;
-	top: 30px;
-	left: 15px;
 	font-weight: 500;
 	font-size: 16px;
 	box-shadow: 1px 2px 5px var(--color-grey-1);
@@ -456,6 +452,7 @@ nav .navlink.show {
 
 .popular-img img {
 	height: 310px;
+	width: 100%;
 }
 
 

@@ -8,127 +8,25 @@
 
             <div class="swiper popular-swiper">
                 <div class="swiper-wrapper">
-
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-1.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
+                    @foreach ($places as $place)
+                        <div class="swiper-slide container" data-aos="fade-up">
+                            <a href="#" class=" d-block p-0">
+                                <div class="row">
+                                    <div class="col-md-6 popular-img p-0">
+                                        <img src="{{ getImgUrl($place->image_id) }}" alt="">
+                                    </div>
+                                    <div class="col-md-6 mb-5 p-0">
+                                        <div class="popular-content bg-white p-3">
+                                            <h3 class="text-salmon">{{ $place->name }}</h3>
+                                            <div class="summary mb-3"> 
+                                                {{ $place->description }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-2.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-3.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-4.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-5.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide container" data-aos="fade-up">
-                        <a href="#" class=" d-block p-0">
-                            <div class="row">
-                                <div class="col-md-6 popular-img p-0">
-                                    <img src="{{ asset('assets/images/slider/slider-6.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="col-md-6 mb-5 p-0">
-                                    <div class="popular-content bg-white p-3">
-                                        <h3 class="text-salmon">Lorem, ipsum dolor.</h3>                                        
-                                        <div class="summary mb-3"> Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Laborum accusantium repellendus iusto consectetur fugit impedit?
-                                            Aliquid expedita nobis repellat in totam dolore, vero facilis quaerat
-                                            aperiam, rem perferendis, maiores id?
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
 
                 </div>
             </div>
