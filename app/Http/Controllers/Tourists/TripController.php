@@ -47,7 +47,7 @@ class TripController extends Controller
                     }]);
             }])->get();
         // return $trips;
-        $title = $myTrip ? __('stg.my-trip') : ($new ? __('stg.new-trips') : __('stg.previous-trips'));
+        $title = $myTrip ? __('stg.my-trip') : ($new == "y" ? __('stg.new-trips') : __('stg.previous-trips'));
         return view('trips.index', compact('trips', 'title'));
     }
 

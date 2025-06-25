@@ -3,8 +3,8 @@
 @section('content')
     <div class="my-5">
         <div class="p-2 my-3">
-            <h1 class="text-center text-success">{{ $place->name }}</h1>
-            <p class="text-center fs-3">{{ $place->description }}</p>
+            <h1 class="text-center text-success fs-2 my-3">{{ $place->name }}</h1>
+            <p class="text-center fs-4">{{ $place->description }}</p>
             <div class="main-img-wrapper">
                 <img src="{{ getImgUrl($place->image_id) }}" alt="">
             </div>
