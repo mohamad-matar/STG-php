@@ -16,20 +16,20 @@ class PlaceSeeder extends Seeder
     {
         $places = [
             [
-                'id' => 1,
+                'id' => 300,
                 'name_ar' => 'أسواق قديمة ',
                 'name_en' => 'OLD MARKETS',
                 'description_ar' => 'أسواق قديمة',
                 'description_en' => 'OLD MARKETS',
                 'province_id' => 1,
-                'image_id' => 1,
+                'image_id' => 300,
                 'created_by' => 1,
             ],
         ];
         Place::insert($places);
 
 
-        Place::find(1)->categories()->attach([1]);
+        Place::find(300)->categories()->attach([2]);
         
     }
 }
