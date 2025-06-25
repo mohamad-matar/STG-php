@@ -15,7 +15,7 @@ class PlaceSeeder extends Seeder
     public function run(): void
     {
         $places = [
-             [
+            [
                 'id' => 1,
                 'name_ar' => 'أسواق قديمة ',
                 'name_en' => 'OLD MARKETS',
@@ -25,7 +25,7 @@ class PlaceSeeder extends Seeder
                 'image_id' => 1,
                 'created_by' => 1,
             ],
-           
+            
             [
                 'id' => 11,
                 'name_ar' => 'أماكن طبيعية ',
@@ -36,7 +36,7 @@ class PlaceSeeder extends Seeder
                 'image_id' => 11,
                 'created_by' => 1,
             ],
-             [
+            [
 
                 'id' => 100,
                 'name_ar' => 'ال',
@@ -49,7 +49,7 @@ class PlaceSeeder extends Seeder
                 'image_id' => 100,
                 'created_by' => 1,
                 
-             ],
+            ],
                 
         ];
         Place::insert($places);
