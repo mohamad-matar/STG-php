@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProviderSeeder::class);
         $this->call(BranchSeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(TripSeeder::class);
     }
 }

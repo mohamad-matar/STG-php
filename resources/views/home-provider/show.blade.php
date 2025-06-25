@@ -1,4 +1,6 @@
 @extends('layouts.master')
+@section('title' ,  $provider->name )
+
 @section('content')
     <div class="text-center">
         <h1 class="mt-5 pt-4 text-success fs-2">{{ $provider->name }}</h1>
@@ -6,21 +8,30 @@
 
         <img class="cover" src="{{ getImgUrl($provider->image_id) }}" alt="{{ getImgUrl($provider->image_id) }}">
     </div>
-    <section id="popular-area" class="section-wrapper">
-        <div class="container popular-carousel-wrapper">
-            <h2 class="text-success my-5">الفروع</h2>
 
+    <div id="provider-shows" class="text-center ">
+        <div class="gallery">
+            @foreach ($provider->providerShows as $i => $providerShow)
+                <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
+            @endforeach
+        </div>
+    </div>
 
-            <div class="swipper-container p-4">
+    {{-- -------------- branches  ------------------ --}}
+    @if ($provider->branches->count())
+        <section id="popular-area" class="section-wrapper">
+            <div class="container popular-carousel-wrapper">
+                <h2 class="text-success my-5">@choice('stg.branch', 2)</h2>
+                <div class="swipper-container p-4">
 
-                <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
-                <div class="btn-swipper-next"><i class="fa fa-chevron-right"></i></div>
+                    <div class="btn-swipper-prev"><i class="fa fa-chevron-left"></i></div>
+                    <div class="btn-swipper-next"><i class="fa fa-chevron-right"></i></div>
 
-                <div class="swiper popular-swiper">
-                    <div class="swiper-wrapper">
+                    <div class="swiper popular-swiper">
+                        <div class="swiper-wrapper">
 
-                        @foreach ($provider->branches as $branch)
-                            <div class="swiper-slide container" data-aos="fade-up">
+                            @foreach ($provider->branches as $branch)
+                                <div class="swiper-slide container" data-aos="fade-up">
 
                                     <div class="row">
                                         <div class="col-md-6 popular-img p-0">
@@ -37,28 +48,74 @@
                                             </div>
                                         </div>
                                     </div>
-                            </div>
-                        @endforeach
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    @endif
+
+    @if ($services)
+        @php $name = "name_$locale" @endphp
+        <div class="container py-3 mb-5 text-center">
+            <div class="row">
+                @foreach ($services as $service)
+                    <div class="col-md-4">
+                        <h2>{{ $service->$name }} </h2>
+                        <form action="{{ route('home.providers.request') }}" method="post">
+                            @csrf
+                            <div class="d-flex justify-content-center">
+                                <input type="hidden" name="api_id" value="{{ $api->id }}">
+                                <input type="hidden" name="service_id" value="{{ $service->id }}">
+                                <x-input name="quantity" :label="__('stg.quantity')" col="2" class="" />
+                            </div>
+                            <button class="btn btn-success">@lang('stg.request')</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ $api->view_url }}" target="_blank" class="btn btn-outline-success ">
+                    @lang('stg.preview-requests')
+                </a>
+            </div>
         </div>
+    @endif
+    @if ($msg)
+        <div class="text-center my-2">{{ $msg . $provider->name }}</div>
+    @endif
+
+
+    <section class="container">
+
+        <form action="{{ route('tourist.providers.comment', $provider->id) }}" method=post class="alert alert-success">
+            <h4 class="text-success">
+                @lang('stg.add-comment') 
+            </h4>
+            @csrf
+            <x-select-arr name="type" label="" :options="['comment','complain']" dbValue="comment"
+                col="3" />
+            <x-textarea name="comment" label="{{ __('stg.comment') }}" col="12" rows="2" />
+            <button class="btn btn-success">@lang('stg.send')</button>            
+        </form>
+        @foreach ($provider->comments as $comment)
+            <div class="alert alert-success  bg-white">
+                <div class="text-success">
+                    {{ $comment->tourist->name }}
+                </div>
+                <div>
+                    {{ $comment->comment }}
+                </div>
+            </div>
+        @endforeach
     </section>
 
-    <div id="provider-shows" class="text-center ">
-        <h3 class="fs-2 ">الصور</h3>
-        <div class="gallery">
-            @foreach ($provider->providerShows as $i => $providerShow)
-                <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
-            @endforeach
-        </div>
-    </div>
 @endsection
 @push('css')
     <style>
         body {
-            /* display: grid; */
-            /* place-content: center; */
             background-color: rgb(249, 245, 239);
         }
 

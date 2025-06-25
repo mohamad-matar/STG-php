@@ -13,14 +13,16 @@
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
                 <th>id</th>
-                <th> اسم الصنف</th>
+                <th>  اسم الصنف بالعربي</th>
+                <th> اسم الصنف بالانكليزي</th>
                 <th> الوظائف</th>
             </tr>
 
             @foreach ($categories as $category)
                 <tr>
                     <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>                     
+                    <td>{{ $category->name_ar }}</td>                     
+                    <td>{{ $category->name_en }}</td>                     
                     <td class="text-nowrap">   
                         <a class="btn btn-sm btn-outline-info" href="{{ route('admin.categories.edit', ['category' => $category]) }}">
                         <i data-feather="edit"></i>

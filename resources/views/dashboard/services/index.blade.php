@@ -12,15 +12,17 @@
     @else
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
-                <th>id</th>
-                <th> اسم الخدمة</th>
+                <th>#</th>
+                <th> اسم الخدمة بالعربي</th>
+                <th> اسم الخدمة بالانكليزي</th>
                 <th> الوظائف</th>
             </tr>
 
             @foreach ($services as $service)
                 <tr>
                     <td>{{ $service->id }}</td>
-                    <td>{{ $service->name }}</td>                     
+                    <td>{{ $service->name_ar }}</td>                     
+                    <td>{{ $service->name_en }}</td>                     
                     <td class="text-nowrap">   
                         <a class="btn btn-sm btn-outline-info" href="{{ route('admin.services.edit', ['service' => $service]) }}">
                         <i data-feather="edit"></i>

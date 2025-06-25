@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Category;
 use App\Models\Place;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlaceController extends Controller
-{   
+{
     public function index(Request $request)
     {
         $locale =   app()->getLocale();
@@ -30,6 +31,7 @@ class PlaceController extends Controller
                         ->orWhere('description_en',  'like', "%$search%");
                 })
                 ->with('province')
+                ->withAvg('tourists', 'place_tourist.evaluate')
                 ->get();
         } else
             return redirect()->route('home.index')->with('error', '');
@@ -48,5 +50,32 @@ class PlaceController extends Controller
             }])->first();
 
         return view('places.show', compact('place'));
+    }
+
+    function eval(Place $place,  Request $request)
+    {
+        $validated = $request->validate([
+            'evaluate' => 'in:1,2,3,4,5',
+        ]);
+        // return $place;
+        $currTourist = Auth::user()->tourist->id;
+        if ($place->tourists()->where('tourist_id', $currTourist)->first())
+            $place->tourists()->updateExistingPivot($currTourist, $validated);
+        else
+            $place->tourists()->attach($currTourist, $validated);
+
+        return back()->with('success', __('stg.success'));
+    }
+
+    function comment(Place $place,  Request $request)
+    {
+        $validated = $request->validate([
+            'comment' => 'required|max:200',
+            'type' => 'nullable|in:comment,complain'
+        ]);
+        // return $place;
+
+        $place->comments()->create(['tourist_id' => Auth::user()->tourist->id, 'comment' => $validated['comment']]);
+        return back()->with('success', __('stg.success'));
     }
 }

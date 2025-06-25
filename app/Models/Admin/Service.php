@@ -11,7 +11,8 @@ class Service extends Model
     /** @use HasFactory<\Database\Factories\ServiceFactory> */
     use HasFactory;
     protected $fillable = [
-        'name',        
+        'name_ar',
+        'name_en',        
     ];
 
     function providers(){

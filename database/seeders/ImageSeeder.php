@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Image;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ImageSeeder extends Seeder
@@ -29,6 +28,7 @@ class ImageSeeder extends Seeder
             ['id' => 9, 'name' => 'images/place-shows/9.jpg', 'type' => 'places-shows',],
             ['id' => 10, 'name' => 'images/place-shows/10.jpg', 'type' => 'places-shows',],
 
+
             ['id' => 11, 'name' => 'images/places/11.jpg', 'type' => 'places',],
 
             ['id' => 12, 'name' => 'images/place-shows/12.jpg', 'type' => 'places-shows',],
@@ -42,13 +42,7 @@ class ImageSeeder extends Seeder
             ['id' => 100, 'name' => 'images/places/100.jpg', 'type' => 'places',],
 
            
-            
-
-
-
-
-
-
+                
             ['id' => 101, 'name' => 'images/place-shows/101.jpg', 'type' => 'place-shows',],
             ['id' => 102, 'name' => 'images/place-shows/102.jpg', 'type' => 'place-shows',],
             ['id' => 103, 'name' => 'images/place-shows/103.jpg', 'type' => 'place-shows',],
@@ -75,22 +69,6 @@ class ImageSeeder extends Seeder
             ['id' => 1011, 'name' => 'images/branch-shows/1011.jpg', 'type' => 'branch-shows',],
             ['id' => 1012, 'name' => 'images/branch-shows/1012.jpg', 'type' => 'branch-shows',],
             ['id' => 1013, 'name' => 'images/branch-shows/1013.jpg', 'type' => 'branch-shows',],
-
-
-
-
-
-           
-
-
-
-
-
-            
-
-            // ['id' => 3 ,'name' => 'images/provider-cover/1.jpg', 'type' => 'provider-cover',],
-            // ['id' => 4 ,'name' => 'images/provider-shows/1.jpg' , 'type' => 'provider-shows' , ],
-            
             
             ['id' => 1100, 'name' => 'images/provider-cover/1100.jpg', 'type' => 'provider-cover',],
 
@@ -108,6 +86,12 @@ class ImageSeeder extends Seeder
             ['id' => 1112, 'name' => 'images/provider-shows/1112.jpg', 'type' => 'provider-shows',],
             ['id' => 1113, 'name' => 'images/provider-shows/1113.jpg', 'type' => 'provider-shows',],
             ['id' => 1114, 'name' => 'images/provider-shows/1114.jpg', 'type' => 'provider-shows',],
+            
+            ['id' => 2000, 'name' => 'images/provider-cover/2000.jpg', 'type' => 'provider-cover',],
+            
+            ['id' => 2100, 'name' => 'images/places/2100.jpg', 'type' => 'places',],
+            ['id' => 2101, 'name' => 'images/places/2101.jpg', 'type' => 'places',],
+
         ];
         
         Image::insert($images);

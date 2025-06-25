@@ -1,9 +1,13 @@
 @extends('layouts.master')
+@section('title' ,  $providerName )
+
 @section('content')    
     <div class="text-center">
         <h2 class="mt-5 pt-4 text-success">
+            <a href="{{ url()->previous() }}" class="text-success">
+                <i class="fa fa-arrow-circle-@lang('stg.align')"></i>
+            </a>
             {{ $providerName }} - {{ $branch->name }}
-            <a href="{{ url()->previous() }}" class="text-success"><i class="fa fa-angle-left"></i></a>
         </h2>
         <p class="text-center my-3 fs-4">{{ $branch->description }} </p>
 

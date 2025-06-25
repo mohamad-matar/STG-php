@@ -2,9 +2,10 @@
 
 namespace App\Models\Provider;
 
+use App\Models\Comment;
 use App\Models\Tourist;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Trip extends Model
 {        
@@ -31,7 +32,12 @@ class Trip extends Model
     }    
 
     function tourists(){
-        return $this->belongsToMany(Tourist::class);
+        return $this->belongsToMany(Tourist::class)->withPivot(['seat_count'])->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commented');
     }
 }
  

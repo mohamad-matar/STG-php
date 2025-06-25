@@ -52,7 +52,7 @@ class TripController extends Controller
             'provider_id' => 'exists:providers,id'           
         ]);
 
-        $currProvider = User::find(Auth::user()->id)->provider;
+        $currProvider = Auth::user()->provider;
        
         $currProvider->trips()->create($validated);        
         

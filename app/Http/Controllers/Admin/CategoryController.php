@@ -31,7 +31,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50',
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
         ]);
         Category::create($validated);
         return to_route('admin.categories.index')->with('success' , 'تم إضافة الخدمة بنجاح');
@@ -52,7 +53,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
-            'name' => 'required|max:50',
+            'name_ar' => 'required|max:50',
+            'name_en' => 'required|max:50',
         ]);
         $category->update($validated);
         return to_route('admin.categories.index')->with('success', 'تم تعديل الخدمة بنجاح');

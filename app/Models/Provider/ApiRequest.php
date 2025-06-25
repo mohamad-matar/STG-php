@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ApiRequest extends Model
 {    
     protected $fillable = [
-        'title' ,
-        'method' ,
-        'path',
+        'service_id',
+        'quantity' ,
         'api_id',
-        'params'
     ];
 }
  

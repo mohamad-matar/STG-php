@@ -109,10 +109,6 @@ p {
 	background-color: var(--color-basic-5);
 }
 
-.btn {
-	border-radius: 0;
-}
-
 .btn-basic {
 	background-color: var(--color-basic-5);
 	color: white;
@@ -142,7 +138,7 @@ p {
 }
 
 .mt-6 {
-	margin-top: 200px;
+	margin-top: 6em;
 }
 
 .pt-6 {
@@ -359,14 +355,15 @@ nav .navlink.show {
 	height: 110vh;
 	min-height: 400px;
 	background-attachment: fixed;
-	background-position: center;
+	background-position: center bottom;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	margin-top: -98px;
-	background-image: linear-gradient(rgba(162, 213, 159, 0), 80%, rgba(3, 152, 73, 0.815)), url('/assets/images/cover/cover.jpg');
+	/* background-image: linear-gradient(rgba(252, 254, 252, 0), 90%, rgba(175, 251, 211, 0.815)), url('/assets/images/cover/cover.jpg'); */
+		background-image:  url('/assets/images/cover/cover.jpg');
 }
 
 #cover-area>* {
@@ -592,7 +589,7 @@ nav .navlink.show {
 }
 
 [id^='eval-'] {
-	top: -300px;
+	top: 240px;
 	background-color: rgb(242, 252, 239);
 	border: solid 1px green;
 	width: 90%;

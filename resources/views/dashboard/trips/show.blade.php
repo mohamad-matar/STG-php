@@ -58,8 +58,8 @@
                     @csrf
                     <input type="hidden" name="trip_id" value={{ $trip->id }}>
 
-                    <td><x-input-sm name="title_ar" label="عنوان الرحلة بالعربي" />
-                    <td> <x-input-sm name="title_en" label="عنوان الرحلة بالانكليزي" />
+                    <td><x-input-sm name="title_ar" label="عنوان الرحلة بالعربي" /> </td>
+                    <td> <x-input-sm name="title_en" label="عنوان الرحلة بالانكليزي" /> </td>
                     <td><x-input-sm name="start_date" class="datetimepicker" /></td>
                     <td><x-input-sm name="end_date" class="datetimepicker" /></td>
                     <td><x-select-sm name="place_id" label="مكان" :options="$places" /></td>

@@ -3,8 +3,10 @@
 namespace App\Models\Provider;
 
 use App\Models\Admin\Service;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Place;
+use App\Models\Tourist;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -48,6 +50,14 @@ class Provider extends Model
     public function contacts(): MorphMany
     {
         return $this->morphMany(Contact::class, 'owner');
+    }
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commented');
+    }
+    function tourists()
+    {
+        return $this->belongsToMany(Tourist::class);
     }
 }
  
