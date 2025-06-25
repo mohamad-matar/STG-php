@@ -41,10 +41,11 @@ class ImageSeeder extends Seeder
             ['id' => 215 ,'name' => 'images/places/215.jpg', 'type' => 'places',],
             
             ['id' => 216 ,'name' => 'images/place-shows/216.jpg', 'type' => 'places-show',],
-             ['id' => 217, 'name' => 'images/place-shows/217.jpg', 'type' => 'places-show',],
-             ['id' => 218, 'name' => 'images/place-shows/218.jpg', 'type' => 'places-show',],
-             ['id' => 219, 'name' => 'images/place-shows/219.jpg', 'type' => 'places-show',],
-             ['id' => 220, 'name' => 'images/place-shows/220.jpg', 'type' => 'places-show',],
+            ['id' => 217, 'name' => 'images/place-shows/217.jpg', 'type' => 'places-show',],
+        
+            ['id' => 218, 'name' => 'images/place-shows/218.jpg', 'type' => 'places-show',],
+            ['id' => 219, 'name' => 'images/place-shows/219.jpg', 'type' => 'places-show',],
+            ['id' => 220, 'name' => 'images/place-shows/220.jpg', 'type' => 'places-show',],
             ['id' => 221, 'name' => 'images/place-shows/221.jpg', 'type' => 'places-show',],
             ['id' => 222, 'name' => 'images/place-shows/222.jpg', 'type' => 'places-show',],
             ['id' => 223, 'name' => 'images/place-shows/223.jpg', 'type' => 'places-show',],
@@ -130,6 +131,18 @@ class ImageSeeder extends Seeder
             
             ['id' => 2100, 'name' => 'images/places/2100.jpg', 'type' => 'places',],
             ['id' => 2101, 'name' => 'images/places/2101.jpg', 'type' => 'places',],
+
+            ['id' => 4000, 'name' => 'images/places/4000.jpg', 'type' => 'places',],
+
+            ['id' => 4001, 'name' => 'images/place-shows/4001.jpg', 'type' => 'places-show',],
+            ['id' => 4002, 'name' => 'images/place-shows/4002.jpg', 'type' => 'places-show',],
+            ['id' => 4003, 'name' => 'images/place-shows/4003.jpg', 'type' => 'places-show',],
+            ['id' => 4004, 'name' => 'images/place-shows/4004.jpg', 'type' => 'places-show',],
+            ['id' => 4005, 'name' => 'images/place-shows/4005.jpg', 'type' => 'places-show',],
+            ['id' => 4006, 'name' => 'images/place-shows/4006.jpg', 'type' => 'places-show',],
+            ['id' => 4007, 'name' => 'images/place-shows/4005.jpg', 'type' => 'places-show',],
+            
+    
 
         ];
         

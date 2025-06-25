@@ -302,7 +302,55 @@ class PlaceShowSeeder extends Seeder
                 'place_id' => 100,
                 'image_id' => 109       ,                
             ], 
-
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4001,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4002,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4003,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4004,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4005,                
+            ],
+            [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4006,                
+            ], 
+             [
+              
+                'name_ar' => '',
+                'name_en' => '',                
+                'place_id' => 4000,
+                'image_id' => 4007,                
+            ], 
            
         ];
         PlaceShow::insert($placeShows);
