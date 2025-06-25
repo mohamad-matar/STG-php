@@ -6,7 +6,8 @@
         @csrf
         @method('put')
 
-        <x-input name="title" label="العنوان" :dbValue="$apiRequest->title" />
+        <x-input name="title_ar" label="عنوان الطلب بالعربي" :dbValue="$apiRequest->title_ar"/>
+        <x-input name="title_en" label="عنوان الطلب بالانكليزي" :dbValue="$apiRequest->title_en"/>     
             
         <x-select-arr name="method" label="الطريقة" :options="['get', 'post', 'put', 'delete']" :dbValue="$apiRequest->method" required />
 

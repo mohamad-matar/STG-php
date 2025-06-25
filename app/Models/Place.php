@@ -31,6 +31,10 @@ class Place extends Model
     function categories(){
         return $this->belongsToMany(Category::class);
     }
+    
+    function tourists(){
+        return $this->belongsToMany(Tourist::class);
+    }
 
     function image()
     {
@@ -39,5 +43,10 @@ class Place extends Model
     function user()
     {
         return $this->belongsTo(User::class , 'created_by');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commented');
     }
 }

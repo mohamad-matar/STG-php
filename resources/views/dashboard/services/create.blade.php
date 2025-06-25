@@ -7,7 +7,8 @@
 
     <form action="{{ route('admin.services.store') }}" method="post" >
         @csrf
-        <x-input name="name" label="الاسم" />
+        <x-input name="name_ar" label="اسم الخدمة بالعربي" />
+        <x-input name="name_en" label="اسم الخدمة بالانكليزي" />
         
         <button class="btn btn-secondary"> إضافة خدمة</button>
         <a href="{{ route('admin.services.index') }}" class="btn btn-outline-secondary">رجوع</a>

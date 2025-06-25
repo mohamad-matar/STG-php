@@ -21,6 +21,9 @@ class Branchseeder extends Seeder
             'name_en' => 'Kafr Sousa Branch',
             'description_ar' => ' مطعم مميز باكلاته الشرقية وأسعاره المناسبة',
             'description_en' => 'A distinctive restaurant with oriental cuisine and reasonable prices',
+            'name_en' => 'Kafrsousa Branch',
+            'description_ar' => ' إطلالة رائعة - خدمة ممتازة - اكلات غربية ',
+            'description_en' => 'Great view - excellent service - Western food',
             'image_id' => 1009,
             'provider_id' => 1,
         ]);
