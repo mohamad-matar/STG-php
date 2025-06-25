@@ -13,8 +13,47 @@ class ImageSeeder extends Seeder
     public function run(): void
     {
         $images = [
+            ['id' => 300, 'name' => 'images/places/300.jpg', 'type' => 'places',],
+
+            ['id' => 301, 'name' => 'images/places-shows/301.jpg', 'type' => 'places-shows',],
+            ['id' => 302, 'name' => 'images/places-shows/302.jpg', 'type' => 'places-shows',],
+            ['id' => 303, 'name' => 'images/places-shows/303.jpg', 'type' => 'places-shows',],
+            ['id' => 304, 'name' => 'images/places-shows/304.jpg', 'type' => 'places-shows',],
 
 
+            ['id' => 200 ,'name' => 'images/places/200.jpg', 'type' => 'places',],
+
+            ['id' => 201 ,'name' => 'images/place-shows/201.jpg', 'type' => 'place-shows',],
+            ['id' => 202 ,'name' => 'images/place-shows/202.jpg', 'type' => 'places-show',],
+            ['id' => 203 ,'name' => 'images/place-shows/203.jpg', 'type' => 'places-show',],
+            ['id' => 204 ,'name' => 'images/place-shows/204.jpg', 'type' => 'places-show',],
+            ['id' => 205 ,'name' => 'images/place-shows/205.jpg', 'type' => 'places-show',],
+            ['id' => 206 ,'name' => 'images/place-shows/206.jpg', 'type' => 'places-show',],
+            ['id' => 207 ,'name' => 'images/place-shows/207.jpg', 'type' => 'places-show',],
+            ['id' => 208 ,'name' => 'images/place-shows/208.jpg', 'type' => 'places-show',],
+            ['id' => 209 ,'name' => 'images/place-shows/209.jpg', 'type' => 'places-show',],
+            ['id' => 210 ,'name' => 'images/place-shows/210.jpg', 'type' => 'places-show',],
+            ['id' => 211 ,'name' => 'images/place-shows/211.jpg', 'type' => 'places-show',],
+            ['id' => 212 ,'name' => 'images/place-shows/212.jpg', 'type' => 'places-show',],
+            ['id' => 213 ,'name' => 'images/place-shows/213.jpg', 'type' => 'places-show',],
+
+
+            ['id' => 215 ,'name' => 'images/places/215.jpg', 'type' => 'places',],
+            
+            ['id' => 216 ,'name' => 'images/place-shows/216.jpg', 'type' => 'places-show',],
+             ['id' => 217, 'name' => 'images/place-shows/217.jpg', 'type' => 'places-show',],
+             ['id' => 218, 'name' => 'images/place-shows/218.jpg', 'type' => 'places-show',],
+             ['id' => 219, 'name' => 'images/place-shows/219.jpg', 'type' => 'places-show',],
+             ['id' => 220, 'name' => 'images/place-shows/220.jpg', 'type' => 'places-show',],
+            ['id' => 221, 'name' => 'images/place-shows/221.jpg', 'type' => 'places-show',],
+            ['id' => 222, 'name' => 'images/place-shows/222.jpg', 'type' => 'places-show',],
+            ['id' => 223, 'name' => 'images/place-shows/223.jpg', 'type' => 'places-show',],
+            ['id' => 224, 'name' => 'images/place-shows/224.jpg', 'type' => 'places-show',],
+            ['id' => 225, 'name' => 'images/place-shows/225.jpg', 'type' => 'places-show',],
+            ['id' => 226, 'name' => 'images/place-shows/226.jpg', 'type' => 'places-show',],
+            ['id' => 227, 'name' => 'images/place-shows/227.jpg', 'type' => 'places-show',],
+            ['id' => 228, 'name' => 'images/place-shows/228.jpg', 'type' => 'places-show',],
+            ['id' => 229,'name' =>'images/place-shows/229.jpg', 'type' => 'places-show',],
 
             ['id' => 1, 'name' => 'images/places/1.jpg', 'type' => 'places',],
 
@@ -40,6 +79,8 @@ class ImageSeeder extends Seeder
 
 
             ['id' => 100, 'name' => 'images/places/100.jpg', 'type' => 'places',],
+
+           
                 
             ['id' => 101, 'name' => 'images/place-shows/101.jpg', 'type' => 'place-shows',],
             ['id' => 102, 'name' => 'images/place-shows/102.jpg', 'type' => 'place-shows',],

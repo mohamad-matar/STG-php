@@ -27,8 +27,8 @@
                     <td>{{ $branch->name_en }}</td>
                     <td>{{ $branch->description_ar }}</td>
                     <td>{{ $branch->description_en }}</td>
-                    <td>{{ $branch->place->name_ar }}</td>
-                    <td>{{ $branch->place->province->name_ar }}</td>
+                    <td>{{ $branch->place?->name_ar }}</td>
+                    <td>{{ $branch->place?->province?->name_ar }}</td>
                     <td class="text-center">
                         <x-img-cell :id="$branch->image_id" />
                     </td>

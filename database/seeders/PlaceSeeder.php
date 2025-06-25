@@ -15,17 +15,46 @@ class PlaceSeeder extends Seeder
     public function run(): void
     {
         $places = [
-             [
+            [
+                'id' => 200,
+                'name_ar' =>  'صلاح الدين الأيوبي ',
+                'name_en' => 'Salah Deen AyobiAzem',
+                'description_ar' => ' ',
+                'description_en' => '',
+                'province_id' => 1,
+                'image_id' => 200,
+                'created_by' => 1,
+            ],
+            [
+                'id' => 300,
+                'name_ar' =>  'قصر العظم ',
+                'name_en' => 'palaic Azem',
+                'description_ar' => 'متاحف -اثار ',
+                'description_en' => 'museum-history',
+                'province_id' => 1,
+                'image_id' => 300,
+                'created_by' => 1,
+            ],
+            [
+                'id' => 215,
+                'name_ar' =>  'الاسوق القديمة',
+                'name_en' => 'Old Souck',
+                'description_ar' => 'تاريخ -ثقافة',
+                'description_en' => 'Cultural - history',                
+                'province_id' => 1,
+                'image_id' => 215,
+                'created_by' => 1,
+            ],
+            [
                 'id' => 1,
                 'name_ar' => 'أسواق قديمة ',
                 'name_en' => 'OLD MARKETS',
                 'description_ar' => 'أسواق قديمة',
                 'description_en' => 'OLD MARKETS',
                 'province_id' => 1,
-                'image_id' => 1,
+                'image_id' => 300,
                 'created_by' => 1,
             ],
-           
             [
                 'id' => 11,
                 'name_ar' => 'أماكن طبيعية ',
@@ -44,8 +73,8 @@ class PlaceSeeder extends Seeder
                 'description_en' => 'market - restuarant - desert',
                 'province_id' => 1,
                 'image_id' => 100,
-                'created_by' => 1,                
-             ],
+                'created_by' => 1,
+            ],
              [
                 'id' => 1000,                
                 'name_ar' => 'استراحة البقيعة',
@@ -65,16 +94,15 @@ class PlaceSeeder extends Seeder
                 'province_id' => 8,
                 'image_id' => 2101 ,
                 'created_by' => 1,                
-             ],
-
-                
+             ],                
         ];
         Place::insert($places);
+        Place::find(200)->categories()->attach([2,3]);
+        Place::find(215)->categories()->attach([1,2]);
 
 
-
-        Place::find(1)->categories()->attach([2]);        
-        
+        Place::find(300)->categories()->attach([2]);
+        Place::find(1)->categories()->attach([2]);                
         
         Place::find(11)->categories()->attach([4]);
 
