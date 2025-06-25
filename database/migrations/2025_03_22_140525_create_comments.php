@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('comment', 200)->nullable();
-            $table->enum('type', ['comment' ,'complaint' ]);
+            $table->enum('type', ['comment' ,'complaint' ])->default('comment');
 
             $table->foreignId('commented_id');
             $table->string('commented_type');

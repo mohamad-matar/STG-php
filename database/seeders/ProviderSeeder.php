@@ -34,8 +34,12 @@ class ProviderSeeder extends Seeder
             'image_id' => 1000,
             'user_id' => 5,
         ]);
-               
+
         Provider::find(1)->services()->attach([1]);
+        Provider::find(1)->comments()->create(['comment' => 'اكل مميز', 'tourist_id' => 2]);
+        Provider::find(1)->comments()->create(['comment' => 'اسعار مناسبة', 'tourist_id' => 3]);
+        Provider::find(1)->tourists()->attach(2,['evaluate' => 1]);
+        Provider::find(1)->tourists()->attach(3,['evaluate' => 2 ]);
 
         Api::create([
             'services_url' => 'http://127.0.0.1:9999/api/services', 

@@ -22,8 +22,7 @@
                     </form>
                 </div>
             </div>
-        </div>
-
+        </div>      
         <div class="row" id="results">
             @foreach ($places as $place)
                 <div class="col-md-3 p-1">
@@ -33,14 +32,21 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ $place->name }}</h5>
                             <p class="card-text">{{ $place->description }} </p>
-                            <p class="text-center"> <span class="title"> @lang('stg.eval'): </span>
-                                {{ round($place->tourists_avg_place_touristevaluate, 1) }} </p>
-                            <a href="{{ route('home.places.show', $place) }}" class="text-success">@lang('stg.more')</a>
-                            <div>
-                                <button class="btn btn-success text-white mt-3" onclick="showForm('eval-{{ $place->id }}')">
-                                    @lang('stg.eval')
+                            <p class="text-center title"> @lang('stg.eval'): </p>
+                            <p class="text-center text-warning-emphasis fs-3">
+                                {{ round($place->tourists_avg_place_touristevaluate, 1)}}
+                            </p>
+                            
+                            <a class="btn btn-success" href="{{ route('home.places.show', $place) }}">
+                                @lang('stg.more')
+                            </a>
+                            
+                            <div class="text-center">
+                                <button class="btn text-sucess mb-2" onclick="showForm('eval-{{ $place->id }}')">
+                                    @lang('stg.eval-add')
                                 </button>
                             </div>
+                           
                             <form action="{{ route('tourist.places.eval', $place->id) }}" method=post
                                 class="shadow p-2 rounded-2 position-absolute d-none text-center"
                                 id="eval-{{ $place->id }}" onsubmit="getEval('eval-{{ $place->id }}')">

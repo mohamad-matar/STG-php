@@ -127,7 +127,7 @@
             display: grid;
             /* margin: calc(var(--s) + var(--g)); */
             width: fit-content;
-            margin: 40vh auto
+            margin: 43vh auto
         }
 
         .gallery>img {

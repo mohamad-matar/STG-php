@@ -29,8 +29,9 @@ class TripSeeder extends Seeder
             'provider_id' => 2000
         ]);
 
+    
         Trip::find(1)->tourists()->attach(2, ['seat_count' => 5 , 'evaluate' => 3]);
-        Trip::find(1)->tourists()->attach(3, ['seat_count' => 2 , 'evaluate' => 2]) ;
+        Trip::find(1)->tourists()->attach(3, ['seat_count' => 2 , 'evaluate' => 2]) ;        
 
         Comment::insert([
             ['comment' => 'الرحلة روعة وممتعة' ,   'type' => 'comment' ,  'commented_id' =>  1, 'commented_type' =>  'App\Models\Provider\Trip' , 'tourist_id' => 2],
@@ -84,6 +85,12 @@ class TripSeeder extends Seeder
                 'provider_id' => 2000
             ]
         ]);
-        Trip::find(3)->tourists()->attach(2, ['seat_count' => 1]);
+
+
+        Trip::find(2)->tourists()->attach(2, ['seat_count' => 2, 'evaluate' => 4]);
+        Trip::find(2)->tourists()->attach(3, ['seat_count' => 2, 'evaluate' => 2]);
+
+        Trip::find(3)->tourists()->attach(2, ['seat_count' => 1, 'evaluate' => 3]);
+        Trip::find(3)->tourists()->attach(3, ['seat_count' => 2, 'evaluate' => 5]);
     }
 }

@@ -12,12 +12,14 @@
         <table class="table table-bordered table-striped">
             <tr class="table-secondary">
                 <th>#</th>
+                <th> اسم  المعلق</th>
                 <th> المحتوى</th>
             </tr>
 
             @foreach ($comments as $comment)
                 <tr>
                     <td>{{ $comment->id }}</td>
+                    <td>{{ $comment->tourist->name }}</td>
                     <td>{{ $comment->comment }}</td>                    
                 </tr>
             @endforeach

@@ -1,13 +1,14 @@
 @extends('layouts.master')
-@section('title' ,  $serviceName )
+@section('title', $serviceName)
 
 @section('content')
     <div class="container my-5 pt-4">
-        <h1 class="text-center text-success fw-bold fs-2 ">{{ $serviceName }}  </h1>
+        <h1 class="text-center text-success fw-bold fs-2 ">{{ $serviceName }} </h1>
         <p class="text-center fs-5">
             @if ($search)
-                 [{{ $search }}] 
-                <a class="ms-3 text-decoration-underline text-success"  href="{{ route('home.providers.index', ['service_id' => $service_id]) }}">@lang('stg.all')
+                [{{ $search }}]
+                <a class="ms-3 text-decoration-underline text-success"
+                    href="{{ route('home.providers.index', ['service_id' => $service_id]) }}">@lang('stg.all')
                     {{ $serviceName }}</a>
             @endif
         </p>
@@ -33,18 +34,22 @@
                         <div class="card-body text-center">
                             <h5 class="card-title text-center">{{ $provider->name }}</h5>
                             <p class="card-text">{{ $provider->description }} </p>
-                            <p class="text-center"> <span class="title"> @lang('stg.eval'): </span>
-                                {{ round($provider->tourists_avg_provider_touristevaluate, 1) }} </p>
-                            <a href="{{ route('home.providers.show', $provider) }}" class="text-success">@lang('stg.more')</a>
+                            <p class="text-center title"> @lang('stg.eval'): </p>
+                            <p class="text-center text-warning-emphasis fs-3">
+                                {{ round($provider->tourists_avg_provider_touristevaluate, 1) }}
+                            </p>
+                            <a class="btn btn-success" href="{{ route('home.providers.show', $provider) }}">
+                                @lang('stg.more')
+                            </a>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-success text-white mb-2" onclick="showForm('eval-{{ $provider->id }}')">
-                                @lang('stg.eval')
+                            <button class="btn text-sucess mb-2" onclick="showForm('eval-{{ $provider->id }}')">
+                                @lang('stg.eval-add')
                             </button>
                         </div>
                         <form action="{{ route('tourist.providers.eval', $provider->id) }}" method=post
-                            class="shadow p-2 rounded-2 position-absolute d-none text-center"
-                            id="eval-{{ $provider->id }}" onsubmit="getEval('eval-{{ $provider->id }}')">
+                            class="shadow p-2 rounded-2 position-absolute d-none text-center" id="eval-{{ $provider->id }}"
+                            onsubmit="getEval('eval-{{ $provider->id }}')">
                             <h3 class="text-success text-center">@lang('stg.eval')</h3>
                             @csrf
                             <input type="hidden" name="provider_id" value="{{ $provider->id }}">

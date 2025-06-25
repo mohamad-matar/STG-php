@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Place;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use PhpParser\Node\Expr\AssignOp\Plus;
 
 class PlaceSeeder extends Seeder
 {
@@ -112,10 +110,7 @@ class PlaceSeeder extends Seeder
         Place::find(200)->categories()->attach([2,3]);
         Place::find(215)->categories()->attach([1,2]);
 
-
-        Place::find(300)->categories()->attach([2]);
-        // Place::find(1)->categories()->attach([2]);                
-        
+        Place::find(300)->categories()->attach([2]);        
         
         Place::find(100)->categories()->attach([1, 2]);
         
@@ -126,6 +121,52 @@ class PlaceSeeder extends Seeder
         Place::find(4000)->categories()->attach([3]);
         Place::find(5000)->categories()->attach([1]);
 
+        /** Evaluates */
 
+        Place::find(200)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(200)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(200)->tourists()->attach(2, ['evaluate' => 1]);
+        Place::find(200)->tourists()->attach(3, ['evaluate' => 4]);
+        
+        Place::find(215)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(215)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(215)->tourists()->attach(2, ['evaluate' => 3]);
+        Place::find(215)->tourists()->attach(3, ['evaluate' => 4]);
+
+        Place::find(300)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(300)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(300)->tourists()->attach(2, ['evaluate' => 5]);
+        Place::find(300)->tourists()->attach(3, ['evaluate' => 4]);
+
+        Place::find(100)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(100)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(100)->tourists()->attach(2, ['evaluate' => 2]);
+        Place::find(100)->tourists()->attach(3, ['evaluate' => 4]);
+        
+        Place::find(1000)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(1000)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(1000)->tourists()->attach(2, ['evaluate' => 3]);
+        Place::find(1000)->tourists()->attach(3, ['evaluate' => 4]);
+        
+        Place::find(11)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(11)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(11)->tourists()->attach(2, ['evaluate' => 5]);
+        Place::find(11)->tourists()->attach(3, ['evaluate' => 4]);
+        
+        Place::find(2101)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(2101)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(2101)->tourists()->attach(2, ['evaluate' => 4]);
+        Place::find(2101)->tourists()->attach(3, ['evaluate' => 4]);
+
+        Place::find(4000)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(4000)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(4000)->tourists()->attach(2, ['evaluate' => 5]);
+        Place::find(4000)->tourists()->attach(3, ['evaluate' => 3]);
+
+        Place::find(5000)->comments()->create(['comment' => 'مكان رائع', 'tourist_id' => 2]);
+        Place::find(5000)->comments()->create(['comment' => 'شيء مذهل', 'tourist_id' => 3]);
+        Place::find(5000)->tourists()->attach(2, ['evaluate' => 4]);
+        Place::find(5000)->tourists()->attach(3, ['evaluate' => 5]);
+        
     }
 }

@@ -19,7 +19,9 @@ class CommentController extends Controller
         ->when($commentedType != 'all' , function($q) use ($commentedType){ 
             return  $q->where('commented_type' , $commentedType);
         })
+        ->with('commented' , 'tourist')
         ->get();
+        // return $comments;
         return  view('dashboard.comments.index', compact('comments'  , 'type', 'typeAr' , 'commentedType'));
     }
     

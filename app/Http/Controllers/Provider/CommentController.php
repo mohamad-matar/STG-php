@@ -18,6 +18,7 @@ class CommentController extends Controller
         $comments = Comment::where('type', $type)
         ->where('commented_type' , 'App\Models\Provider\Provider')          
         ->where('commented_id' , $currProvider->id)
+            ->with('tourist')
             ->get();
             
         return  view('dashboard.comments.index-provider', compact('comments',  'typeAr'));

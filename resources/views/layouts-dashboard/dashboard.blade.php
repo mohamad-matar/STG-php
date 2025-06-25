@@ -73,10 +73,10 @@
 @elseif ($userType == 'provider')
 @php  $provider = auth()->user()->provider @endphp
 <div class="text-center">
-    <h1 class="mt-5 pt-4 text-success fs-1">{{ $provider->name_ar }}</h1>
+    <h1 class="mt-4  text-success fs-1">{{ $provider->name_ar }}</h1>
     <p class="text-center my-3 fs-2">{{ $provider->description_ar }} </p>
 
-    <img class="cover" src="{{ getImgUrl($provider->image_id) }}" alt="{{ getImgUrl($provider->image_id) }}">
+    <img class="cover w-100 vh-100" src="{{ getImgUrl($provider->image_id) }}" alt="{{ getImgUrl($provider->image_id) }}">
 </div>
 
 

@@ -89,6 +89,8 @@ return [
     'name' => 'Name',
     'joined' => 'Joined',
     'eval' => 'review',
+    'eval-add' => 'Add review',
+
     'send' => 'Send',
     'comment' => 'Comment',
     'add-comment' => 'Add comment',
