@@ -202,7 +202,7 @@ class ProviderSeeder extends Seeder
             ]
         ]);
 
-        /** ******************** مكتب عنبر  *************/
+        /** ******************** مكتب أماني  *************/
         User::create([
             'id' => 2000 ,
             'email' => 'amani@gmail.com',

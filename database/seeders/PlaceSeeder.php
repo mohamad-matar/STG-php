@@ -17,20 +17,20 @@ class PlaceSeeder extends Seeder
         $places = [
             [
                 'id' => 200,
-                'name_ar' =>  'صلاح الدين الأيوبي ',
-                'name_en' => 'Salah Deen AyobiAzem',
-                'description_ar' => ' ',
-                'description_en' => '',
+                'name_ar' =>  'قصر العظم ',
+                'name_en' => 'Al-Athem Palace',
+                'description_ar' => 'قصر العظم هو قصر تاريخي يقع في دمشق القديمة، ويعتبر من أهم وأجمل المباني الإسلامية في المدينة',
+                'description_en' => 'Al-Azm Palace is a historic palace located in Old Damascus, and is considered one of the most important and beautiful Islamic buildings in the city.',                
                 'province_id' => 1,
                 'image_id' => 200,
                 'created_by' => 1,
             ],
             [
                 'id' => 300,
-                'name_ar' =>  'قصر العظم ',
-                'name_en' => 'palaic Azem',
-                'description_ar' => 'متاحف -اثار ',
-                'description_en' => 'museum-history',
+                'name_ar' =>  'قلعة صلاح الدين' ,
+                'name_en' => 'Saladin Citadel',
+                'description_ar' => 'تعد قلعة صلاح الدين أحد أهم معالم القاهرة الإسلامية، وإحدى أعرق القلاع الحربية التي شيدت في العصور الوسطى',
+                'description_en' => 'Saladin Citadel is one of the most important landmarks in Islamic Cairo, and one of the oldest military fortresses built in the Middle Ages',
                 'province_id' => 1,
                 'image_id' => 300,
                 'created_by' => 1,
@@ -45,16 +45,7 @@ class PlaceSeeder extends Seeder
                 'image_id' => 215,
                 'created_by' => 1,
             ],
-            [
-                'id' => 1,
-                'name_ar' => 'أسواق قديمة ',
-                'name_en' => 'OLD MARKETS',
-                'description_ar' => 'أسواق قديمة',
-                'description_en' => 'OLD MARKETS',
-                'province_id' => 1,
-                'image_id' => 300,
-                'created_by' => 1,
-            ],
+            
             [
                 'id' => 11,
                 'name_ar' => 'أماكن طبيعية ',
@@ -113,14 +104,14 @@ class PlaceSeeder extends Seeder
 
 
         Place::find(300)->categories()->attach([2]);
-        Place::find(1)->categories()->attach([2]);                
+        // Place::find(1)->categories()->attach([2]);                
         
-        Place::find(11)->categories()->attach([4]);
-
+        
         Place::find(100)->categories()->attach([1, 2]);
         
         Place::find(1000)->categories()->attach([10]);
         
+        Place::find(11)->categories()->attach([4]);
         Place::find(1001)->categories()->attach([4]);
         Place::find(4000)->categories()->attach([3]);
 
