@@ -20,17 +20,15 @@ class ProviderSeeder extends Seeder
             'email' => 'p@p.com',
             'password' => '123', 
             'type' => 'provider'
-        ];
-         
+         ];   
         User::create($providerUser)->provider()->create([
             'name_ar' => 'مطعم دمشق',
             'name_en' => 'Damas restuarant',
             'description_ar' => ' مطعم مميز باكلاته الشرقية وأسعاره المناسبة',
             'description_en' => 'A distinctive restaurant with oriental cuisine and reasonable prices',
             'license_number' => 'x3456',
-            'image_id' =>  1,
-            'place_id' => 1,
-        ]);
+        ]
+    );
             
         $tourist = [
             'email' => 't@t.com',
