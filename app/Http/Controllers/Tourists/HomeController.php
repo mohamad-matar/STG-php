@@ -12,11 +12,8 @@ class HomeController extends Controller
     {
         $locale = app()->getLocale();
         $places = Place::select("id" , "name_$locale as name" , "description_$locale as description" ,"image_id")->get();
-        $settings = Setting::all();
-        foreach ($settings as $setting)
-            $components[$setting->key] = $setting->value;
-        // return $components;
+        
         // return $places;
-        return view('home.index' , compact('places' , 'components'));
+        return view('home.index' , compact('places' ,));
     }
 }
