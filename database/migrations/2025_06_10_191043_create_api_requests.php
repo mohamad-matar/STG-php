@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('service_id');
             $table->integer('quantity' , );
+            $table->string('note')->nullable();
+
 
             $table->foreignId('api_id')->constrained();
             $table->foreignId('tourist_id')->constrained();

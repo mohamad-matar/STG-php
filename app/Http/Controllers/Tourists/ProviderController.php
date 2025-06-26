@@ -82,6 +82,7 @@ class ProviderController extends Controller
         $validated = $request->validate([
             'service_id' => 'required|integer',
             'quantity' => 'required|integer',
+            'note' => 'nullable|max:255',
             'api_id' => 'integer|exists:apis,id'
         ]);
         $validated['tourist_id'] = Auth::user()->tourist->id;

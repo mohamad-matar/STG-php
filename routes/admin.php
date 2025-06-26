@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TripController;
 use App\Http\Controllers\PlaceShowController;
 use App\Http\Controllers\Provider\ProviderController;
@@ -21,4 +22,6 @@ Route::middleware(['auth', 'user-type:admin'])
 
         Route::resource('trips', TripController::class)->only('index', 'show');
         Route::resource('comments', CommentController::class)->only('index');
+
+        Route::resource('settings', SettingController::class)->only('index', 'update');
     });

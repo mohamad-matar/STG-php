@@ -23,10 +23,12 @@
         </div>
         <div class="gallery mx-auto direction-left">
             @endif
-            <img src="{{ getImgUrl($branchShow->image_id) }}" alt="{{ getImgUrl($branchShow->image_id) }}">
+            <img onmouseover="viewName('{{ $branchShow->name }}')" src="{{ getImgUrl($branchShow->image_id) }}" alt="{{ getImgUrl($branchShow->image_id) }}">
             @endforeach
         </div>
     </div>
+    <p id="view-name" class="fs-5 text-center py-2"></p>
+    
 @endsection
 @push('css')
     <style>
@@ -87,4 +89,12 @@
             direction: ltr !important;
         }
     </style>
+@endpush
+
+@push('js')
+    <script>
+        function viewName(name) {
+            document.getElementById('view-name').innerText = name;
+        }
+    </script>
 @endpush

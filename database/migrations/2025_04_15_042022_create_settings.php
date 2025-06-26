@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('key', 50)->unique();
             $table->string('value', 7500)->nullable();
-            $table->boolean('isFile')->default(0);
             $table->timestamps();
         });
     }

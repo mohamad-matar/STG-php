@@ -21,6 +21,7 @@
         </div>
     </div>
 
+    {{-- ****************** comment ************************** --}}
     <section class="p-3 px-5 mx-5">
         <form action="{{ route('tourist.places.comment', $place->id) }}" method=post class="alert alert-success">
             <h4 class="text-success">

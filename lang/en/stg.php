@@ -30,10 +30,12 @@ return [
 
     'dashboard' => 'Dashboard',
 
+
     /** intefaces */
     'readmore' => 'read more',
     'back' => 'Back',
     'notFound' => 'No Elements',
+    'note' => 'Note',
 
     'branch' => 'branch|branches',
 

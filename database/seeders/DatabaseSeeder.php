@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlaceShowSeeder::class);
         $this->call(ProviderSeeder::class);
         $this->call(BranchSeeder::class);
-        $this->call(SettingSeeder::class);
         $this->call(TripSeeder::class);
+        $this->call(SettingSeeder::class);
     }
 }

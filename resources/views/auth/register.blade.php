@@ -29,7 +29,7 @@
                         class="fs-4 row text-center  mt-3 py-4 border border-success">
                         @csrf
                         <div class="fs-4 mb-3">
-                            <x-radio :items="['tourist' => __('stg.tourist'), 'provider' => __('stg.provider')]" name="type" dbValue="tourist" onchange="toggleTourist()" />
+                            <x-radio :items="['tourist' => __('stg.tourist'), 'provider' => __('stg.provider')]" name="type" :dbValue="old('type', 'tourist')" onchange="toggleTourist()" />
                         </div>
                         <x-input type="email" name="email" :label="__('stg.email')" required autofocus
                             autocomplete="username" col="12" />
@@ -40,7 +40,7 @@
 
                         <x-input type="password" name="password_confirmation" :label="__('stg.password-confirmation')" required />
 
-                        <div id="tourist-block">
+                        <div id="tourist-block" class="@if(old('type' , 'tourist') == 'provider') d-none @endif">
                             <div class="row">
                                 <x-input type="name" name="name" :label="__('stg.name')" />
                                 <x-select-search :options="$countries" name="country_id" :label="__('stg.country')" />

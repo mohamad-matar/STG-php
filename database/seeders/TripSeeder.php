@@ -87,7 +87,6 @@ class TripSeeder extends Seeder
         ]);
 
 
-        Trip::find(2)->tourists()->attach(2, ['seat_count' => 2, 'evaluate' => 4]);
         Trip::find(2)->tourists()->attach(3, ['seat_count' => 2, 'evaluate' => 2]);
 
         Trip::find(3)->tourists()->attach(2, ['seat_count' => 1, 'evaluate' => 3]);

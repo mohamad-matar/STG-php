@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title' ,  $provider->name )
+@section('title', $provider->name)
 
 @section('content')
     <div class="text-center">
@@ -9,13 +9,15 @@
         <img class="cover" src="{{ getImgUrl($provider->image_id) }}" alt="{{ getImgUrl($provider->image_id) }}">
     </div>
 
+    {{-- *********** shows ************************ --}}
     <div id="provider-shows" class="text-center ">
         <div class="gallery">
             @foreach ($provider->providerShows as $i => $providerShow)
-                <img src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
+                <img onmouseover="viewName('{{ $providerShow->name }}')" src="{{ getImgUrl($providerShow->image_id) }}" alt="{{ getImgUrl($providerShow->image_id) }}">
             @endforeach
         </div>
     </div>
+    <p id="view-name" class="fs-5 text-center"></p>
 
     {{-- -------------- branches  ------------------ --}}
     @if ($provider->branches->count())
@@ -57,6 +59,7 @@
         </section>
     @endif
 
+    {{-- * ******* api services *************** --}}
     @if ($services)
         @php $name = "name_$locale" @endphp
         <div class="container py-3 mb-5 text-center">
@@ -64,18 +67,25 @@
                 @foreach ($services as $service)
                     <div class="col-md-4">
                         <h2>{{ $service->$name }} </h2>
-                        <form action="{{ route('home.providers.request') }}" method="post">
+                        <form action="{{ route('home.providers.request') }}" method="post"
+                            class="d-flex flex-column align-items-center ">
                             @csrf
-                            <div class="d-flex justify-content-center">
-                                <input type="hidden" name="api_id" value="{{ $api->id }}">
-                                <input type="hidden" name="service_id" value="{{ $service->id }}">
-                                <x-input name="quantity" :label="__('stg.quantity')" col="2" class="" />
-                            </div>
+                            <input type="hidden" name="api_id" value="{{ $api->id }}">
+                            <input type="hidden" name="service_id" value="{{ $service->id }}">
+                            <x-input name="quantity" :label="__('stg.quantity')" col="3" class="" displayError="0" />
+                            <x-textarea name="note" :label="__('stg.note')" displayError="0" />
                             <button class="btn btn-success">@lang('stg.request')</button>
                         </form>
                     </div>
                 @endforeach
             </div>
+            @if ($errors->any())
+                <div class="mt-3">
+                    @foreach ($errors->all() as $error)
+                        <p class="text-danger text-center">{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
             <div class="text-center mt-5">
                 <a href="{{ $api->view_url }}" target="_blank" class="btn btn-outline-success ">
                     @lang('stg.preview-requests')
@@ -87,18 +97,16 @@
         <div class="text-center my-2">{{ $msg . $provider->name }}</div>
     @endif
 
-
+    {{-- * ******* comments *************** --}}
     <section class="container">
-
         <form action="{{ route('tourist.providers.comment', $provider->id) }}" method=post class="alert alert-success">
             <h4 class="text-success">
-                @lang('stg.add-comment') 
+                @lang('stg.add-comment')
             </h4>
             @csrf
-            <x-select-arr name="type" label="" :options="['comment','complain']" dbValue="comment"
-                col="3" />
+            <x-select-arr name="type" label="" :options="['comment', 'complain']" dbValue="comment" col="3" />
             <x-textarea name="comment" label="{{ __('stg.comment') }}" col="12" rows="2" />
-            <button class="btn btn-success">@lang('stg.send')</button>            
+            <button class="btn btn-success">@lang('stg.send')</button>
         </form>
         @foreach ($provider->comments as $comment)
             <div class="alert alert-success  bg-white">
@@ -127,7 +135,7 @@
             display: grid;
             /* margin: calc(var(--s) + var(--g)); */
             width: fit-content;
-            margin: 43vh auto
+            margin: 43vh auto 37vh
         }
 
         .gallery>img {
@@ -175,6 +183,7 @@
         .gallery>img:nth-child(6) {
             --_y: calc(50% + .5*var(--g))
         }
+      
     </style>
 @endpush
 
@@ -188,5 +197,10 @@
                 prevEl: "#popular-area .btn-swipper-prev",
             },
         });
+
+        function viewName(name) {
+            document.getElementById('view-name').innerText = name;
+        }
+
     </script>
 @endpush
