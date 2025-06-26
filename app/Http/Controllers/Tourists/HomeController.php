@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tourists;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Setting;
 use App\Models\Place;
 
 class HomeController extends Controller
@@ -11,7 +12,11 @@ class HomeController extends Controller
     {
         $locale = app()->getLocale();
         $places = Place::select("id" , "name_$locale as name" , "description_$locale as description" ,"image_id")->get();
+        $settings = Setting::all();
+        foreach ($settings as $setting)
+            $components[$setting->key] = $setting->value;
+        // return $components;
         // return $places;
-        return view('home.index' , compact('places'));
+        return view('home.index' , compact('places' , 'components'));
     }
 }
